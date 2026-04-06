@@ -137,56 +137,156 @@
             text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 2px rgba(255,255,255,0.5);
             transform: scale(1.02);
         }
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(6, 32, 82, 0.9) 100%);
+            z-index: 40;
+            padding-top: 80px;
+            overflow-y: auto;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        .mobile-menu a:hover {
+            background: rgba(0, 96, 154, 0.3);
+            padding-left: 32px;
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 50;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        /* Mobile overlay for menu */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 35;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
 
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
 <!-- TopNavBar – enhanced for visibility and shine -->
 <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-md shadow-lg">
-<div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-<div class="text-2xl font-bold tracking-tighter text-white drop-shadow-md font-headline">
-                Ocean Lilly Tours
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <!-- Logo -->
+        <div class="text-xl sm:text-2xl font-bold tracking-tighter text-white drop-shadow-md font-headline flex-shrink-0">
+            Ocean Lilly Tours
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Destinations</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#packages">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#services">Services</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#about">About Us</a>
+        </div>
+        
+        <!-- Book a Trip Button (Desktop) -->
+        <button class="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-transform shadow-lg hover:scale-105" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Book a Trip
+        </button>
+        
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="md:hidden flex items-center z-50" id="hamburgerBtn">
+            <div class="hamburger" id="hamburgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#home">Home</a>
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Destinations</a>
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#packages">Packages</a>
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#services">Services</a>
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Blog</a>
-<a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#about">About Us</a>
-</div>
-<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-full font-headline font-semibold scale-105 transition-transform shadow-lg" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-                Book a Trip
-            </button>
-</div>
+        </button>
+    </div>
 </nav>
 
-<!-- Hero Slider Section (unchanged except responsiveness) -->
-<section id="home" class="relative h-screen min-h-[700px] md:min-h-[800px] overflow-hidden">
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#destinations" class="mobile-nav-link">Destinations</a>
+    <a href="#packages" class="mobile-nav-link">Packages</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#destinations" class="mobile-nav-link">Blog</a>
+    <a href="#about" class="mobile-nav-link">About Us</a>
+    <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold transition-transform" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); toggleMobileMenu();">
+        Book a Trip
+    </button>
+</div>
+
+<!-- Hero Slider Section (enhanced responsiveness) -->
+<section id="home" class="relative h-screen min-h-[600px] sm:min-h-[700px] md:min-h-[800px] overflow-hidden mt-16 sm:mt-14">
     <div class="swiper heroSwiper w-full h-full">
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide relative">
                 <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p01.png" alt="Sri Lanka Beach">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
+                <div class="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 md:px-8 pt-12 sm:pt-0">
                     <div class="max-w-7xl mx-auto w-full">
-                        <div class="max-w-2xl space-y-4 md:space-y-8">
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">
-                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                        <div class="max-w-full sm:max-w-2xl space-y-3 sm:space-y-4 md:space-y-8">
+                            <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">
+                                <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
                                 <span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span>
                             </div>
-                            <h1 class="text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">
+                            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">
                                 Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.
                             </h1>
-                            <p class="text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">
+                            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">
                                 Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.
                             </p>
-                            <div class="flex flex-wrap gap-4">
-                                <button class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button>
-                                <button class="flex items-center gap-2 text-white font-headline font-bold px-6 md:px-8 py-3 md:py-5 group">
-                                    <span class="material-symbols-outlined rounded-full border border-white/40 p-2 group-hover:bg-white group-hover:text-primary transition-all">play_arrow</span>
-                                    Watch Experience
+                            <div class="flex flex-wrap gap-2 sm:gap-4">
+                                <button class="bg-primary text-on-primary px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-5 rounded-full font-headline font-bold text-xs sm:text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button>
+                                <button class="flex items-center gap-2 text-white font-headline font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 group text-xs sm:text-base">
+                                    <span class="material-symbols-outlined rounded-full border border-white/40 p-1 sm:p-2 group-hover:bg-white group-hover:text-primary transition-all text-base sm:text-lg">play_arrow</span>
+                                    <span class="hidden sm:inline">Watch Experience</span>
                                 </button>
                             </div>
                         </div>
@@ -234,11 +334,11 @@
         <div class="swiper-pagination"></div>
     </div>
     <!-- Floating Feature Card (responsive) -->
-    <div class="absolute bottom-6 right-4 md:bottom-16 md:right-8 hidden lg:block z-20">
-        <div class="glass-panel p-4 md:p-6 rounded-xl border border-outline-variant/20 max-w-sm space-y-3 md:space-y-4">
-            <div class="flex items-center gap-3 md:gap-4">
-                <div class="bg-secondary/10 p-2 md:p-3 rounded-full"><span class="material-symbols-outlined text-secondary">spa</span></div>
-                <div><h4 class="font-headline font-bold text-sm md:text-base text-on-surface">Lotus Wellness Retreat</h4><p class="text-xs text-on-surface-variant">Signature 7-Day Journey</p></div>
+    <div class="absolute bottom-4 right-4 md:bottom-16 md:right-8 hidden md:block lg:block z-20 w-80 max-w-xs">
+        <div class="glass-panel p-4 md:p-6 rounded-xl border border-outline-variant/20 space-y-3 md:space-y-4">
+            <div class="flex items-center gap-3 md:gap-4 flex-wrap">
+                <div class="bg-secondary/10 p-2 md:p-3 rounded-full flex-shrink-0"><span class="material-symbols-outlined text-secondary">spa</span></div>
+                <div class="min-w-0"><h4 class="font-headline font-bold text-xs md:text-base text-on-surface">Lotus Wellness Retreat</h4><p class="text-xs text-on-surface-variant">Signature 7-Day Journey</p></div>
             </div>
             <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden"><div class="h-full bg-primary w-2/3"></div></div>
             <p class="text-xs text-on-surface-variant italic">"The most peaceful escape I've ever experienced." - Elena V.</p>
@@ -246,157 +346,157 @@
     </div>
 </section>
 
-<!-- About Us Section (unchanged, already responsive) -->
-<section id="about" class="py-16 md:py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-<div class="editorial-grid">
-<div class="col-span-12 lg:col-span-5 space-y-6 md:space-y-10">
-<div class="space-y-3 md:space-y-4">
-<span class="text-secondary font-headline font-bold tracking-widest uppercase text-sm">The Ocean Lilly Promise</span>
-<h2 class="text-3xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">Crafting Unforgettable Coastal Memories.</h2>
+<!-- About Us Section (enhanced responsiveness) -->
+<section id="about" class="py-12 sm:py-16 md:py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="editorial-grid gap-4 sm:gap-6 md:gap-8">
+<div class="col-span-12 lg:col-span-5 space-y-4 sm:space-y-6 md:space-y-10">
+<div class="space-y-2 sm:space-y-3 md:space-y-4">
+<span class="text-secondary font-headline font-bold tracking-widest uppercase text-xs sm:text-sm">The Ocean Lilly Promise</span>
+<h2 class="text-2xl sm:text-3xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">Crafting Unforgettable Coastal Memories.</h2>
 </div>
-<p class="text-base md:text-lg text-on-surface-variant leading-relaxed">
+<p class="text-sm sm:text-base md:text-lg text-on-surface-variant leading-relaxed">
                         At Ocean Lilly Tours, we believe travel is more than just a destination—it's a spiritual awakening. Founded on the principles of luxury nature and lotus elegance, we curate bespoke journeys that honor Sri Lanka's raw beauty while providing modern sanctuary.
                     </p>
-<div class="space-y-6">
-<div class="flex gap-4 items-start">
-<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">verified_user</span>
-<div>
-<h4 class="font-headline font-bold">Expert Local Guidance</h4>
-<p class="text-sm text-on-surface-variant">Certified guides with deep roots in local traditions and hidden gems.</p>
+<div class="space-y-4 sm:space-y-6">
+<div class="flex gap-3 sm:gap-4 items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg flex-shrink-0">verified_user</span>
+<div class="min-w-0">
+<h4 class="font-headline font-bold text-sm sm:text-base">Expert Local Guidance</h4>
+<p class="text-xs sm:text-sm text-on-surface-variant">Certified guides with deep roots in local traditions and hidden gems.</p>
 </div>
 </div>
-<div class="flex gap-4 items-start">
-<span class="material-symbols-outlined text-tertiary p-2 bg-tertiary/10 rounded-lg">eco</span>
-<div>
-<h4 class="font-headline font-bold">Sustainable Travel</h4>
-<p class="text-sm text-on-surface-variant">Eco-conscious itineraries that preserve our island's natural heritage.</p>
+<div class="flex gap-3 sm:gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary p-2 bg-tertiary/10 rounded-lg flex-shrink-0">eco</span>
+<div class="min-w-0">
+<h4 class="font-headline font-bold text-sm sm:text-base">Sustainable Travel</h4>
+<p class="text-xs sm:text-sm text-on-surface-variant">Eco-conscious itineraries that preserve our island's natural heritage.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="col-span-12 lg:col-span-7 relative">
+<div class="col-span-12 lg:col-span-7 relative mt-8 lg:mt-0">
 <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
-<img class="w-full h-[300px] md:h-[600px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhlO4O2CzcK3zeOjm0qV7bD_xWrZLF1PIb1fs6N_dkYLuRBu0VD4bNe5C2SXL1hZcntMHonEZHuPltAwSxVo-7SoBGXpqpZ8Ob9uN4UVQgJeuSc97EODgXIOm9oyduhJIYI8RFsT6x2spBNUlXxGaBcQKxCdhd_ShmpXybIsLwVKN7b9ft7DNVxvD1zkXoT4IxzuHO4PSaY7i7HgNvO23v-pNY75sE8waTWewK5ts3boi9UqiTEn1tEDiCcXovbmcFNkzOUR8naL8l"/>
+<img class="w-full h-[250px] sm:h-[400px] md:h-[600px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhlO4O2CzcK3zeOjm0qV7bD_xWrZLF1PIb1fs6N_dkYLuRBu0VD4bNe5C2SXL1hZcntMHonEZHuPltAwSxVo-7SoBGXpqpZ8Ob9uN4UVQgJeuSc97EODgXIOm9oyduhJIYI8RFsT6x2spBNUlXxGaBcQKxCdhd_ShmpXybIsLwVKN7b9ft7DNVxvD1zkXoT4IxzuHO4PSaY7i7HgNvO23v-pNY75sE8waTWewK5ts3boi9UqiTEn1tEDiCcXovbmcFNkzOUR8naL8l"/>
 </div>
-<div class="absolute -bottom-8 -left-8 w-48 h-48 md:w-64 md:h-64 bg-primary/10 rounded-full blur-3xl"></div>
-<div class="absolute top-12 -right-12 w-64 h-64 md:w-80 md:h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="hidden sm:block absolute -bottom-8 -left-8 w-48 h-48 md:w-64 md:h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="hidden sm:block absolute top-12 -right-12 w-64 h-64 md:w-80 md:h-80 bg-secondary/10 rounded-full blur-3xl"></div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Premium Services (responsive grid) -->
-<section id="services" class="py-16 md:py-32 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-12 md:space-y-20">
-<div class="text-center max-w-2xl mx-auto space-y-3 md:space-y-4">
-<h2 class="text-3xl md:text-4xl font-headline font-extrabold text-on-surface">Curated Premium Services</h2>
-<p class="text-on-surface-variant">Every detail of your journey is handled with the utmost care and sophistication.</p>
+<!-- Premium Services (enhanced responsive grid) -->
+<section id="services" class="py-12 sm:py-16 md:py-32 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 space-y-8 sm:space-y-12 md:space-y-20">
+<div class="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3 md:space-y-4">
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-extrabold text-on-surface">Curated Premium Services</h2>
+<p class="text-xs sm:text-sm md:text-base text-on-surface-variant">Every detail of your journey is handled with the utmost care and sophistication.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 <!-- Service Card 1 -->
-<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
-<div class="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-2xl md:text-3xl">flight_takeoff</span>
+<div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-xl sm:text-2xl md:text-3xl">flight_takeoff</span>
 </div>
-<h3 class="text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">VVIP Airport Pickup</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm mb-4 md:mb-6">Start your escape from the moment you land with luxury private transfers and lounge access.</p>
-<a class="text-primary font-bold inline-flex items-center gap-2 text-sm" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">VVIP Airport Pickup</h3>
+<p class="text-on-surface-variant leading-relaxed text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">Start your escape from the moment you land with luxury private transfers and lounge access.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 text-xs sm:text-sm hover:gap-3 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
-<!-- Service Card 2, 3 similar (shortened for brevity, but identical structure) -->
-<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
-<div class="w-12 h-12 md:w-14 md:h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-secondary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-2xl md:text-3xl">edit_calendar</span>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:bg-secondary group-hover:text-on-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-xl sm:text-2xl md:text-3xl">edit_calendar</span>
 </div>
-<h3 class="text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">Custom Itineraries</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm mb-4 md:mb-6">Designed specifically for your pace, interests, and dietary preferences.</p>
-<a class="text-primary font-bold inline-flex items-center gap-2 text-sm" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">Custom Itineraries</h3>
+<p class="text-on-surface-variant leading-relaxed text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">Designed specifically for your pace, interests, and dietary preferences.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 text-xs sm:text-sm hover:gap-3 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
-<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
-<div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-tertiary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-2xl md:text-3xl">nature_people</span>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
+<div class="w-12 h-12 md:w-14 md:h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:bg-tertiary group-hover:text-on-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-xl sm:text-2xl md:text-3xl">nature_people</span>
 </div>
-<h3 class="text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">Luxury Safari</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm mb-4 md:mb-6">Private 4x4 tours through Yala or Udawalawe with expert wildlife naturalists.</p>
-<a class="text-primary font-bold inline-flex items-center gap-2 text-sm" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">Luxury Safari</h3>
+<p class="text-on-surface-variant leading-relaxed text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">Private 4x4 tours through Yala or Udawalawe with expert wildlife naturalists.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 text-xs sm:text-sm hover:gap-3 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Packages Slider (responsive, already smaller) -->
-<section id="packages" class="py-16 md:py-32 overflow-hidden">
-<div class="max-w-7xl mx-auto px-6 md:px-8 mb-12 md:mb-16 flex flex-wrap justify-between items-end gap-4">
-<div class="space-y-2 md:space-y-4">
+<!-- Packages Slider (enhanced responsive) -->
+<section id="packages" class="py-12 sm:py-16 md:py-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-8 sm:mb-12 md:mb-16 flex flex-wrap justify-between items-end gap-4">
+<div class="space-y-1 sm:space-y-2 md:space-y-4 w-full sm:w-auto">
 <span class="text-secondary font-headline font-bold uppercase text-xs tracking-widest">Handpicked Experiences</span>
-<h2 class="text-3xl md:text-5xl font-headline font-extrabold">Iconic Packages</h2>
+<h2 class="text-2xl sm:text-3xl md:text-5xl font-headline font-extrabold">Iconic Packages</h2>
 </div>
-<div class="flex gap-4">
+<div class="flex gap-2 sm:gap-4 hidden sm:flex ml-auto">
 <button class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
 <button class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
 </div>
 </div>
-<div class="flex gap-4 md:gap-6 px-6 md:px-8 overflow-x-auto pb-8 md:pb-12">
-<!-- Package cards (unchanged content, responsive min-width adjusted) -->
-<div class="min-w-[280px] md:min-w-[320px] group">
-<div class="relative h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-4 md:mb-5">
+<div class="flex gap-3 sm:gap-4 md:gap-6 px-4 sm:px-6 md:px-8 overflow-x-auto pb-6 sm:pb-8 md:pb-12 scroll-smooth">
+<!-- Package cards (enhanced responsiveness) -->
+<div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] group flex-shrink-0">
+<div class="relative h-[280px] sm:h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcz2wkc5xGo62bhWNGoEnEn2zcJppcmSYyIIeos-oAASCUKOEULEwcmo61SaRbmRQgo2rA0MmvHNSXJRzDoOBvwVBRZSMmIAc9ythKGSK4tGux39i2qHkHpX_g1okd6D5PlJYZVPZNPcsvAgUOCUv7qlhz7u2WNAkoyvK-K3vlWR9toXHrME-BmdRfB4GxvYlR2HmocAHJlLF6c5xaNvgyAcjPjRIIbTOU-ibk7xgHkuEWHFp8sy2_19C16H5H9GdXQwWAiDVYyqPs"/>
-<div class="absolute top-4 left-4 bg-tertiary text-white text-xs font-bold px-3 py-1 rounded-full">Nature &amp; Wellness</div>
+<div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-tertiary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Nature &amp; Wellness</div>
 </div>
-<div class="space-y-2 md:space-y-3">
-<div class="flex flex-wrap justify-between items-center gap-2">
-<h3 class="text-lg md:text-xl font-headline font-bold">7 Day Nature Explorer</h3>
-<span class="bg-secondary-container text-secondary text-xs font-bold px-2 md:px-3 py-1 rounded-lg">From $1,250</span>
+<div class="space-y-2 sm:space-y-2 md:space-y-3">
+<div class="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start sm:items-center gap-2">
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold line-clamp-2">7 Day Nature Explorer</h3>
+<span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,250</span>
 </div>
-<p class="text-on-surface-variant line-clamp-2 text-xs md:text-sm">Discover the misty hills of Ella, the ancient temples of Kandy, and the lush wildlife of Yala.</p>
-<button class="w-full py-2 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs md:text-sm">View Full Details</button>
+<p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Discover the misty hills of Ella, the ancient temples of Kandy, and the lush wildlife of Yala.</p>
+<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
 </div>
 </div>
-<!-- Repeat for other packages (same as before, only responsive adjustments) -->
 <!-- Package 2 -->
-<div class="min-w-[280px] md:min-w-[320px] group">
-<div class="relative h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-4 md:mb-5">
+<div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] group flex-shrink-0">
+<div class="relative h-[280px] sm:h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp_8obXOqh8mvZqZXS17e_qjSPWWhUrTpjwCuMDFsqf5IGhF0p5s9c25IzWyOmDZXHxDF_FCAtKgSDd84v96AHdWuA7-q85lUwHrZJyS1k1yHKFjXF5i5SnpKBZ8QDGa0BU_gtlzXO83q3kQORqR8hNqRF2BTcsplpVx-D5de4KIxHD7Q24wX9452xA7vSqNUiWSgMJJNJz03c8gNWBWEc7CH9HXYS6_KpHemsB_tRLeRGxn6YT6hot6YuzzgPHriKb1FuAc1aGUW"/>
-<div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">Romantic Luxury</div>
+<div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-secondary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Romantic Luxury</div>
 </div>
-<div class="space-y-2 md:space-y-3">
-<div class="flex flex-wrap justify-between items-center gap-2">
-<h3 class="text-lg md:text-xl font-headline font-bold">Honeymoon Escape</h3>
-<span class="bg-secondary-container text-secondary text-xs font-bold px-2 md:px-3 py-1 rounded-lg">From $2,100</span>
+<div class="space-y-2 sm:space-y-2 md:space-y-3">
+<div class="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start sm:items-center gap-2">
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold line-clamp-2">Honeymoon Escape</h3>
+<span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $2,100</span>
 </div>
-<p class="text-on-surface-variant line-clamp-2 text-xs md:text-sm">A private, candle-lit journey through Sri Lanka's most romantic boutique stays and golden beaches.</p>
-<button class="w-full py-2 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs md:text-sm">View Full Details</button>
+<p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">A private, candle-lit journey through Sri Lanka's most romantic boutique stays and golden beaches.</p>
+<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
 </div>
 </div>
 <!-- Package 3 -->
-<div class="min-w-[280px] md:min-w-[320px] group">
-<div class="relative h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-4 md:mb-5">
+<div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] group flex-shrink-0">
+<div class="relative h-[280px] sm:h-[350px] md:h-[420px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3yagudF0FqYqs0oGGZ8gcTWTfg8-NDG5DK5BWFCCoHTmGQ72cmn00LWiVXtJdZUX5AgYX0iqDlof_yecMUV_jvkdi5JROityNnKfSOeE6qLPAKXhPMF2TqAjBsKh0H6EZelwr6IWNYGcvcuvwhQlpOD-sGzS3MIuMqjcWMu64WTqnx7mGEtT7irms6eQZKBsIqydMFzQ1b-olfZZiRSzJ6C9jP_S8MJ1x_ogCkSXPyVwI2pk2c8GzQWRbTHd5_zblAeCZTsYav-8h"/>
-<div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Cultural Heritage</div>
+<div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-primary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Cultural Heritage</div>
 </div>
-<div class="space-y-2 md:space-y-3">
-<div class="flex flex-wrap justify-between items-center gap-2">
-<h3 class="text-lg md:text-xl font-headline font-bold">3 Day Highlights</h3>
-<span class="bg-secondary-container text-secondary text-xs font-bold px-2 md:px-3 py-1 rounded-lg">From $650</span>
+<div class="space-y-2 sm:space-y-2 md:space-y-3">
+<div class="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start sm:items-center gap-2">
+<h3 class="text-base sm:text-lg md:text-xl font-headline font-bold line-clamp-2">3 Day Highlights</h3>
+<span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $650</span>
 </div>
-<p class="text-on-surface-variant line-clamp-2 text-xs md:text-sm">Perfect for those short on time but wanting to see the historic heart of the island.</p>
-<button class="w-full py-2 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs md:text-sm">View Full Details</button>
+<p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Perfect for those short on time but wanting to see the historic heart of the island.</p>
+<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Destination Blog Section (already responsive, keep as is) -->
-<section id="destinations" class="py-16 md:py-32 bg-surface-container-high/30">
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-<div class="mb-12 md:mb-16 text-center">
-<h2 class="text-3xl md:text-5xl font-headline font-extrabold mb-4 md:mb-6">Wanderlust Journals</h2>
-<p class="text-on-surface-variant max-w-xl mx-auto">Get inspired by our latest destination guides and travel insights from the heart of Sri Lanka.</p>
+<!-- Destination Blog Section (enhanced responsiveness) -->
+<section id="destinations" class="py-12 sm:py-16 md:py-32 bg-surface-container-high/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="mb-8 sm:mb-12 md:mb-16 text-center">
+<h2 class="text-2xl sm:text-3xl md:text-5xl font-headline font-extrabold mb-3 sm:mb-4 md:mb-6">Wanderlust Journals</h2>
+<p class="text-xs sm:text-sm md:text-base text-on-surface-variant max-w-xl mx-auto">Get inspired by our latest destination guides and travel insights from the heart of Sri Lanka.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-<!-- Article cards (unchanged) -->
-<article class="space-y-4 md:space-y-6">
-<div class="overflow-hidden rounded-xl h-48 md:h-64">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+<!-- Article cards (enhanced responsive) -->
+<article class="space-y-3 sm:space-y-4 md:space-y-6">
+<div class="overflow-hidden rounded-xl h-40 sm:h-48 md:h-64">
 <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxBCqQrY0u-FDpYRRR0Mb7qC7yL0NHciQOCaGpIkk1u2UnO0OrcfvWOkXki9LTGJ7hPuFWT30zCbfjpQ4AkYcbpgByUBjV0Kx8qTwpfts31AyQaucK04yj_k6HHwjV-B_G9a1Fo2oK7I30b6UOHzuqr7a8V17Do1FXzw0kLR0DoFRJtyn2VF2CqWDQykJi9fq96USX-o4mBcYM6f5MPTV_V2PIW6k0Jp1Pa1pmfsRaPOdEWvocLQsHIB8CwFYn_r7PwILU-6d_0jhI"/>
 </div>
 <div class="flex gap-2">
@@ -433,29 +533,29 @@
 </div>
 </section>
 
-<!-- Testimonials Section (already responsive) -->
-<section class="py-16 md:py-32 bg-surface overflow-hidden">
-<div class="max-w-7xl mx-auto px-6 md:px-8 relative">
-<div class="absolute -top-16 -left-16 text-[10rem] md:text-[20rem] font-headline font-black text-on-surface/5 select-none leading-none">“</div>
-<div class="relative z-10 text-center mb-12 md:mb-20">
-<h2 class="text-3xl md:text-4xl font-headline font-extrabold">Voices of Our Travelers</h2>
+<!-- Testimonials Section (enhanced responsive) -->
+<section class="py-12 sm:py-16 md:py-32 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative">
+<div class="absolute -top-16 -left-16 text-[6rem] sm:text-[10rem] md:text-[20rem] font-headline font-black text-on-surface/5 select-none leading-none">"</div>
+<div class="relative z-10 text-center mb-8 sm:mb-12 md:mb-20">
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-extrabold">Voices of Our Travelers</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-<!-- Testimonial cards (unchanged content, responsive padding) -->
-<div class="glass-panel p-6 md:p-10 rounded-xl space-y-4 md:space-y-6 border border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+<!-- Testimonial cards (responsive padding) -->
+<div class="glass-panel p-4 sm:p-6 md:p-10 rounded-xl space-y-3 sm:space-y-4 md:space-y-6 border border-outline-variant/10">
 <div class="flex gap-1 text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div>
-<p class="italic text-on-surface-variant leading-relaxed text-sm md:text-base">"Ocean Lilly Tours crafted a honeymoon we will never forget. Every hotel was a masterpiece and our driver felt like family."</p>
-<div class="flex items-center gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6OG1ef2PhDRsXNurjNr6fh7R0O8Fda2pdiHMAlg5VVL4yK9WAinfBpQbT7SIugb1sCDZx_xT5wzWuXCXIkasgYPxHrlPx9n-OUJGQimH-vVUtjQY3ATtrIqgno2jWrQF9AF_sqqS9znQOtx1tav34BT4Yoj857QpF9vYtfU2Mq4ZWW46mbGyAI3JhUthgAZMH7LLCO5CsyyEHGgC0H9yWsYGnUeoWdXKIqFJ9RsaMExn58h9gV2BoNfO9hgEWIEF5OARFn9Tu8Tg3"/></div><div><p class="font-headline font-bold text-sm">Sarah Jenkins</p><p class="text-xs text-on-surface-variant">United Kingdom 🇬🇧</p></div></div>
+<p class="italic text-on-surface-variant leading-relaxed text-xs sm:text-sm md:text-base">"Ocean Lilly Tours crafted a honeymoon we will never forget. Every hotel was a masterpiece and our driver felt like family."</p>
+<div class="flex items-center gap-3 sm:gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6OG1ef2PhDRsXNurjNr6fh7R0O8Fda2pdiHMAlg5VVL4yK9WAinfBpQbT7SIugb1sCDZx_xT5wzWuXCXIkasgYPxHrlPx9n-OUJGQimH-vVUtjQY3ATtrIqgno2jWrQF9AF_sqqS9znQOtx1tav34BT4Yoj857QpF9vYtfU2Mq4ZWW46mbGyAI3JhUthgAZMH7LLCO5CsyyEHGgC0H9yWsYGnUeoWdXKIqFJ9RsaMExn58h9gV2BoNfO9hgEWIEF5OARFn9Tu8Tg3"/></div><div><p class="font-headline font-bold text-xs sm:text-sm">Sarah Jenkins</p><p class="text-xs text-on-surface-variant">United Kingdom 🇬🇧</p></div></div>
 </div>
-<div class="bg-primary/5 p-6 md:p-10 rounded-xl space-y-4 md:space-y-6 border border-primary/10">
+<div class="bg-primary/5 p-4 sm:p-6 md:p-10 rounded-xl space-y-3 sm:space-y-4 md:space-y-6 border border-primary/10">
 <div class="flex gap-1 text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div>
-<p class="italic text-on-surface-variant leading-relaxed text-sm md:text-base">"From the custom surf lessons to the private tea estate tours, everything was seamless. Highly recommend for luxury seekers."</p>
-<div class="flex items-center gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYDaUohFGZxq4ldjD_iApbG6Tx2qC2zaej02JOIOhZlXhb2MDOIIBy2tUbbb2rRwQsvvcvVzv2Kq6yWYpB7IS1PECVI_ficZ-0NaajGbiqJlY-YqpfHF9c-HiKgLwEhx0f2u3HB0iaHD2fD0KbeOvL3bbZjzX0k-UXQhIMSSzyYM8YFsqHGQrWpAfEGG9seypu3P12XUwlCvfn6WkzGpDFW8JUAQq40MPNQHOdRZPGBW8P5Kf6_AxkNZyh5lOJt63ZxbCRx53JH-77"/></div><div><p class="font-headline font-bold text-sm">Marko Petrovic</p><p class="text-xs text-on-surface-variant">Germany 🇩🇪</p></div></div>
+<p class="italic text-on-surface-variant leading-relaxed text-xs sm:text-sm md:text-base">"From the custom surf lessons to the private tea estate tours, everything was seamless. Highly recommend for luxury seekers."</p>
+<div class="flex items-center gap-3 sm:gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYDaUohFGZxq4ldjD_iApbG6Tx2qC2zaej02JOIOhZlXhb2MDOIIBy2tUbbb2rRwQsvvcvVzv2Kq6yWYpB7IS1PECVI_ficZ-0NaajGbiqJlY-YqpfHF9c-HiKgLwEhx0f2u3HB0iaHD2fD0KbeOvL3bbZjzX0k-UXQhIMSSzyYM8YFsqHGQrWpAfEGG9seypu3P12XUwlCvfn6WkzGpDFW8JUAQq40MPNQHOdRZPGBW8P5Kf6_AxkNZyh5lOJt63ZxbCRx53JH-77"/></div><div><p class="font-headline font-bold text-xs sm:text-sm">Marko Petrovic</p><p class="text-xs text-on-surface-variant">Germany 🇩🇪</p></div></div>
 </div>
-<div class="glass-panel p-6 md:p-10 rounded-xl space-y-4 md:space-y-6 border border-outline-variant/10">
+<div class="glass-panel p-4 sm:p-6 md:p-10 rounded-xl space-y-3 sm:space-y-4 md:space-y-6 border border-outline-variant/10">
 <div class="flex gap-1 text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div>
-<p class="italic text-on-surface-variant leading-relaxed text-sm md:text-base">"The most professional tour company in Sri Lanka. Their focus on sustainability and local communities is truly inspiring."</p>
-<div class="flex items-center gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfvInuSDotdYEHBSRtAsm__7Q5FmXAI_ks3LMUkLbfSH-Gu8z-z2mJftVX4bFxp9SPDOmfBxtjbCgbIhMZFRu2G11455-yHqlbv5uT0bo3DK_XFYLzxqBYRVSzkUaQDGS0Kz_730bubLp0WVLxeLkcba8Z34YWBZ8Uh14Dxz7HRCjGSfS6FtYhtPbmtczXMAMLs1D1LhTfIk7TwZq00qKtIfsrIpEQHGJYq25CLqSFMXC8t6BJjVbMJiS2-_uV9Mr2264ig9mobZ1x"/></div><div><p class="font-headline font-bold text-sm">Amara Singh</p><p class="text-xs text-on-surface-variant">Australia 🇦🇺</p></div></div>
+<p class="italic text-on-surface-variant leading-relaxed text-xs sm:text-sm md:text-base">"The most professional tour company in Sri Lanka. Their focus on sustainability and local communities is truly inspiring."</p>
+<div class="flex items-center gap-3 sm:gap-4"><div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfvInuSDotdYEHBSRtAsm__7Q5FmXAI_ks3LMUkLbfSH-Gu8z-z2mJftVX4bFxp9SPDOmfBxtjbCgbIhMZFRu2G11455-yHqlbv5uT0bo3DK_XFYLzxqBYRVSzkUaQDGS0Kz_730bubLp0WVLxeLkcba8Z34YWBZ8Uh14Dxz7HRCjGSfS6FtYhtPbmtczXMAMLs1D1LhTfIk7TwZq00qKtIfsrIpEQHGJYq25CLqSFMXC8t6BJjVbMJiS2-_uV9Mr2264ig9mobZ1x"/></div><div><p class="font-headline font-bold text-xs sm:text-sm">Amara Singh</p><p class="text-xs text-on-surface-variant">Australia 🇦🇺</p></div></div>
 </div>
 </div>
 </div>
@@ -479,71 +579,92 @@
 </div>
 </section>
 
-<!-- CTA Section (responsive) -->
-<section class="py-16 md:py-32">
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-<div class="bg-primary rounded-xl p-8 md:p-16 lg:p-24 text-center text-white relative overflow-hidden">
+<!-- CTA Section (enhanced responsive) -->
+<section class="py-12 sm:py-16 md:py-32">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="bg-primary rounded-xl p-6 sm:p-12 md:p-16 lg:p-24 text-center text-white relative overflow-hidden">
 <div class="absolute -top-20 -right-20 w-64 h-64 md:w-96 md:h-96 bg-primary-container/20 rounded-full blur-3xl"></div>
 <div class="absolute -bottom-20 -left-20 w-64 h-64 md:w-96 md:h-96 bg-secondary/10 rounded-full blur-3xl"></div>
-<h2 class="text-3xl md:text-5xl lg:text-7xl font-headline font-extrabold relative z-10 leading-tight">Plan your Sri Lanka trip today.</h2>
-<p class="text-base md:text-xl text-primary-fixed max-w-2xl mx-auto relative z-10 mt-4">Our travel experts are ready to curate your dream sanctuary. Receive a personalized proposal within 24 hours.</p>
-<div class="flex flex-wrap justify-center gap-4 md:gap-6 relative z-10 mt-6 md:mt-8">
-<button class="bg-white text-primary px-6 md:px-12 py-3 md:py-5 rounded-full font-headline font-extrabold text-base md:text-lg hover:shadow-2xl transition-all">Start Your Quote</button>
-<button class="bg-primary-container border border-primary-fixed text-white px-6 md:px-12 py-3 md:py-5 rounded-full font-headline font-extrabold text-base md:text-lg flex items-center gap-2 md:gap-3"><span class="material-symbols-outlined">chat</span> WhatsApp Us</button>
+<h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-headline font-extrabold relative z-10 leading-tight">Plan your Sri Lanka trip today.</h2>
+<p class="text-sm sm:text-base md:text-xl text-primary-fixed max-w-2xl mx-auto relative z-10 mt-3 sm:mt-4">Our travel experts are ready to curate your dream sanctuary. Receive a personalized proposal within 24 hours.</p>
+<div class="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 relative z-10 mt-4 sm:mt-6 md:mt-8">
+<button class="bg-white text-primary px-4 sm:px-8 md:px-12 py-2 sm:py-3 md:py-5 rounded-full font-headline font-extrabold text-xs sm:text-base md:text-lg hover:shadow-2xl transition-all">Start Your Quote</button>
+<button class="bg-primary-container border border-primary-fixed text-white px-4 sm:px-8 md:px-12 py-2 sm:py-3 md:py-5 rounded-full font-headline font-extrabold text-xs sm:text-base md:text-lg flex items-center gap-2 md:gap-3 justify-center hover:shadow-2xl transition-all"><span class="material-symbols-outlined text-lg sm:text-xl md:text-2xl">chat</span> <span class="hidden sm:inline">WhatsApp Us</span></button>
 </div>
-<p class="text-white/60 text-xs md:text-sm italic relative z-10 mt-4">Fast reply within 24 hours guaranteed.</p>
+<p class="text-white/60 text-xs md:text-sm italic relative z-10 mt-3 sm:mt-4">Fast reply within 24 hours guaranteed.</p>
 </div>
 </div>
 </section>
 
-<!-- Contact Us (responsive) -->
-<section class="py-16 md:py-32 bg-surface-container-low" id="contact">
-<div class="max-w-7xl mx-auto px-6 md:px-8">
-<div class="editorial-grid">
-<div class="col-span-12 lg:col-span-5 space-y-6 md:space-y-8">
-<h2 class="text-3xl md:text-4xl font-headline font-extrabold">Get in Touch</h2>
-<p class="text-on-surface-variant leading-relaxed">Tell us a bit about your travel dreams, and we'll handle the rest. We specialize in group tours, solo retreats, and romantic escapes.</p>
-<div class="space-y-4">
-<div class="flex items-center gap-4 text-on-surface"><span class="material-symbols-outlined text-primary">mail</span><span class="font-medium text-sm md:text-base">hello@oceanlilytours.com</span></div>
-<div class="flex items-center gap-4 text-on-surface"><span class="material-symbols-outlined text-primary">phone_iphone</span><span class="font-medium text-sm md:text-base">+94 77 123 4567</span></div>
-<div class="flex items-center gap-4 text-on-surface"><span class="material-symbols-outlined text-primary">location_on</span><span class="font-medium text-sm md:text-base">Colombo, Sri Lanka</span></div>
+<!-- Contact Us (enhanced responsive) -->
+<section class="py-12 sm:py-16 md:py-32 bg-surface-container-low" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="editorial-grid gap-4 sm:gap-6 md:gap-8">
+<div class="col-span-12 lg:col-span-5 space-y-4 sm:space-y-6 md:space-y-8">
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-extrabold">Get in Touch</h2>
+<p class="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">Tell us a bit about your travel dreams, and we'll handle the rest. We specialize in group tours, solo retreats, and romantic escapes.</p>
+<div class="space-y-3 sm:space-y-4">
+<div class="flex items-center gap-3 sm:gap-4 text-on-surface"><span class="material-symbols-outlined text-primary flex-shrink-0">mail</span><span class="font-medium text-xs sm:text-sm md:text-base break-all">hello@oceanlilytours.com</span></div>
+<div class="flex items-center gap-3 sm:gap-4 text-on-surface"><span class="material-symbols-outlined text-primary flex-shrink-0">phone_iphone</span><span class="font-medium text-xs sm:text-sm md:text-base">+94 77 123 4567</span></div>
+<div class="flex items-center gap-3 sm:gap-4 text-on-surface"><span class="material-symbols-outlined text-primary flex-shrink-0">location_on</span><span class="font-medium text-xs sm:text-sm md:text-base">Colombo, Sri Lanka</span></div>
 </div>
 </div>
 <div class="col-span-12 lg:col-span-7">
-<form class="glass-panel p-6 md:p-10 rounded-xl shadow-sm space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-<div class="space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 md:p-4 focus:ring-2 focus:ring-primary" placeholder="Enter your name" type="text"/></div>
-<div class="space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 md:p-4 focus:ring-2 focus:ring-primary" placeholder="Enter your email" type="email"/></div>
+<form class="glass-panel p-4 sm:p-6 md:p-10 rounded-xl shadow-sm space-y-4 sm:space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+<div class="space-y-1 sm:space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-2 sm:p-3 md:p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name" type="text"/></div>
+<div class="space-y-1 sm:space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-2 sm:p-3 md:p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your email" type="email"/></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-<div class="space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Travel Dates</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 md:p-4 focus:ring-2 focus:ring-primary" type="date"/></div>
-<div class="space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Number of Travelers</label><select class="w-full bg-surface-container-lowest border-none rounded-lg p-3 md:p-4 focus:ring-2 focus:ring-primary"><option>1 Person</option><option>2 People</option><option>Family (3+)</option><option>Large Group (10+)</option></select></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+<div class="space-y-1 sm:space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Travel Dates</label><input class="w-full bg-surface-container-lowest border-none rounded-lg p-2 sm:p-3 md:p-4 focus:ring-2 focus:ring-primary text-sm" type="date"/></div>
+<div class="space-y-1 sm:space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Number of Travelers</label><select class="w-full bg-surface-container-lowest border-none rounded-lg p-2 sm:p-3 md:p-4 focus:ring-2 focus:ring-primary text-sm"><option>1 Person</option><option>2 People</option><option>Family (3+)</option><option>Large Group (10+)</option></select></div>
 </div>
-<div class="space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tell us your vision</label><textarea class="w-full bg-surface-container-lowest border-none rounded-lg p-3 md:p-4 h-28 md:h-32 focus:ring-2 focus:ring-primary" placeholder="What kind of experiences are you looking for?"></textarea></div>
-<button class="w-full bg-primary text-on-primary py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg hover:scale-[1.01] transition-transform">Send Inquiry</button>
+<div class="space-y-1 sm:space-y-2"><label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tell us your vision</label><textarea class="w-full bg-surface-container-lowest border-none rounded-lg p-2 sm:p-3 md:p-4 h-20 sm:h-24 md:h-32 focus:ring-2 focus:ring-primary text-sm" placeholder="What kind of experiences are you looking for?"></textarea></div>
+<button class="w-full bg-primary text-on-primary py-2 sm:py-3 md:py-5 rounded-full font-headline font-bold text-sm md:text-lg hover:scale-[1.01] transition-transform">Send Inquiry</button>
 </form>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Footer (unchanged) -->
-<footer class="bg-slate-900 dark:bg-black w-full pt-12 md:pt-20 pb-8 md:pb-10">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 px-6 md:px-8 max-w-7xl mx-auto">
-<div class="space-y-4"><span class="text-xl font-bold text-white mb-4 block font-headline">Ocean Lilly Tours</span><p class="leading-relaxed text-slate-300 text-sm">Premium boutique travel agency based in Sri Lanka, dedicated to showcasing the island's most refined experiences.</p><div class="flex gap-4"><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined">camera_enhance</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined">play_circle</span></a></div></div>
-<div class="space-y-4"><h4 class="text-white font-semibold">Quick Links</h4><ul class="space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Destinations</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Packages</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Wellness Retreats</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Sustainable Travel</a></li></ul></div>
-<div class="space-y-4"><h4 class="text-white font-semibold">Legal</h4><ul class="space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Privacy Policy</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Terms &amp; Conditions</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-sm" href="#">Contact Us</a></li></ul></div>
-<div class="space-y-6"><h4 class="text-white font-semibold">Join Our Newsletter</h4><p class="text-slate-400 text-sm">Curated travel stories and exclusive offers.</p><div class="flex gap-2"><input class="bg-slate-800 border-none rounded-lg p-3 text-sm text-white w-full" placeholder="Email" type="email"/><button class="bg-primary p-3 rounded-lg"><span class="material-symbols-outlined text-white">send</span></button></div></div>
+<!-- Footer (enhanced responsiveness) -->
+<footer class="bg-slate-900 dark:bg-black w-full pt-8 sm:pt-12 md:pt-20 pb-6 md:pb-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+<div class="space-y-3 sm:space-y-4"><span class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-4 block font-headline">Ocean Lilly Tours</span><p class="leading-relaxed text-slate-300 text-xs sm:text-sm">Premium boutique travel agency based in Sri Lanka, dedicated to showcasing the island's most refined experiences.</p><div class="flex gap-3 sm:gap-4"><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">social_leaderboard</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">camera_enhance</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">play_circle</span></a></div></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Quick Links</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Destinations</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Packages</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Wellness Retreats</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Sustainable Travel</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Legal</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Privacy Policy</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Terms &amp; Conditions</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Contact Us</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Join Our Newsletter</h4><p class="text-slate-400 text-xs sm:text-sm">Curated travel stories and exclusive offers.</p><div class="flex gap-2"><input class="bg-slate-800 border-none rounded-lg p-2 sm:p-3 text-xs sm:text-sm text-white w-full" placeholder="Email" type="email"/><button class="bg-primary p-2 sm:p-3 rounded-lg flex-shrink-0"><span class="material-symbols-outlined text-white text-lg sm:text-xl">send</span></button></div></div>
 </div>
-<div class="max-w-7xl mx-auto px-6 md:px-8 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="text-slate-500 text-xs">
-          © 2026 | All Rights Reserved |  oceanlilytours.com | Solution by: 
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-12 md:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+    <p class="text-slate-500 text-xs text-center md:text-left">
+          © 2026 | All Rights Reserved |  oceanlilytours.com | Solution by : 
           <a href="https://www.asseminate.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Asseminate </a>
-    </p><div class="flex gap-4"><img alt="Visa" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGedIMARAaNa8S8EvIInYBB_yBitjbOn0bev8Plo8ySYT9OjZ8_RvWV75GMe3IYYdkHzGbAmHpnicM_oe3UZlcxc4zFMm4z9WofrzLiW4JqLInc1czFGhdffJsjB0XThiQCByoX0jyJ1cysiFx3mq7apKSRaOwqdFmju52e2LFi6U5eb68rLWy8bzmXjqnNIxCxgnT04uFFajWVazXBOMzfwFSwfs1b8dVvxs_zXg9fBTHvro8UK5VCjJlCSdhw8XC-HDKuBZ6pWx"/><img alt="Mastercard" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulNgP9M17OX3xhtfQCddEFJBsE4XyvAVL8PEt3gCQPnc4RITwj2AsmzZPwgXGkHth_Fu8yrkGRZzBUcGjoUdqSG3dlmC480XLUqshZTifsUrV25ubBfywg-IHsFt2vJqMAqVqBwZXu8Y_xisCHmP9mhvqjHZYE_M1GDMAuyBoybwK0M0jUpfE8d6o_uFoC3cgq7jna_ifTpPMfgIjk9NalSJXydMXVm_O9OphxL1yOLd91cGQLYywPLmWbYvU0R7mUlU4mNyYlpEF"/></div></div>
+    </p><div class="flex gap-2 sm:gap-4"><img alt="Visa" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGedIMARAaNa8S8EvIInYBB_yBitjbOn0bev8Plo8ySYT9OjZ8_RvWV75GMe3IYYdkHzGbAmHpnicM_oe3UZlcxc4zFMm4z9WofrzLiW4JqLInc1czFGhdffJsjB0XThiQCByoX0jyJ1cysiFx3mq7apKSRaOwqdFmju52e2LFi6U5eb68rLWy8bzmXjqnNIxCxgnT04uFFajWVazXBOMzfwFSwfs1b8dVvxs_zXg9fBTHvro8UK5VCjJlCSdhw8XC-HDKuBZ6pWx"/><img alt="Mastercard" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulNgP9M17OX3xhtfQCddEFJBsE4XyvAVL8PEt3gCQPnc4RITwj2AsmzZPwgXGkHth_Fu8yrkGRZzBUcGjoUdqSG3dlmC480XLUqshZTifsUrV25ubBfywg-IHsFt2vJqMAqVqBwZXu8Y_xisCHmP9mhvqjHZYE_M1GDMAuyBoybwK0M0jUpfE8d6o_uFoC3cgq7jna_ifTpPMfgIjk9NalSJXydMXVm_O9OphxL1yOLd91cGQLYywPLmWbYvU0R7mUlU4mNyYlpEF"/></div></div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMobileMenu() {
+        hamburgerIcon.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    hamburgerBtn.addEventListener('click', toggleMobileMenu);
+    menuOverlay.addEventListener('click', toggleMobileMenu);
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileMenu);
+    });
+
     const heroSwiper = new Swiper('.heroSwiper', {
         loop: true,
         autoplay: { delay: 5000, disableOnInteraction: false },

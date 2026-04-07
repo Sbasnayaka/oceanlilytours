@@ -23,3 +23,36 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
+
+/* Reviews Carousel - Slide Based (Slide Navigation) */
+#reviewsCarousel {
+    position: relative;
+}
+
+#reviewsSlider {
+    display: flex;
+    gap: 0.5rem; /* 8px at mobile */
+    overflow: hidden;
+    will-change: transform;
+}
+
+.review-card {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+/* Original scroll styles (kept for backwards compatibility) */
+.reviews-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+}
+
+.reviews-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-scroll > div {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}

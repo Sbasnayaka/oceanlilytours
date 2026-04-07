@@ -1,0 +1,13 @@
+/* ========================================
+   RESPONSIVE STYLES - Mobile & Desktop
+   ======================================== */
+
+/* Mobile Specific (max-width: 640px) */
+@media (max-width: 640px) {
+    .hero-overlay-content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Tablet & Desktop - Already handled by Tailwind breakpoints */

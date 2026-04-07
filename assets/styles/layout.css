@@ -1,0 +1,25 @@
+/* ========================================
+   LAYOUT STYLES - Grid & Sections
+   ======================================== */
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+
+/* Package Carousel */
+.packages-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+}
+
+.packages-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.packages-scroll > div {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}

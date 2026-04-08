@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Package Details | Ocean Lilly Tours | Premium Sri Lanka Travel</title>
+
+    <!-- Neo Grotesque Font: Inter (plus fallbacks) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <!-- Original fonts as fallback (kept for compatibility) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "space-blue": "#1E2B4D",
+                        "ocean-blue": "#2491E0",
+                        "eco-green": "#409352",
+                        "sky-blue": "#BCE4FC",
+                        "inverse-surface": "#1E2B4D",
+                        "surface-dim": "#E8F4F8",
+                        "on-surface": "#1E2B4D",
+                        "tertiary-container": "#409352",
+                        "on-background": "#1E2B4D",
+                        "surface": "#F9FFFF",
+                        "secondary": "#2491E0",
+                        "primary": "#2491E0",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2491E0",
+                        "surface-bright": "#F9FFFF",
+                        "tertiary-fixed-dim": "#409352",
+                        "on-primary-fixed": "#001d34",
+                        "on-secondary-fixed": "#2f0d32",
+                        "on-tertiary-container": "#f7fff2",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#409352",
+                        "primary-container": "#BCE4FC",
+                        "inverse-on-surface": "#E8F4F8",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-fixed-variant": "#004a78",
+                        "on-secondary-fixed-variant": "#603960",
+                        "inverse-primary": "#2491E0",
+                        "on-surface-variant": "#5A6F7D",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#E8F4F8",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#B0C4D0",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#E0F2FF",
+                        "tertiary-fixed": "#409352",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#BCE4FC",
+                        "on-secondary-container": "#1E5B8C",
+                        "background": "#F9FFFF",
+                        "primary-fixed-dim": "#2491E0",
+                        "surface-variant": "#D4E8F0",
+                        "secondary-fixed-dim": "#2491E0",
+                        "surface-container-highest": "#E0F2FF",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#F0F8FB",
+                        "on-tertiary-fixed-variant": "#2A6340",
+                        "outline": "#7A8C99",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#0D3D5C",
+                        "surface-container": "#E8F4F8",
+                        "primary-fixed": "#2491E0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "Plus Jakarta Sans"],
+                        "body": ["Inter", "Be Vietnam Pro"],
+                        "label": ["Inter", "Plus Jakarta Sans"]
+                    },
+                    "boxShadow": {
+                        "luxury": "0 20px 60px rgba(36, 145, 224, 0.12)",
+                        "elegant": "0 10px 30px rgba(64, 147, 82, 0.08)"
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- TopNavBar – enhanced for visibility and shine -->
+<nav class="fixed top-0 w-full z-50 bg-black/40 shadow-lg">
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <!-- Logo -->
+        <div class="text-xl sm:text-2xl font-bold tracking-tighter text-white drop-shadow-md font-headline flex-shrink-0">
+            <a href="index.html">Ocean Lilly Tours</a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#destinations">Destinations</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#packages">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#services">Services</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#destinations">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#about">About Us</a>
+        </div>
+        
+        <!-- Book a Trip Button (Desktop) -->
+        <button class="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-transform shadow-lg hover:scale-105" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Book a Trip
+        </button>
+        
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="md:hidden flex items-center z-50" id="hamburgerBtn">
+            <div class="hamburger" id="hamburgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Banner Section (Hero Image + Quick Info) -->
+<section class="relative pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 md:pb-16 bg-gradient-to-b from-sky-blue/20 to-white">
+    <div class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden -mt-24 sm:-mt-28 md:-mt-32">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcz2wkc5xGo62bhWNGoEnEn2zcJppcmSYyIIeos-oAASCUKOEULEwcmo61SaRbmRQgo2rA0MmvHNSXJRzDoOBvwVBRZSMmIAc9ythKGSK4tGux39i2qHkHpX_g1okd6D5PlJYZVPZNPcsvAgUOCUv7qlhz7u2WNAkoyvK-K3vlWR9toXHrME-BmdRfB4GxvYlR2HmocAHJlLF6c5xaNvgyAcjPjRIIbTOU-ibk7xgHkuEWHFp8sy2_19C16H5H9GdXQwWAiDVYyqPs" alt="Package Hero">
+        <div class="absolute inset-0 bg-gradient-to-t from-space-blue/70 via-space-blue/40 to-transparent"></div>
+        <div class="absolute inset-0 flex flex-col justify-end px-4 sm:px-6 md:px-8 pb-6 sm:pb-8 md:pb-12">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4">
+                    <div class="space-y-2 sm:space-y-3 flex-1">
+                        <h1 class="text-3xl sm:text-4xl md:text-6xl font-headline font-extrabold text-white leading-tight">7 Day Nature Explorer</h1>
+                        <p class="text-sm sm:text-base md:text-lg text-white/90">Discover lotus serenity in misty hills, sacred temples, and pristine wilderness</p>
+                    </div>
+                    <div class="flex gap-2 sm:gap-3">
+                        <button class="bg-secondary hover:bg-ocean-blue text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-headline font-semibold text-xs sm:text-sm transition-all shadow-luxury">Book Now</button>
+                        <button class="bg-white/20 hover:bg-white/30 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-headline font-semibold text-xs sm:text-sm transition-all border border-white/30 backdrop-blur-sm">Enquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Info Cards -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-6 sm:mt-8 md:mt-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            <div class="bg-white rounded-2xl p-3 sm:p-4 md:p-6 backdrop-blur-sm border border-sky-blue/20 shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-sky-blue to-secondary/40 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-5xl">calendar_today</span>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant font-medium">Duration</p>
+                <p class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-ocean-blue">7 Days</p>
+            </div>
+            <div class="bg-white rounded-2xl p-3 sm:p-4 md:p-6 backdrop-blur-sm border border-tertiary/20 shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-eco-green to-tertiary/40 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-5xl">location_on</span>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant font-medium">Destinations</p>
+                <p class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-tertiary">8 Cities</p>
+            </div>
+            <div class="bg-white rounded-2xl p-3 sm:p-4 md:p-6 backdrop-blur-sm border border-secondary/20 shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-secondary to-sky-blue/40 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-5xl">nature</span>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant font-medium">Tour Type</p>
+                <p class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-secondary">Nature &amp; Culture</p>
+            </div>
+            <div class="bg-white rounded-2xl p-3 sm:p-4 md:p-6 backdrop-blur-sm border border-space-blue/20 shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-space-blue to-secondary/40 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-5xl">local_activity</span>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant font-medium">Best For</p>
+                <p class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-space-blue">Families</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tour Overview Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div class="md:col-span-2 space-y-4 sm:space-y-6">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-4 text-space-blue">Tour Overview</h2>
+                    <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-4">
+                        The 7-Day Nature Explorer is the perfect immersive experience for travelers seeking to witness the true essence of Sri Lanka. This carefully crafted journey spans the island's most stunning natural and cultural landmarks, from the sacred temples of Kandy to the breathtaking peaks of Ella and the wildlife-rich landscapes of Yala National Park.
+                    </p>
+                    <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-4">
+                        You will experience the tranquility of tea plantations, the thrill of wildlife safaris, and the warmth of local hospitality. Whether you're hiking through mist-covered mountains, exploring ancient Buddhist temples, or relaxing on pristine beaches, this tour offers an unforgettable journey into the heart of Sri Lanka's natural and cultural heritage.
+                    </p>
+                    <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed">
+                        This isn't just a holiday; it's a deep dive into the history, nature, and soul of one of the world's most remarkable travel destinations.
+                    </p>
+                </div>
+            </div>
+            <div class="space-y-4 sm:space-y-6">
+                <div class="bg-gradient-to-br from-secondary/15 to-sky-blue/10 rounded-2xl p-4 sm:p-6 md:p-8 border border-secondary/20">
+                    <h3 class="font-headline font-bold text-lg mb-3 text-ocean-blue">  Package Includes</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">6 Nights Accommodation</span></li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">Daily Breakfast</span></li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">All Activities & Entrance Fees</span></li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">Professional Driver & Guide</span></li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">Airport Transfers</span></li>
+                        <li class="flex gap-2"><span class="material-symbols-outlined text-secondary flex-shrink-0 text-xl">check_circle</span><span class="text-on-surface">Travel Insurance</span></li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-sky-blue to-secondary/30 rounded-2xl p-4 sm:p-6 md:p-8 relative overflow-hidden">
+                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                    <p class="text-xs text-space-blue/80 mb-2 font-medium">Starting From</p>
+                    <p class="text-4xl sm:text-5xl font-headline font-extrabold text-white mb-4">$1,250</p>
+                    <p class="text-xs text-white/90 mb-4">Per person (based on 2 travelers)</p>
+                    <button class="w-full bg-secondary hover:bg-ocean-blue text-white px-4 py-3 rounded-full font-headline font-bold text-sm transition-all shadow-luxury">Book This Package</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Day-by-Day Itinerary Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-linear-to-b from-sky-blue/10 via-white to-sky-blue/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">  Day-by-Day Itinerary</h2>
+        
+        <div class="space-y-4 sm:space-y-6">
+            <!-- Day 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-secondary/10 hover:shadow-luxury transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-sky-blue/5 transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-gradient-to-r from-secondary to-ocean-blue text-white text-sm font-bold px-3 py-1 rounded-full">Day 1</span>
+                            <span class="text-xs bg-tertiary/20 text-tertiary px-2 py-1 rounded-full font-semibold">Arrival</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1 text-space-blue">Arrival in Colombo → Negombo</h3>
+                        <p class="text-sm text-on-surface-variant">Airport pickup and relaxation at beach resort</p>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="md:col-span-2 space-y-3">
+                            <div>
+                                <h4 class="font-headline font-bold text-primary mb-2">Day Overview</h4>
+                                <p class="text-sm text-on-surface-variant leading-relaxed">
+                                    When you arrive at Colombo Bandaranaike International Airport, our professional driver will pick you up and transfer you to your hotel in Negombo. Negombo is located just 30km from the airport, making it the ideal place to rest and acclimate before exploring the rest of Sri Lanka.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-bold text-primary mb-2">Evening Activities</h4>
+                                <ul class="text-sm text-on-surface-variant space-y-1 list-disc list-inside">
+                                    <li>Visit Negombo Beach and the historic fishing village</li>
+                                    <li>Dinner at a beachfront restaurant with local cuisine</li>
+                                    <li>Experience the warm hospitality of local residents</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-bold text-tertiary mb-2">Meals</h4>
+                                <p class="text-sm">Dinner</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="w-full h-48 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp_8obXOqh8mvZqZXS17e_qjSPWWhUrTpjwCuMDFsqf5IGhF0p5s9c25IzWyOmDZXHxDF_FCAtKgSDd84v96AHdWuA7-q85lUwHrZJyS1k1yHKFjXF5i5SnpKBZ8QDGa0BU_gtlzXO83q3kQORqR8hNqRF2BTcsplpVx-D5de4KIxHD7Q24wX9452xA7vSqNUiWSgMJJNJz03c8gNWBWEc7CH9HXYS6_KpHemsB_tRLeRGxn6YT6hot6YuzzgPHriKb1FuAc1aGUW" alt="Negombo Beach">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 2</span>
+                            <span class="text-xs bg-tertiary text-white px-2 py-1 rounded">Nature</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Negombo → Kandy</h3>
+                        <p class="text-sm text-on-surface-variant">Visit Elephant Orphanage and historical Kandy</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="md:col-span-2 space-y-3">
+                            <div>
+                                <h4 class="font-headline font-bold text-primary mb-2">Day Overview</h4>
+                                <p class="text-sm text-on-surface-variant leading-relaxed">
+                                    After breakfast, embark on a scenic 3-hour journey to the cultural heart of Sri Lanka. Visit the renowned Millennium Elephant Foundation for an unforgettable elephant encounter. In the afternoon, arrive in Kandy and check into your hotel overlooking the sacred Kandy Lake.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-bold text-primary mb-2">Activities</h4>
+                                <ul class="text-sm text-on-surface-variant space-y-1 list-disc list-inside">
+                                    <li>Elephant Walk Experience and feeding</li>
+                                    <li>Transfer to Kandy (3 hours)</li>
+                                    <li>Evening Cultural Dance Show at 5:30 PM</li>
+                                    <li>Explore sacred Buddhist temples</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-headline font-bold text-tertiary mb-2">Meals</h4>
+                                <p class="text-sm">Breakfast, Lunch, Dinner</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="w-full h-48 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvAYk_VAxutEeliVjkYn6KwLl0Eit9qGaJMv_c_5O7nGqGP5T7zBAkvghDSxqPhwjnKLEuo_oYeQ-q9W7jrZu8iK4PXJP3WYwlaZV0s-9pt-fgdbJTTUvMI0BJMS_0mx0RKpPIyII4cEjcWapMikpuUYK6oTz3zx5zQ4jqH7cj2bID-PwvME4qNmIJJtz3USkqA-iHrwW_4YRjFW65pc2WmKv2-l4eBjco7mUnqwilYQZJbUCQzvFFqMZaF1bXjVh1f_KF7f5atPtc" alt="Kandy Temple">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 3</span>
+                            <span class="text-xs bg-secondary text-white px-2 py-1 rounded">Culture</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Kandy City Tour</h3>
+                        <p class="text-sm text-on-surface-variant">Temple of Tooth Relic and Botanical Gardens</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <p class="text-sm text-on-surface-variant">Explore the sacred Temple of the Tooth Relic, one of Buddhism's holiest sites. Visit the Royal Botanical Gardens with over 4,000 species of tropical plants, and discover the historic Kandy Lake.</p>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 4</span>
+                            <span class="text-xs bg-tertiary text-white px-2 py-1 rounded">Adventure</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Kandy → Dambulla → Sigiriya</h3>
+                        <p class="text-sm text-on-surface-variant">Ancient Cave Temple and rock fortress climbing</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <p class="text-sm text-on-surface-variant">Visit the Royal Cave Temple in Dambulla, a sacred pilgrimage site for 22 centuries. Hike to the top of the iconic Sigiriya Rock, often called the "Eighth Wonder of the World," for spectacular views and ancient palace ruins.</p>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 5</span>
+                            <span class="text-xs bg-secondary text-white px-2 py-1 rounded">Heritage</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Sigiriya → Nuwara Eliya</h3>
+                        <p class="text-sm text-on-surface-variant">Highland city and tea plantation paradise</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <p class="text-sm text-on-surface-variant">Journey to "Little England" - Nuwara Eliya, a charming hill station with colonial architecture. Visit scenic lakes, tea factories, and enjoy the cool mountain climate at 6,000 feet elevation.</p>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 6</span>
+                            <span class="text-xs bg-tertiary text-white px-2 py-1 rounded">Nature</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Nuwara Eliya → Ella</h3>
+                        <p class="text-sm text-on-surface-variant">Scenic train ride and mountain town exploration</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <p class="text-sm text-on-surface-variant">Experience the famous scenic train ride from Nanu Oya to Ella (about 7 hours). This journey is considered one of the world's most beautiful train routes, passing through tea plantations and mountain valleys. Arrive in the scenic town of Ella and explore the iconic Nine Arches Bridge and Little Adam's Peak.</p>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="bg-white rounded-xl overflow-hidden border border-outline/10 hover:shadow-lg transition-all duration-300 group cursor-pointer day-itinerary" onclick="toggleDay(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-start group-hover:bg-surface-container-low transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                            <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">Day 7</span>
+                            <span class="text-xs bg-secondary text-white px-2 py-1 rounded">Wildlife</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-1">Ella → Yala → Departure</h3>
+                        <p class="text-sm text-on-surface-variant">Safari adventure and return journey</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-2xl ml-4 flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="day-content hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 space-y-4 border-t border-outline/10">
+                    <p class="text-sm text-on-surface-variant">Begin your journey to Yala National Park with a full-day wildlife safari in a 4x4 jeep. Yala is home to leopards, elephants, and diverse bird species. After the safari, transfer to the airport for your departure with unforgettable memories.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Journey Highlights Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">  Journey Highlights</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div class="bg-gradient-to-br from-sky-blue/10 to-secondary/5 rounded-2xl p-4 sm:p-6 md:p-8 flex gap-4 sm:gap-6 border border-secondary/10 hover:shadow-elegant transition-all">
+                <span class="material-symbols-outlined text-tertiary text-4xl flex-shrink-0">landscape</span>
+                <div>
+                    <h3 class="font-headline font-bold text-ocean-blue mb-2">Tea Plantations & Highland Views</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant">Experience the world's finest tea country with rolling green hills and scenic viewpoints at elevation.</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-secondary/10 to-sky-blue/5 rounded-2xl p-4 sm:p-6 md:p-8 flex gap-4 sm:gap-6 border border-secondary/10 hover:shadow-elegant transition-all">
+                <span class="material-symbols-outlined text-secondary text-4xl flex-shrink-0">temple_buddhist</span>
+                <div>
+                    <h3 class="font-headline font-bold text-ocean-blue mb-2">Sacred Temples & Cultural Sites</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant">Visit UNESCO World Heritage Sites including ancient temples and spiritual landmarks deeply rooted in Buddhist culture.</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-sky-blue/10 to-tertiary/5 rounded-2xl p-4 sm:p-6 md:p-8 flex gap-4 sm:gap-6 border border-tertiary/10 hover:shadow-elegant transition-all">
+                <span class="material-symbols-outlined text-tertiary text-4xl flex-shrink-0">pets</span>
+                <div>
+                    <h3 class="font-headline font-bold text-eco-green mb-2">Wildlife Safari Experience</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant">Full-day jeep safari in Yala National Park to spot leopards, elephants, and exotic bird species in their natural habitat.</p>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-secondary/5 to-sky-blue/10 rounded-2xl p-4 sm:p-6 md:p-8 flex gap-4 sm:gap-6 border border-secondary/10 hover:shadow-elegant transition-all">
+                <span class="material-symbols-outlined text-ocean-blue text-4xl flex-shrink-0">train</span>
+                <div>
+                    <h3 class="font-headline font-bold text-ocean-blue mb-2">Scenic Train Journey</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant">Experience one of the world's most beautiful train routes through misty mountains and emerald green tea estates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Insightful Tips Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-sky-blue/5 via-white to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">💡 Insightful Tips for Your Journey</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border-l-4 border-secondary shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex gap-3 sm:gap-4 mb-3">
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 bg-secondary/10 rounded-full p-2">info</span>
+                    <h3 class="font-headline font-bold text-ocean-blue">Packing for Multiple Climates</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant">You will experience temperatures ranging from 30°C on the coast to as low as 10°C in Nuwara Eliya. Pack light linens for the beach and a warm fleece or jacket for the highlands. Don't forget waterproof gear for unexpected rain.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border-l-4 border-ocean-blue shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex gap-3 sm:gap-4 mb-3">
+                    <span class="material-symbols-outlined text-ocean-blue flex-shrink-0 bg-sky-blue/10 rounded-full p-2">document_scanner</span>
+                    <h3 class="font-headline font-bold text-ocean-blue">Visa & Documentation</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant">Ensure your ETA (Electronic Travel Authorization) is approved before arrival. Keep digital and physical copies of your passport, visa, and travel itinerary. Our team can assist with all documentation requirements.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border-l-4 border-eco-green shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex gap-3 sm:gap-4 mb-3">
+                    <span class="material-symbols-outlined text-eco-green flex-shrink-0 bg-eco-green/10 rounded-full p-2">pace</span>
+                    <h3 class="font-headline font-bold text-eco-green">Pacing & Rest Days</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant">This is an active journey with daily exploration. Build in relaxation time, especially after long travel days. We recommend light activities on certain days to avoid burnout and truly savor each destination.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border-l-4 border-secondary shadow-elegant hover:shadow-luxury transition-all">
+                <div class="flex gap-3 sm:gap-4 mb-3">
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 bg-secondary/10 rounded-full p-2">train</span>
+                    <h3 class="font-headline font-bold text-ocean-blue">Train Ticket Booking</h3>
+                </div>
+                <p class="text-sm text-on-surface-variant">The famous Nanu Oya to Ella train (Day 6) is world-renowned. Reserved seat tickets often sell out 30+ days in advance. We recommend booking these through our travel coordinators to ensure availability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">❓ Frequently Asked Questions</h2>
+        
+        <div class="space-y-3 sm:space-y-4 max-w-3xl">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white rounded-2xl border border-secondary/15 overflow-hidden faq-item cursor-pointer hover:shadow-elegant transition-all" onclick="toggleFAQ(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-center hover:bg-sky-blue/5 transition-all">
+                    <h3 class="font-headline font-bold text-ocean-blue">Is 7 days enough to experience Sri Lanka properly?</h3>
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="faq-answer hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 border-t border-secondary/10 space-y-2">
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Absolutely! Seven days is a perfect duration to experience the highlights of Sri Lanka without feeling rushed. Our carefully curated itinerary balances major attractions like Kandy's temples, Sigiriya rock fortress, and Yala's wildlife with scenic experiences and cultural immersion. Most travelers feel they've accomplished their travel goals in this timeframe.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white rounded-2xl border border-secondary/15 overflow-hidden faq-item cursor-pointer hover:shadow-elegant transition-all" onclick="toggleFAQ(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-center hover:bg-sky-blue/5 transition-all">
+                    <h3 class="font-headline font-bold text-ocean-blue">What is the best time to take this tour?</h3>
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="faq-answer hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 border-t border-secondary/10 space-y-2">
+                    <p class="text-sm text-on-surface-variant leading-relaxed">The "shoulder" months of March, April, and September offer the best overall weather for this specific route. December to March is ideal for the east coast (Yala), while May to September is better for the west and central regions. However, Sri Lanka is beautiful year-round with each season offering unique experiences.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white rounded-2xl border border-secondary/15 overflow-hidden faq-item cursor-pointer hover:shadow-elegant transition-all" onclick="toggleFAQ(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-center hover:bg-sky-blue/5 transition-all">
+                    <h3 class="font-headline font-bold text-ocean-blue">Is a 4x4 vehicle necessary for this entire tour?</h3>
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="faq-answer hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 border-t border-secondary/10 space-y-2">
+                    <p class="text-sm text-on-surface-variant leading-relaxed">No, a comfortable air-conditioned vehicle is perfect for most roads. We only switch to a rugged 4x4 jeep for the Yala National Park safari (Day 7) where rough terrain requires specialized vehicles. All main highways are well-maintained and suitable for standard vehicles.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white rounded-2xl border border-secondary/15 overflow-hidden faq-item cursor-pointer hover:shadow-elegant transition-all" onclick="toggleFAQ(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-center hover:bg-sky-blue/5 transition-all">
+                    <h3 class="font-headline font-bold text-ocean-blue">Can the itinerary be customized?</h3>
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="faq-answer hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 border-t border-secondary/10 space-y-2">
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Absolutely! We specialize in customized tours. If you prefer more beach time, cultural experiences, or adventure activities, we can adjust the itinerary accordingly. Contact our travel consultants to discuss your specific interests and preferences.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="bg-white rounded-2xl border border-secondary/15 overflow-hidden faq-item cursor-pointer hover:shadow-elegant transition-all" onclick="toggleFAQ(this)">
+                <div class="p-4 sm:p-6 md:p-8 flex justify-between items-center hover:bg-sky-blue/5 transition-all">
+                    <h3 class="font-headline font-bold text-ocean-blue">What's included in the package price?</h3>
+                    <span class="material-symbols-outlined text-secondary flex-shrink-0 group-hover:rotate-180 transition-transform">expand_more</span>
+                </div>
+                <div class="faq-answer hidden px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 border-t border-secondary/10 space-y-2">
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Our package includes 4-star accommodation, daily breakfast, all entrance fees, activities, professional driver-guide, airport transfers, train tickets, and travel insurance. Meals beyond breakfast and personal expenses are typically not included. Detailed pricing will be provided with your customized quote.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map & Highlights Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-sky-blue/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">  Journey Map & Route</h2>
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-secondary/15 shadow-elegant">
+            <div class="h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-br from-sky-blue/10 to-secondary/10 flex items-center justify-center">
+                <!-- Placeholder for interactive map -->
+                <div class="text-center">
+                    <span class="material-symbols-outlined text-ocean-blue text-6xl sm:text-8xl">map</span>
+                    <p class="text-on-surface-variant mt-4 text-sm sm:text-base">Interactive map will be displayed here</p>
+                    <p class="text-secondary font-headline font-bold text-xs sm:text-sm mt-1">Route: Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Yala</p>
+                </div>
+            </div>
+            <div class="p-4 sm:p-6 md:p-8 border-t border-secondary/15">
+                <h3 class="font-headline font-bold text-lg text-space-blue mb-6">📊 Trip Statistics</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-br from-sky-blue/10 to-secondary/10 rounded-2xl p-4 border border-secondary/15 hover:shadow-elegant transition-all">
+                        <p class="text-xs text-on-surface-variant font-medium">Total Distance</p>
+                        <p class="text-lg sm:text-xl font-headline font-bold text-ocean-blue">~850 km</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-ocean-blue/10 to-sky-blue/10 rounded-2xl p-4 border border-secondary/15 hover:shadow-elegant transition-all">
+                        <p class="text-xs text-on-surface-variant font-medium">Highest Point</p>
+                        <p class="text-lg sm:text-xl font-headline font-bold text-secondary">2,424 m</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-secondary/10 to-eco-green/10 rounded-2xl p-4 border border-secondary/15 hover:shadow-elegant transition-all">
+                        <p class="text-xs text-on-surface-variant font-medium">Drive Days</p>
+                        <p class="text-lg sm:text-xl font-headline font-bold text-space-blue">6 Days</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-sky-blue/10 to-ocean-blue/10 rounded-2xl p-4 border border-secondary/15 hover:shadow-elegant transition-all">
+                        <p class="text-xs text-on-surface-variant font-medium">Active Days</p>
+                        <p class="text-lg sm:text-xl font-headline font-bold text-eco-green">5 Days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Other Tour Packages Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-sky-blue/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-space-blue">  Our Similar Packages</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <!-- Package Card 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-secondary/15 hover:shadow-luxury transition-all group">
+                <div class="relative h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcz2wkc5xGo62bhWNGoEnEn2zcJppcmSYyIIeos-oAASCUKOEULEwcmo61SaRbmRQgo2rA0MmvHNSXJRzDoOBvwVBRZSMmIAc9ythKGSK4tGux39i2qHkHpX_g1okd6D5PlJYZVPZNPcsvAgUOCUv7qlhz7u2WNAkoyvK-K3vlWR9toXHrME-BmdRfB4GxvYlR2HmocAHJlLF6c5xaNvgyAcjPjRIIbTOU-ibk7xgHkuEWHFp8sy2_19C16H5H9GdXQwWAiDVYyqPs" alt="Honeymoon Package">
+                    <div class="absolute top-3 left-3 bg-gradient-to-r from-secondary to-ocean-blue text-white text-xs font-bold px-3 py-1 rounded-full shadow-elegant">💕 Romantic Luxury</div>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <h3 class="font-headline font-bold text-lg mb-2 text-space-blue">Honeymoon Escape</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant mb-4 line-clamp-2">A private, candle-lit journey through Sri Lanka's most romantic boutique stays and golden beaches.</p>
+                    <div class="flex justify-between items-center">
+                        <p class="font-headline font-extrabold text-ocean-blue">From $2,100</p>
+                        <button class="text-secondary hover:text-ocean-blue font-bold text-sm transition-colors">View →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package Card 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-secondary/15 hover:shadow-luxury transition-all group">
+                <div class="relative h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3yagudF0FqYqs0oGGZ8gcTWTfg8-NDG5DK5BWFCCoHTmGQ72cmn00LWiVXtJdZUX5AgYX0iqDlof_yecMUV_jvkdi5JROityNnKfSOeE6qLPAKXhPMF2TqAjBsKh0H6EZelwr6IWNYGcvcuvwhQlpOD-sGzS3MIuMqjcWMu64WTqnx7mGEtT7irms6eQZKBsIqydMFzQ1b-olfZZiRSzJ6C9jP_S8MJ1x_ogCkSXPyVwI2pk2c8GzQWRbTHd5_zblAeCZTsYav-8h" alt="Cultural Package">
+                    <div class="absolute top-3 left-3 bg-gradient-to-r from-space-blue to-ocean-blue text-white text-xs font-bold px-3 py-1 rounded-full shadow-elegant">🏛️ Cultural Heritage</div>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <h3 class="font-headline font-bold text-lg mb-2 text-space-blue">3 Day Highlights</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant mb-4 line-clamp-2">Perfect for those short on time but wanting to see the historic heart of the island.</p>
+                    <div class="flex justify-between items-center">
+                        <p class="font-headline font-extrabold text-ocean-blue">From $650</p>
+                        <button class="text-secondary hover:text-ocean-blue font-bold text-sm transition-colors">View →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package Card 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-secondary/15 hover:shadow-luxury transition-all group">
+                <div class="relative h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp_8obXOqh8mvZqZXS17e_qjSPWWhUrTpjwCuMDFsqf5IGhF0p5s9c25IzWyOmDZXHxDF_FCAtKgSDd84v96AHdWuA7-q85lUwHrZJyS1k1yHKFjXF5i5SnpKBZ8QDGa0BU_gtlzXO83q3kQORqR8hNqRF2BTcsplpVx-D5de4KIxHD7Q24wX9452xA7vSqNUiWSgMJJNJz03c8gNWBWEc7CH9HXYS6_KpHemsB_tRLeRGxn6YT6hot6YuzzgPHriKb1FuAc1aGUW" alt="Wellness Package">
+                    <div class="absolute top-3 left-3 bg-gradient-to-r from-eco-green to-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow-elegant">🧘 Spa & Wellness</div>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <h3 class="font-headline font-bold text-lg mb-2 text-space-blue">Ayurveda Healing Retreat</h3>
+                    <p class="text-xs sm:text-sm text-on-surface-variant mb-4 line-clamp-2">Traditional Ayurvedic treatments, yoga sessions, and health restoration.</p>
+                    <div class="flex justify-between items-center">
+                        <p class="font-headline font-extrabold text-ocean-blue">From $1,800</p>
+                        <button class="text-secondary hover:text-ocean-blue font-bold text-sm transition-colors">View →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-space-blue via-ocean-blue to-secondary text-white relative overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-8 sm:mb-12 text-center"> Why Choose Ocean Lilly Tours?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">verified</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">Expert Local Team</h3>
+                <p class="text-sm text-white/85">Our team comprises local experts with deep knowledge of Sri Lanka's hidden gems and authentic experiences.</p>
+            </div>
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">shield_check</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">100% Safe & Secure</h3>
+                <p class="text-sm text-white/85">We prioritize your safety with vetted drivers, hotels, and 24/7 ground support throughout your journey.</p>
+            </div>
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">card_giftcard</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">Best Value Guaranteed</h3>
+                <p class="text-sm text-white/85">Price match guarantee - we offer unbeatable rates for premium experiences and 4-star accommodations.</p>
+            </div>
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">support_agent</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">24/7 Support</h3>
+                <p class="text-sm text-white/85">Round-the-clock ground support and personal consultants ready to assist with any concerns.</p>
+            </div>
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">edit_calendar</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">Fully Customizable</h3>
+                <p class="text-sm text-white/85">Every itinerary is flexible - we adapt to your preferences, pace, and special requests.</p>
+            </div>
+            <div class="text-center backdrop-blur-sm bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <span class="material-symbols-outlined text-4xl sm:text-5xl mb-3 inline-block">public</span>
+                <h3 class="font-headline font-bold text-lg sm:text-xl mb-2">Sustainable Tourism</h3>
+                <p class="text-sm text-white/85">We support local communities and practice eco-friendly tourism for responsible travel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact/CTA Section -->
+<section class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-sky-blue/5 to-white" id="contact">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Contact Info -->
+            <div class="space-y-6 sm:space-y-8">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-headline font-bold mb-4 text-space-blue">🎯 Ready to Book?</h2>
+                    <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed">Let our travel experts curate your perfect Sri Lankan adventure. We'll create a personalized proposal within 24 hours.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1 bg-secondary/10 rounded-full p-2">mail</span>
+                        <div>
+                            <p class="text-xs font-medium text-on-surface-variant">Email</p>
+                            <p class="font-headline font-bold text-ocean-blue break-all">hello@oceanlilytours.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1 bg-secondary/10 rounded-full p-2">phone_iphone</span>
+                        <div>
+                            <p class="text-xs font-medium text-on-surface-variant">WhatsApp / Phone</p>
+                            <p class="font-headline font-bold text-ocean-blue">+94 77 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1 bg-secondary/10 rounded-full p-2">location_on</span>
+                        <div>
+                            <p class="text-xs font-medium text-on-surface-variant">Office Location</p>
+                            <p class="font-headline font-bold text-ocean-blue">Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 flex-wrap pt-4">
+                    <button class="bg-gradient-to-r from-secondary to-ocean-blue hover:shadow-luxury text-white px-6 py-3 rounded-full font-headline font-bold transition-all shadow-elegant">Book This Package</button>
+                    <button class="bg-white border-2 border-secondary text-ocean-blue hover:bg-sky-blue/5 px-6 py-3 rounded-full font-headline font-bold transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-lg">chat</span>
+                        WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-secondary/15 shadow-elegant">
+                <form class="space-y-4 sm:space-y-5" onsubmit="handleFormSubmit(event)">
+                    <div>
+                        <label class="block text-sm font-headline font-bold mb-2 text-ocean-blue">Full Name *</label>
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border-2 border-sky-blue/20 text-on-surface focus:outline-none focus:border-secondary transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-headline font-bold mb-2 text-ocean-blue">Email Address *</label>
+                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg border-2 border-sky-blue/20 text-on-surface focus:outline-none focus:border-secondary transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-headline font-bold mb-2 text-ocean-blue">Phone Number *</label>
+                        <input type="tel" placeholder="+94 7X XXX XXXX" class="w-full px-4 py-3 rounded-lg border-2 border-sky-blue/20 text-on-surface focus:outline-none focus:border-secondary transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-headline font-bold mb-2 text-ocean-blue">Message</label>
+                        <textarea placeholder="Tell us about your travel interests..." class="w-full px-4 py-3 rounded-lg border-2 border-sky-blue/20 text-on-surface focus:outline-none focus:border-secondary transition-all h-24 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-secondary to-ocean-blue hover:shadow-luxury text-white font-headline font-bold py-3 rounded-full transition-all shadow-elegant">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer (enhanced responsiveness) -->
+<footer class="bg-slate-900 dark:bg-black w-full pt-8 sm:pt-12 md:pt-20 pb-6 md:pb-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+<div class="space-y-3 sm:space-y-4"><span class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-4 block font-headline">Ocean Lilly Tours</span><p class="leading-relaxed text-slate-300 text-xs sm:text-sm">Premium boutique travel agency based in Sri Lanka, dedicated to showcasing the island's most refined experiences.</p><div class="flex gap-3 sm:gap-4"><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">social_leaderboard</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">camera_enhance</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">play_circle</span></a></div></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Quick Links</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Destinations</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Packages</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Wellness Retreats</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Sustainable Travel</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Legal</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Privacy Policy</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Terms &amp; Conditions</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Contact Us</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Join Our Newsletter</h4><p class="text-slate-400 text-xs sm:text-sm">Curated travel stories and exclusive offers.</p><div class="flex gap-2"><input class="bg-slate-800 border-none rounded-lg p-2 sm:p-3 text-xs sm:text-sm text-white w-full" placeholder="Email" type="email"/><button class="bg-primary p-2 sm:p-3 rounded-lg flex-shrink-0"><span class="material-symbols-outlined text-white text-lg sm:text-xl">send</span></button></div></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-12 md:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+    <p class="text-slate-500 text-xs text-center md:text-left">
+          © 2026 | All Rights Reserved |  oceanlilytours.com | Solution by : 
+          <a href="https://www.asseminate.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Asseminate </a>
+    </p><div class="flex gap-2 sm:gap-4"><img alt="Visa" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGedIMARAaNa8S8EvIInYBB_yBitjbOn0bev8Plo8ySYT9OjZ8_RvWV75GMe3IYYdkHzGbAmHpnicM_oe3UZlcxc4zFMm4z9WofrzLiW4JqLInc1czFGhdffJsjB0XThiQCByoX0jyJ1cysiFx3mq7apKSRaOwqdFmju52e2LFi6U5eb68rLWy8bzmXjqnNIxCxgnT04uFFajWVazXBOMzfwFSwfs1b8dVvxs_zXg9fBTHvro8UK5VCjJlCSdhw8XC-HDKuBZ6pWx"/><img alt="Mastercard" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulNgP9M17OX3xhtfQCddEFJBsE4XyvAVL8PEt3gCQPnc4RITwj2AsmzZPwgXGkHth_Fu8yrkGRZzBUcGjoUdqSG3dlmC480XLUqshZTifsUrV25ubBfywg-IHsFt2vJqMAqVqBwZXu8Y_xisCHmP9mhvqjHZYE_M1GDMAuyBoybwK0M0jUpfE8d6o_uFoC3cgq7jna_ifTpPMfgIjk9NalSJXydMXVm_O9OphxL1yOLd91cGQLYywPLmWbYvU0R7mUlU4mNyYlpEF"/></div></div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    hamburgerBtn?.addEventListener('click', toggleMobileMenu);
+    menuOverlay?.addEventListener('click', toggleMobileMenu);
+
+    function toggleMobileMenu() {
+        mobileMenu?.classList.toggle('active');
+        menuOverlay?.classList.toggle('active');
+    }
+
+    // Toggle Day Itinerary
+    function toggleDay(element) {
+        const content = element.querySelector('.day-content');
+        content?.classList.toggle('hidden');
+    }
+
+    // Toggle FAQ
+    function toggleFAQ(element) {
+        const answer = element.querySelector('.faq-answer');
+        answer?.classList.toggle('hidden');
+    }
+
+    // Form Submission
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        alert('Thank you for your inquiry! We will contact you within 24 hours.');
+        e.target.reset();
+    }
+</script>
+
+<!-- Mobile Menu Styles (CSS) -->
+<style>
+    .mobile-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        padding-top: 120px;
+        z-index: 40;
+        gap: 1rem;
+    }
+
+    .mobile-menu.active {
+        left: 0;
+    }
+
+    .mobile-nav-link {
+        color: white;
+        font-weight: bold;
+        font-size: 0.875rem;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 6px;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    #hamburgerIcon.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+
+    #hamburgerIcon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #hamburgerIcon.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-8px, -7px);
+    }
+
+    .menu-overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 30;
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+    }
+</style>
+
+</body>
+</html>

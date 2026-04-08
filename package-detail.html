@@ -111,12 +111,12 @@
         
         <!-- Desktop Navigation -->
         <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#home">Home</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#destinations">Destinations</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#packages">Packages</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#services">Services</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#destinations">Blog</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="index.html#about">About Us</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Destinations</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#packages">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#services">Services</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#about">About Us</a>
         </div>
         
         <!-- Book a Trip Button (Desktop) -->
@@ -134,6 +134,19 @@
         </button>
     </div>
 </nav>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#destinations" class="mobile-nav-link">Destinations</a>
+    <a href="#packages" class="mobile-nav-link">Packages</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#destinations" class="mobile-nav-link">Blog</a>
+    <a href="#about" class="mobile-nav-link">About Us</a>
+    <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold transition-transform" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); toggleMobileMenu();">
+        Book a Trip
+    </button>
+</div>
 
 <!-- Hero Banner Section (Hero Image + Quick Info) -->
 <section class="relative pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12 md:pb-16 bg-gradient-to-b from-sky-blue/20 to-white">

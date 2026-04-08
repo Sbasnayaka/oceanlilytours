@@ -21,53 +21,57 @@
             theme: {
                 extend: {
                     "colors": {
-                        "inverse-surface": "#222f51",
-                        "surface-dim": "#ced9ff",
-                        "on-surface": "#0c1a3b",
-                        "tertiary-container": "#308445",
-                        "on-background": "#0c1a3b",
-                        "surface": "#faf8ff",
-                        "secondary": "#795079",
-                        "primary": "#00609a",
+                        "space-blue": "#1E2B4D",
+                        "ocean-blue": "#2491E0",
+                        "eco-green": "#409352",
+                        "sky-blue": "#BCE4FC",
+                        "inverse-surface": "#1E2B4D",
+                        "surface-dim": "#E8F4F8",
+                        "on-surface": "#1E2B4D",
+                        "tertiary-container": "#409352",
+                        "on-background": "#1E2B4D",
+                        "surface": "#F9FFFF",
+                        "secondary": "#2491E0",
+                        "primary": "#2491E0",
                         "on-error": "#ffffff",
-                        "surface-tint": "#00629e",
-                        "surface-bright": "#faf8ff",
-                        "tertiary-fixed-dim": "#84d990",
+                        "surface-tint": "#2491E0",
+                        "surface-bright": "#F9FFFF",
+                        "tertiary-fixed-dim": "#409352",
                         "on-primary-fixed": "#001d34",
                         "on-secondary-fixed": "#2f0d32",
                         "on-tertiary-container": "#f7fff2",
                         "error-container": "#ffdad6",
-                        "tertiary": "#0e6a2f",
-                        "primary-container": "#0079c1",
-                        "inverse-on-surface": "#eef0ff",
+                        "tertiary": "#409352",
+                        "primary-container": "#BCE4FC",
+                        "inverse-on-surface": "#E8F4F8",
                         "on-tertiary-fixed": "#002109",
                         "on-primary-fixed-variant": "#004a78",
                         "on-secondary-fixed-variant": "#603960",
-                        "inverse-primary": "#99cbff",
-                        "on-surface-variant": "#404751",
+                        "inverse-primary": "#2491E0",
+                        "on-surface-variant": "#5A6F7D",
                         "on-primary": "#ffffff",
-                        "surface-container-high": "#e2e7ff",
+                        "surface-container-high": "#E8F4F8",
                         "error": "#ba1a1a",
-                        "outline-variant": "#bfc7d3",
+                        "outline-variant": "#B0C4D0",
                         "on-tertiary": "#ffffff",
-                        "secondary-container": "#fecafa",
-                        "tertiary-fixed": "#a0f6aa",
+                        "secondary-container": "#E0F2FF",
+                        "tertiary-fixed": "#409352",
                         "surface-container-lowest": "#ffffff",
-                        "secondary-fixed": "#ffd6fa",
-                        "on-secondary-container": "#7a517a",
-                        "background": "#faf8ff",
-                        "primary-fixed-dim": "#99cbff",
-                        "surface-variant": "#dae2ff",
-                        "secondary-fixed-dim": "#e9b7e5",
-                        "surface-container-highest": "#dae2ff",
+                        "secondary-fixed": "#BCE4FC",
+                        "on-secondary-container": "#1E5B8C",
+                        "background": "#F9FFFF",
+                        "primary-fixed-dim": "#2491E0",
+                        "surface-variant": "#D4E8F0",
+                        "secondary-fixed-dim": "#2491E0",
+                        "surface-container-highest": "#E0F2FF",
                         "on-error-container": "#93000a",
-                        "surface-container-low": "#f2f3ff",
-                        "on-tertiary-fixed-variant": "#005321",
-                        "outline": "#707882",
+                        "surface-container-low": "#F0F8FB",
+                        "on-tertiary-fixed-variant": "#2A6340",
+                        "outline": "#7A8C99",
                         "on-secondary": "#ffffff",
-                        "on-primary-container": "#fdfcff",
-                        "surface-container": "#eaedff",
-                        "primary-fixed": "#cfe5ff"
+                        "on-primary-container": "#0D3D5C",
+                        "surface-container": "#E8F4F8",
+                        "primary-fixed": "#2491E0"
                     },
                     "borderRadius": {
                         "DEFAULT": "1rem",
@@ -79,6 +83,10 @@
                         "headline": ["Inter", "Plus Jakarta Sans"],
                         "body": ["Inter", "Be Vietnam Pro"],
                         "label": ["Inter", "Plus Jakarta Sans"]
+                    },
+                    "boxShadow": {
+                        "luxury": "0 20px 60px rgba(36, 145, 224, 0.12)",
+                        "elegant": "0 10px 30px rgba(64, 147, 82, 0.08)"
                     }
                 },
             },
@@ -333,7 +341,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,250</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Discover the misty hills of Ella, the ancient temples of Kandy, and the lush wildlife of Yala.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -349,7 +357,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $2,100</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">A private, candle-lit journey through Sri Lanka's most romantic boutique stays and golden beaches.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -365,7 +373,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $650</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Perfect for those short on time but wanting to see the historic heart of the island.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -381,7 +389,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $950</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Pristine beaches, coral reefs, and sunset sailing on the Indian Ocean.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -397,7 +405,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,800</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Traditional Ayurvedic treatments, yoga sessions, and health restoration.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -413,7 +421,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,100</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Tea plantations, mountain trains, waterfalls, and cool climate villages.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -429,7 +437,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,350</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Sacred temples, ancient ruins, palace complexes, and cultural sites.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -445,7 +453,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $3,200</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">14 days experiencing everything: beaches, mountains, wildlife, and luxury stays.</p>
-<button class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm">View Full Details</button>
+<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 

@@ -71,3 +71,5 @@ const galleryImages = [
     tags: ["wildlife", "safari", "nature", "adventure"]
   }
 ];
+
+window.galleryImages = galleryImages;

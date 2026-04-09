@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Package Details | Ocean Lilly Tours</title>
+<link rel="icon" type="image/png" href="../assets/img/fav-icon.png"/>
+
+<!-- Neo Grotesque Font: Inter (plus fallbacks) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<!-- Original fonts as fallback (kept for compatibility) -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="../assets/styles/main.css" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "space-blue": "#1E2B4D", "ocean-blue": "#2491E0", "eco-green": "#409352", "sky-blue": "#BCE4FC",
+                "inverse-surface": "#1E2B4D", "surface-dim": "#E8F4F8", "on-surface": "#1E2B4D",
+                "tertiary-container": "#409352", "on-background": "#1E2B4D", "surface": "#F9FFFF",
+                "secondary": "#2491E0", "primary": "#2491E0", "on-error": "#ffffff", "surface-tint": "#2491E0",
+                "surface-bright": "#F9FFFF", "tertiary-fixed-dim": "#409352", "on-primary-fixed": "#001d34",
+                "on-secondary-fixed": "#2f0d32", "on-tertiary-container": "#f7fff2", "error-container": "#ffdad6",
+                "tertiary": "#409352", "primary-container": "#BCE4FC", "inverse-on-surface": "#E8F4F8",
+                "on-tertiary-fixed": "#002109", "on-primary-fixed-variant": "#004a78", "on-secondary-fixed-variant": "#603960",
+                "inverse-primary": "#2491E0", "on-surface-variant": "#5A6F7D", "on-primary": "#ffffff",
+                "surface-container-high": "#E8F4F8", "error": "#ba1a1a", "outline-variant": "#B0C4D0",
+                "on-tertiary": "#ffffff", "secondary-container": "#E0F2FF", "tertiary-fixed": "#409352",
+                "surface-container-lowest": "#ffffff", "secondary-fixed": "#BCE4FC", "on-secondary-container": "#1E5B8C",
+                "background": "#F9FFFF", "primary-fixed-dim": "#2491E0", "surface-variant": "#D4E8F0",
+                "secondary-fixed-dim": "#2491E0", "surface-container-highest": "#E0F2FF", "on-error-container": "#93000a",
+                "surface-container-low": "#F0F8FB", "on-tertiary-fixed-variant": "#2A6340", "outline": "#7A8C99",
+                "on-secondary": "#ffffff", "on-primary-container": "#0D3D5C", "surface-container": "#E8F4F8",
+                "primary-fixed": "#2491E0"
+            },
+            "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+            "fontFamily": { "headline": ["Inter", "Plus Jakarta Sans"], "body": ["Inter", "Be Vietnam Pro"], "label": ["Inter", "Plus Jakarta Sans"] },
+            "boxShadow": { "luxury": "0 20px 60px rgba(36, 145, 224, 0.12)", "elegant": "0 10px 30px rgba(64, 147, 82, 0.08)" }
+        },
+    },
+}
+</script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-black/40 shadow-lg">
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a href="../index.html" class="inline-flex items-center gap-2 sm:gap-3">
+                <img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 md:h-14 w-auto drop-shadow-md hover:opacity-90 transition-opacity"/>
+                <span class="hidden md:inline text-white font-headline font-bold text-sm md:text-base tracking-tight">Ocean Lilly Tours</span>
+            </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="packages.html">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#services">Services</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="blog.html">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#about">About Us</a>
+        </div>
+        
+        <!-- Book a Trip Button -->
+        <button class="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-transform shadow-lg hover:scale-105">
+            Book Now
+        </button>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="md:hidden flex items-center z-50" id="hamburgerBtn">
+            <div class="hamburger" id="hamburgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html#home" class="mobile-nav-link">Home</a>
+    <a href="packages.html" class="mobile-nav-link">Packages</a>
+    <a href="../index.html#services" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="../index.html#about" class="mobile-nav-link">About Us</a>
+    <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold transition-transform" onclick="toggleMobileMenu();">
+        Book Now
+    </button>
+</div>
+
+<!-- Loading Indicator -->
+<div id="loading" class="fixed inset-0 flex items-center justify-center bg-black/20 z-50">
+    <div class="bg-white p-8 rounded-xl shadow-lg">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        <p class="text-center mt-4 text-on-surface font-semibold">Loading package...</p>
+    </div>
+</div>
+
+<!-- Package Content Container -->
+<div id="package-content" class="hidden">
+    <!-- Hero Image Section -->
+    <section class="relative h-96 sm:h-[500px] md:h-screen overflow-hidden pt-24">
+        <img id="hero-image" class="w-full h-full object-cover" src="" alt="Package"/>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+        <div class="absolute inset-0 flex items-end pb-8 sm:pb-12 md:pb-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
+                <h1 id="package-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-white mb-4"></h1>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span id="package-category" class="bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full"></span>
+                    <span class="bg-white text-on-surface text-xs font-bold px-3 py-1.5 rounded-full" id="package-days"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12 sm:py-16 md:py-20 bg-surface">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+            <!-- Quick Info -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
+                <div class="bg-primary-container p-4 md:p-6 rounded-lg text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-primary mb-2">💰</div>
+                    <p class="text-xs md:text-sm text-on-surface-variant mb-1">From</p>
+                    <p id="price-info" class="text-lg md:text-2xl font-boldtext-on-surface"></p>
+                </div>
+                <div class="bg-secondary-container p-4 md:p-6 rounded-lg text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-secondary mb-2">📅</div>
+                    <p class="text-xs md:text-sm text-on-surface-variant mb-1">Duration</p>
+                    <p id="duration-info" class="text-lg md:text-2xl font-bold text-on-surface"></p>
+                </div>
+                <div class="bg-tertiary-container p-4 md:p-6 rounded-lg text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-tertiary mb-2">🎯</div>
+                    <p class="text-xs md:text-sm text-on-surface-variant mb-1">Type</p>
+                    <p id="type-info" class="text-lg md:text-2xl font-bold text-on-surface"></p>
+                </div>
+                <div class="bg-surface-container-high p-4 md:p-6 rounded-lg text-center">
+                    <div class="text-2xl md:text-3xl font-bold mb-2">👥</div>
+                    <p class="text-xs md:text-sm text-on-surface-variant mb-1">Best For</p>
+                    <p id="best-for-info" class="text-lg md:text-2xl font-bold text-on-surface"></p>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold font-headline mb-4 text-on-surface">About This Package</h2>
+                <p id="long-description" class="text-base md:text-lg text-on-surface-variant leading-relaxed"></p>
+            </div>
+
+            <!-- Inclusions -->
+            <div class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold font-headline mb-6 text-on-surface">What's Included</h2>
+                <ul id="inclusions-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <!-- Populated by JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div class="mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold font-headline mb-6 text-on-surface">Destinations</h2>
+                <div id="destinations-list" class="flex flex-wrap gap-3">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                <button class="flex-1 bg-primary hover:bg-primary-container text-on-primary px-6 py-4 rounded-full font-headline font-bold text-base md:text-lg transition-all shadow-lg hover:shadow-xl">
+                    Book This Package
+                </button>
+                <a href="packages.html" class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-on-primary px-6 py-4 rounded-full font-headline font-bold text-base md:text-lg transition-all text-center">
+                    Back to All Packages
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Error Message -->
+<div id="error-message" class="hidden pt-32 pb-20 bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+        <div class="text-6xl mb-4">⚠️</div>
+        <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Package Not Found</h1>
+        <p class="text-lg text-on-surface-variant mb-8 max-w-md mx-auto">
+            Sorry, the package you're looking for doesn't exist or has been removed.
+        </p>
+        <a href="packages.html" class="inline-block bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-container transition-all">
+            Back to All Packages
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-on-surface text-white py-8 sm:py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+            <div class="space-y-2 sm:space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-widest">About</h3>
+                <p class="text-xs sm:text-sm opacity-80">Ocean Lilly Tours offers premium travel experiences in Sri Lanka with expert guides and luxury accommodations.</p>
+            </div>
+            <div class="space-y-2 sm:space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-widest">Quick Links</h3>
+                <ul class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                    <li><a href="../index.html" class="opacity-70 hover:opacity-100 transition-opacity">Home</a></li>
+                    <li><a href="packages.html" class="opacity-70 hover:opacity-100 transition-opacity">Packages</a></li>
+                    <li><a href="blog.html" class="opacity-70 hover:opacity-100 transition-opacity">Blog</a></li>
+                </ul>
+            </div>
+            <div class="space-y-2 sm:space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-widest">Contact</h3>
+                <p class="text-xs sm:text-sm opacity-80">Email: info@oceanlilytours.com</p>
+                <p class="text-xs sm:text-sm opacity-80">Phone: +94 (0) 123 456 7890</p>
+            </div>
+            <div class="space-y-2 sm:space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-widest">Follow Us</h3>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all text-xs">f</a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all text-xs">🐦</a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all text-xs">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-12 md:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p class="text-white/70 text-xs text-center md:text-left">
+                © 2026 | All Rights Reserved | oceanlilytours.com | Solution by: <a href="https://www.asseminate.com" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 transition-colors">Asseminate</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/pages/package-detail.js"></script>
+
+</body>
+</html>

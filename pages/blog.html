@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Blog | Ocean Lilly Tours</title>
+<link rel="icon" type="image/png" href="../assets/img/fav-icon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="../assets/styles/main.css" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"space-blue":"#1E2B4D","ocean-blue":"#2491E0","eco-green":"#409352","sky-blue":"#BCE4FC","inverse-surface":"#1E2B4D","surface-dim":"#E8F4F8","on-surface":"#1E2B4D","tertiary-container":"#409352","on-background":"#1E2B4D","surface":"#F9FFFF","secondary":"#2491E0","primary":"#2491E0","on-error":"#ffffff","surface-tint":"#2491E0","surface-bright":"#F9FFFF","tertiary-fixed-dim":"#409352","on-primary-fixed":"#001d34","on-secondary-fixed":"#2f0d32","on-tertiary-container":"#f7fff2","error-container":"#ffdad6","tertiary":"#409352","primary-container":"#BCE4FC","inverse-on-surface":"#E8F4F8","on-tertiary-fixed":"#002109","on-primary-fixed-variant":"#004a78","on-secondary-fixed-variant":"#603960","inverse-primary":"#2491E0","on-surface-variant":"#5A6F7D","on-primary":"#ffffff","surface-container-high":"#E8F4F8","error":"#ba1a1a","outline-variant":"#B0C4D0","on-tertiary":"#ffffff","secondary-container":"#E0F2FF","tertiary-fixed":"#409352","surface-container-lowest":"#ffffff","secondary-fixed":"#BCE4FC","on-secondary-container":"#1E5B8C","background":"#F9FFFF","primary-fixed-dim":"#2491E0","surface-variant":"#D4E8F0","secondary-fixed-dim":"#2491E0","surface-container-highest":"#E0F2FF","on-error-container":"#93000a","surface-container-low":"#F0F8FB","on-tertiary-fixed-variant":"#2A6340","outline":"#7A8C99","on-secondary":"#ffffff","on-primary-container":"#0D3D5C","surface-container":"#E8F4F8","primary-fixed":"#2491E0"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"fontFamily":{"headline":["Inter","Plus Jakarta Sans"],"body":["Inter","Be Vietnam Pro"],"label":["Inter","Plus Jakarta Sans"]},"boxShadow":{"luxury":"0 20px 60px rgba(36, 145, 224, 0.12)","elegant":"0 10px 30px rgba(64, 147, 82, 0.08)"}}}};</script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="fixed top-0 w-full z-50 bg-black/40 shadow-lg">
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a href="../index.html" class="inline-flex items-center gap-2 sm:gap-3">
+                <img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 md:h-14 w-auto drop-shadow-md hover:opacity-90 transition-opacity"/>
+                <span class="hidden md:inline text-white font-headline font-bold text-sm md:text-base tracking-tight">Ocean Lilly Tours</span>
+            </a>
+        </div>
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="packages.html">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-primary pb-1 transition-all duration-300" href="blog.html">Blog</a>
+        </div>
+        <button class="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-transform shadow-lg hover:scale-105">Book</button>
+        <button class="md:hidden flex items-center z-50" id="hamburgerBtn"><div class="hamburger" id="hamburgerIcon"><span></span><span></span><span></span></div></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="packages.html" class="mobile-nav-link">Packages</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold" onclick="toggleMobileMenu();">Book</button>
+</div>
+
+<section class="pt-32 pb-12 md:pb-20 bg-gradient-to-b from-primary/10 to-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold text-on-surface mb-4">Wanderlust Journals</h1>
+        <p class="text-base sm:text-lg text-on-surface-variant max-w-2xl">Discover inspiring travel stories, destination guides, and insider tips from our travel experts.</p>
+    </div>
+</section>
+
+<section class="py-12 sm:py-16 md:py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"><!-- Blog posts rendered here --></div>
+    </div>
+</section>
+
+<footer class="bg-on-surface text-white py-8 sm:py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8">
+            <div><h3 class="text-sm font-bold uppercase tracking-widest mb-2">About</h3><p class="text-xs sm:text-sm opacity-80">Ocean Lilly Tours offers premium travel experiences in Sri Lanka.</p></div>
+            <div><h3 class="text-sm font-bold uppercase tracking-widest mb-2">Links</h3><ul class="text-xs sm:text-sm space-y-1"><li><a href="../index.html" class="opacity-70 hover:opacity-100">Home</a></li><li><a href="packages.html" class="opacity-70 hover:opacity-100">Packages</a></li></ul></div>
+            <div><h3 class="text-sm font-bold uppercase tracking-widest mb-2">Contact</h3><p class="text-xs sm:text-sm opacity-80">Email: info@oceanlilytours.com</p></div>
+            <div><h3 class="text-sm font-bold uppercase tracking-widest mb-2">Follow</h3><div class="flex gap-3"><a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">f</a></div></div>
+        </div>
+        <div class="pt-4 border-t border-white/20 text-xs opacity-70 text-center">© 2026 Ocean Lilly Tours</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/pages/blog.js"></script>
+</body>
+</html>

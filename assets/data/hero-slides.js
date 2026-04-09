@@ -12,7 +12,7 @@ const heroSlides = [
     heading: "Ethereal Luxury in Sri Lanka.",
     heading_highlighted: "Luxury",
     description: "Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.",
-    image: "assets/uploads/hero-slider-p01.jpg",
+    image: "assets/uploads/hero-slider-p01.png",
     cta_primary_text: "Start Your Journey",
     cta_secondary_text: "Watch Experience",
     active: true
@@ -24,7 +24,7 @@ const heroSlides = [
     heading: "Ethereal Luxury in Sri Lanka.",
     heading_highlighted: "Luxury",
     description: "Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.",
-    image: "assets/uploads/hero-slider-p02.jpg",
+    image: "assets/uploads/hero-slider-p02.png",
     cta_primary_text: "Start Your Journey",
     cta_secondary_text: "Watch Experience",
     active: false
@@ -36,7 +36,7 @@ const heroSlides = [
     heading: "Ethereal Luxury in Sri Lanka.",
     heading_highlighted: "Luxury",
     description: "Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.",
-    image: "assets/uploads/hero-slider-p03.jpg",
+    image: "assets/uploads/hero-slider-p03.png",
     cta_primary_text: "Start Your Journey",
     cta_secondary_text: "Watch Experience",
     active: false
@@ -48,7 +48,7 @@ const heroSlides = [
     heading: "Ethereal Luxury in Sri Lanka.",
     heading_highlighted: "Luxury",
     description: "Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.",
-    image: "assets/uploads/hero-slider-p04.jpg",
+    image: "assets/uploads/hero-slider-p04.png",
     cta_primary_text: "Start Your Journey",
     cta_secondary_text: "Watch Experience",
     active: false
@@ -60,9 +60,11 @@ const heroSlides = [
     heading: "Ethereal Luxury in Sri Lanka.",
     heading_highlighted: "Luxury",
     description: "Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.",
-    image: "assets/uploads/hero-slider-p05.jpg",
+    image: "assets/uploads/hero-slider-p05.png",
     cta_primary_text: "Start Your Journey",
     cta_secondary_text: "Watch Experience",
     active: false
   }
 ];
+
+window.heroSlides = heroSlides;

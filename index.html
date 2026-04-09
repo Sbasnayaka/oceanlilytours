@@ -92,6 +92,8 @@
             },
         }
     </script>
+    <!-- Import Hero Slides Data -->
+    <script src="assets/data/hero-slides.js"></script>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
 
@@ -112,10 +114,10 @@
         <!-- Desktop Navigation -->
         <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
             <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#home">Home</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Destinations</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#packages">Packages</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#services">Services</a>
-            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#destinations">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="pages/packages.html">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="pages/blog.html">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="pages/gallery.html">Gallery</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="pages/contact.html">Contact</a>
             <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="#about">About Us</a>
         </div>
         
@@ -137,12 +139,12 @@
 
 <!-- Mobile Navigation Menu -->
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" class="mobile-nav-link">Home</a>
-    <a href="#destinations" class="mobile-nav-link">Destinations</a>
-    <a href="#packages" class="mobile-nav-link">Packages</a>
-    <a href="#services" class="mobile-nav-link">Services</a>
-    <a href="#destinations" class="mobile-nav-link">Blog</a>
-    <a href="#about" class="mobile-nav-link">About Us</a>
+    <a href="#home" onclick="toggleMobileMenu()" class="mobile-nav-link">Home</a>
+    <a href="pages/packages.html" class="mobile-nav-link">Packages</a>
+    <a href="pages/blog.html" class="mobile-nav-link">Blog</a>
+    <a href="pages/gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
+    <a href="#about" onclick="toggleMobileMenu()" class="mobile-nav-link">About Us</a>
     <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold transition-transform" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); toggleMobileMenu();">
         Book a Trip
     </button>
@@ -151,68 +153,8 @@
 <!-- Hero Slider Section (enhanced responsiveness) -->
 <section id="home" class="relative h-screen min-h-[600px] sm:min-h-[700px] md:min-h-[800px] overflow-hidden">
     <div class="swiper heroSwiper w-full h-full">
-        <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p01.png" alt="Sri Lanka Beach">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-3 sm:px-6 md:px-8 pt-8 sm:pt-0 hero-overlay-content">
-                    <div class="max-w-7xl mx-auto w-full">
-                        <div class="max-w-full sm:max-w-2xl space-y-3 sm:space-y-4 md:space-y-8">
-                            <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">
-                                <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
-                                <span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span>
-                            </div>
-                            <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">
-                                Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.
-                            </h1>
-                            <p class="text-xs sm:text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">
-                                Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.
-                            </p>
-                            <div class="flex flex-wrap gap-2 sm:gap-4">
-                                <button class="bg-primary text-on-primary px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-5 rounded-full font-headline font-bold text-xs sm:text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button>
-                                <button class="flex items-center gap-2 text-white font-headline font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 group text-xs sm:text-base">
-                                    <span class="material-symbols-outlined rounded-full border border-white/40 p-1 sm:p-2 group-hover:bg-white group-hover:text-primary transition-all text-base sm:text-lg">play_arrow</span>
-                                    <span class="hidden sm:inline">Watch Experience</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p02.png" alt="Sri Lanka Tea Plantations">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
-                    <div class="max-w-7xl mx-auto w-full"><div class="max-w-2xl space-y-4 md:space-y-8"><div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span></div><h1 class="text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.</h1><p class="text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.</p><div class="flex flex-wrap gap-4"><button class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button><button class="flex items-center gap-2 text-white font-headline font-bold px-6 md:px-8 py-3 md:py-5 group"><span class="material-symbols-outlined rounded-full border border-white/40 p-2 group-hover:bg-white group-hover:text-primary transition-all">play_arrow</span>Watch Experience</button></div></div></div>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p03.png" alt="Sri Lankan Wildlife">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
-                    <div class="max-w-7xl mx-auto w-full"><div class="max-w-2xl space-y-4 md:space-y-8"><div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span></div><h1 class="text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.</h1><p class="text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.</p><div class="flex flex-wrap gap-4"><button class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button><button class="flex items-center gap-2 text-white font-headline font-bold px-6 md:px-8 py-3 md:py-5 group"><span class="material-symbols-outlined rounded-full border border-white/40 p-2 group-hover:bg-white group-hover:text-primary transition-all">play_arrow</span>Watch Experience</button></div></div></div>
-                </div>
-            </div>
-            <!-- Slide 4 -->
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p04.png" alt="Sri Lanka Temple">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
-                    <div class="max-w-7xl mx-auto w-full"><div class="max-w-2xl space-y-4 md:space-y-8"><div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span></div><h1 class="text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.</h1><p class="text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.</p><div class="flex flex-wrap gap-4"><button class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button><button class="flex items-center gap-2 text-white font-headline font-bold px-6 md:px-8 py-3 md:py-5 group"><span class="material-symbols-outlined rounded-full border border-white/40 p-2 group-hover:bg-white group-hover:text-primary transition-all">play_arrow</span>Watch Experience</button></div></div></div>
-                </div>
-            </div>
-            <!-- Slide 5 -->
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="assets/uploads/hero-slider-p05.png" alt="Sri Lanka Beach Sunset">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                <div class="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
-                    <div class="max-w-7xl mx-auto w-full"><div class="max-w-2xl space-y-4 md:space-y-8"><div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="text-xs font-headline font-bold uppercase tracking-widest text-white">Discover The Pearl of Asia</span></div><h1 class="text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">Ethereal <span class="text-primary-fixed">Luxury</span> in Sri Lanka.</h1><p class="text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">Immerse yourself in a sanctuary where the Indian Ocean meets curated wellness and ancient heritage. Experience the island like never before.</p><div class="flex flex-wrap gap-4"><button class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-headline font-bold text-base md:text-lg shadow-2xl hover:scale-105 transition-all">Start Your Journey</button><button class="flex items-center gap-2 text-white font-headline font-bold px-6 md:px-8 py-3 md:py-5 group"><span class="material-symbols-outlined rounded-full border border-white/40 p-2 group-hover:bg-white group-hover:text-primary transition-all">play_arrow</span>Watch Experience</button></div></div></div>
-                </div>
-            </div>
+        <div class="swiper-wrapper" id="heroSwiperWrapper">
+            <!-- Hero slides will be rendered here by JavaScript -->
         </div>
             
         <!-- Navigation & Pagination -->
@@ -332,8 +274,8 @@
 <!-- Package 1 -->
 <div class="w-[280px] sm:w-[300px] md:w-[320px] flex-shrink-0 flex-grow-0 group flex flex-col h-full min-h-[380px] sm:min-h-[430px] md:min-h-[520px]">
 <div class="relative h-[220px] sm:h-[280px] md:h-[340px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcz2wkc5xGo62bhWNGoEnEn2zcJppcmSYyIIeos-oAASCUKOEULEwcmo61SaRbmRQgo2rA0MmvHNSXJRzDoOBvwVBRZSMmIAc9ythKGSK4tGux39i2qHkHpX_g1okd6D5PlJYZVPZNPcsvAgUOCUv7qlhz7u2WNAkoyvK-K3vlWR9toXHrME-BmdRfB4GxvYlR2HmocAHJlLF6c5xaNvgyAcjPjRIIbTOU-ibk7xgHkuEWHFp8sy2_19C16H5H9GdXQwWAiDVYyqPs"/>
-<div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-tertiary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Nature &amp; Wellness</div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhlO4O2CzcK3zeOjm0qV7bD_xWrZLF1PIb1fs6N_dkYLuRBu0VD4bNe5C2SXL1hZcntMHonEZHuPltAwSxVo-7SoBGXpqpZ8Ob9uN4UVQgJeuSc97EODgXIOm9oyduhJIYI8RFsT6x2spBNUlXxGaBcQKxCdhd_ShmpXybIsLwVKN7b9ft7DNVxvD1zkXoT4IxzuHO4PSaY7i7HgNvO23v-pNY75sE8waTWewK5ts3boi9UqiTEn1tEDiCcXovbmcFNkzOUR8naL8l"/>
+<div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-tertiary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Nature & Wellness</div>
 </div>
 <div class="space-y-2 sm:space-y-2 md:space-y-3 flex flex-col flex-grow justify-between">
 <div class="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start sm:items-center gap-2">
@@ -341,14 +283,14 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,250</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Discover the misty hills of Ella, the ancient temples of Kandy, and the lush wildlife of Yala.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=1" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
 <!-- Package 2 -->
 <div class="w-[280px] sm:w-[300px] md:w-[320px] flex-shrink-0 flex-grow-0 group flex flex-col h-full min-h-[380px] sm:min-h-[430px] md:min-h-[520px]">
 <div class="relative h-[220px] sm:h-[280px] md:h-[340px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp_8obXOqh8mvZqZXS17e_qjSPWWhUrTpjwCuMDFsqf5IGhF0p5s9c25IzWyOmDZXHxDF_FCAtKgSDd84v96AHdWuA7-q85lUwHrZJyS1k1yHKFjXF5i5SnpKBZ8QDGa0BU_gtlzXO83q3kQORqR8hNqRF2BTcsplpVx-D5de4KIxHD7Q24wX9452xA7vSqNUiWSgMJJNJz03c8gNWBWEc7CH9HXYS6_KpHemsB_tRLeRGxn6YT6hot6YuzzgPHriKb1FuAc1aGUW"/>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3yagudF0FqYqs0oGGZ8gcTWTfg8-NDG5DK5BWFCCoHTmGQ72cmn00LWiVXtJdZUX5AgYX0iqDlof_yecMUV_jvkdi5JROityNnKfSOeE6qLPAKXhPMF2TqAjBsKh0H6EZelwr6IWNYGcvcuvwhQlpOD-sGzS3MIuMqjcWMu64WTqnx7mGEtT7irms6eQZKBsIqydMFzQ1b-olfZZiRSzJ6C9jP_S8MJ1x_ogCkSXPyVwI2pk2c8GzQWRbTHd5_zblAeCZTsYav-8h"/>
 <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-secondary text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Romantic Luxury</div>
 </div>
 <div class="space-y-2 sm:space-y-2 md:space-y-3 flex flex-col flex-grow justify-between">
@@ -357,7 +299,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $2,100</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">A private, candle-lit journey through Sri Lanka's most romantic boutique stays and golden beaches.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=2" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -373,7 +315,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $650</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Perfect for those short on time but wanting to see the historic heart of the island.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=3" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -389,7 +331,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $950</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Pristine beaches, coral reefs, and sunset sailing on the Indian Ocean.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=4" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -405,7 +347,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,800</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Traditional Ayurvedic treatments, yoga sessions, and health restoration.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=5" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -421,7 +363,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,100</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Tea plantations, mountain trains, waterfalls, and cool climate villages.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=6" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -437,7 +379,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $1,350</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">Sacred temples, ancient ruins, palace complexes, and cultural sites.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=7" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -453,7 +395,7 @@
 <span class="bg-secondary-container text-secondary text-xs font-bold px-2 sm:px-3 py-1 rounded-lg flex-shrink-0">From $3,200</span>
 </div>
 <p class="text-on-surface-variant line-clamp-2 text-xs sm:text-sm">14 days experiencing everything: beaches, mountains, wildlife, and luxury stays.</p>
-<a href="package-detail.html" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
+<a href="pages/package-detail.html?id=8" class="w-full py-2 sm:py-2.5 md:py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-xs sm:text-sm block text-center">View Full Details</a>
 </div>
 </div>
 
@@ -643,6 +585,84 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Temporary Data Files (Fallback until backend ready) -->
+<script src="assets/data/hero-slides.js"></script>
+<script src="assets/data/packages.js"></script>
+<script src="assets/data/blog-posts.js"></script>
+<script src="assets/data/testimonials.js"></script>
+<script src="assets/data/faqs.js"></script>
+<script src="assets/data/services.js"></script>
+<script src="assets/data/gallery.js"></script>
+
+<!-- API Bridge - Handles all backend communication (loads AFTER data files) -->
+<script src="assets/js/api.js"></script>
+
+<!-- Initialize Hero Slides from Data -->
+<script>
+(function() {
+  function renderHeroSlides() {
+    if (typeof heroSlides === 'undefined') {
+      console.warn('heroSlides data not loaded');
+      return;
+    }
+    
+    const wrapper = document.getElementById('heroSwiperWrapper');
+    if (!wrapper) {
+      console.error('heroSwiperWrapper not found');
+      return;
+    }
+    
+    wrapper.innerHTML = '';
+    
+    heroSlides.forEach(slide => {
+      const slideHTML = `
+        <div class="swiper-slide relative">
+          <img class="w-full h-full object-cover" src="${slide.image}" alt="${slide.heading}">
+          <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col justify-center px-3 sm:px-6 md:px-8 pt-8 sm:pt-0 hero-overlay-content">
+            <div class="max-w-7xl mx-auto w-full">
+              <div class="max-w-full sm:max-w-2xl space-y-3 sm:space-y-4 md:space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">
+                  <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
+                  <span class="text-xs font-headline font-bold uppercase tracking-widest text-white">${slide.badge_text}</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">
+                  ${slide.heading}
+                </h1>
+                <p class="text-xs sm:text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">
+                  ${slide.description}
+                </p>
+                <div class="flex flex-wrap gap-2 sm:gap-4">
+                  <button class="bg-primary text-on-primary px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-5 rounded-full font-headline font-bold text-xs sm:text-base md:text-lg shadow-2xl hover:scale-105 transition-all">${slide.cta_primary_text}</button>
+                  <button class="flex items-center gap-2 text-white font-headline font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 group text-xs sm:text-base">
+                    <span class="material-symbols-outlined rounded-full border border-white/40 p-1 sm:p-2 group-hover:bg-white group-hover:text-primary transition-all text-base sm:text-lg">play_arrow</span>
+                    <span class="hidden sm:inline">${slide.cta_secondary_text}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      wrapper.insertAdjacentHTML('beforeend', slideHTML);
+    });
+    
+    // Re-initialize Swiper after slides are added
+    if (window.heroSwiper) {
+      window.heroSwiper.update();
+    }
+  }
+  
+  // Render slides when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderHeroSlides);
+  } else {
+    renderHeroSlides();
+  }
+})();
+</script>
+
 <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

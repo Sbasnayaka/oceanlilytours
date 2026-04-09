@@ -42,3 +42,5 @@ const services = [
     featured: true
   }
 ];
+
+window.services = services;

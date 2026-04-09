@@ -39,3 +39,5 @@ const testimonials = [
     source: "Direct Booking"
   }
 ];
+
+window.testimonials = testimonials;

@@ -41,3 +41,5 @@ const faqs = [
     order: 5
   }
 ];
+
+window.faqs = faqs;

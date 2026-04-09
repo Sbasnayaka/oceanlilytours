@@ -57,3 +57,5 @@ const blogPosts = [
     order: 3
   }
 ];
+
+window.blogPosts = blogPosts;

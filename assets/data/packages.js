@@ -391,3 +391,5 @@ const packages = [
     itinerary: []
   }
 ];
+
+window.packages = packages;

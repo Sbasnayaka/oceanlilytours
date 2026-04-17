@@ -22,7 +22,8 @@ Route::get('/setup-cpanel-db', function() {
     try {
         \Illuminate\Support\Facades\Artisan::call('config:clear');
         \Illuminate\Support\Facades\Artisan::call('cache:clear');
-        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        // 2. Then run fresh migrations (Drops any half-created corrupted tables from the previous crash)
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
         return "SUCCESS: Caches cleared and Database migrated successfully on cPanel!";
     } catch (\Exception $e) {
         return "ERROR: " . $e->getMessage();

@@ -31,34 +31,29 @@ Route::get('/setup-cpanel-db', function() {
 
 // AUTO-DIAGNOSTIC TOOL TO FIND THE EXACT SERVER FIX
 Route::get('/db-test', function() {
-    $results = "<h3>cPanel MySQL Diagnostic Tool</h3><br>";
+    $results = "<h3>cPanel MySQL Diagnostic Tool (Deep Scan)</h3><br>";
     $db = env('DB_DATABASE');
     $user = env('DB_USERNAME');
     $pass = env('DB_PASSWORD');
     
+    // Find exactly what this specific cPanel server thinks the socket is
+    $php_socket = ini_get('pdo_mysql.default_socket') ?: ini_get('mysqli.default_socket');
+    $results .= "<strong>Your cPanel's Internal Configured Socket:</strong> " . ($php_socket ?: "NOT SET") . "<br><br>";
+    
     $tests = [
-        ['name' => 'TCP/IP (127.0.0.1)', 'dsn' => "mysql:host=127.0.0.1;port=3306;dbname=$db"],
-        ['name' => 'Unix Socket Default (localhost)', 'dsn' => "mysql:host=localhost;dbname=$db"],
-        ['name' => 'cPanel Standard (/var/lib/mysql/mysql.sock)', 'dsn' => "mysql:unix_socket=/var/lib/mysql/mysql.sock;dbname=$db"],
-        ['name' => 'Linux Standard (/tmp/mysql.sock)', 'dsn' => "mysql:unix_socket=/tmp/mysql.sock;dbname=$db"],
-        ['name' => 'Debian Standard (/run/mysqld/mysqld.sock)', 'dsn' => "mysql:unix_socket=/run/mysqld/mysqld.sock;dbname=$db"]
+        ['name' => 'Internal Configured Socket', 'dsn' => "mysql:unix_socket=$php_socket;dbname=$db"],
+        ['name' => 'TCP/IP (127.0.0.1:3306)', 'dsn' => "mysql:host=127.0.0.1;port=3306;dbname=$db"],
+        ['name' => 'Cloud Host (jerzy.lk)', 'dsn' => "mysql:host=jerzy.lk;port=3306;dbname=$db"]
     ];
 
     foreach ($tests as $test) {
+        if (strpos($test['dsn'], '=;') !== false) continue; // Skip empty sockets
+        
         $results .= "Testing " . $test['name'] . "... ";
         try {
             $pdo = new \PDO($test['dsn'], $user, $pass);
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            $results .= "<strong style='color:green;'>SUCCESS! Use this configuration!</strong><br>";
-            $results .= "<i>Put this in your .env:</i> <br>";
-            if (strpos($test['dsn'], 'unix_socket') !== false) {
-                $sock = explode('=', explode(';', $test['dsn'])[0])[1];
-                $results .= "DB_HOST=localhost<br>DB_SOCKET=$sock<br><br>";
-            } else if (strpos($test['dsn'], '127.0.0.1') !== false) {
-                $results .= "DB_HOST=127.0.0.1<br><br>";
-            } else {
-                $results .= "DB_HOST=localhost<br><br>";
-            }
+            $results .= "<strong style='color:green;'>SUCCESS! Use this!</strong><br>";
         } catch (\PDOException $e) {
             $results .= "<span style='color:red;'>Failed: " . $e->getMessage() . "</span><br>";
         }

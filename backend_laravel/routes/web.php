@@ -20,14 +20,14 @@ Route::get('/', function () {
 // VERY IMPORTANT FOR CPANEL (NO TERMINAL ACCESS)
 Route::get('/setup-cpanel-db', function() {
     try {
-        // Run migrations
+        // 1. MUST CLEAR CACHE FIRST! If config is cached, it ignores your .env changes and crashes before clearing.
+        \Illuminate\Support\Facades\Artisan::call('config:clear');
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+        
+        // 2. Then run migrations
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         
-        // Clear caches just in case
-        \Illuminate\Support\Facades\Artisan::call('cache:clear');
-        \Illuminate\Support\Facades\Artisan::call('config:clear');
-        
-        return "SUCCESS: Database migrated and caches cleared successfully on cPanel!";
+        return "SUCCESS: Caches cleared and Database migrated successfully on cPanel!";
     } catch (\Exception $e) {
         return "ERROR: " . $e->getMessage();
     }

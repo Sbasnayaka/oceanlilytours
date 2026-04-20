@@ -62,3 +62,21 @@ Route::get('/db-test', function() {
     
     return $results;
 });
+
+// ADMIN PORTAL ROUTES
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminDashboardController;
+
+Route::prefix('admin')->group(function () {
+    // Guest Admin Routes
+    Route::middleware('guest:admin')->group(function () {
+        Route::get('login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+        Route::post('login', [AdminAuthController::class, 'login']);
+    });
+    
+    // Protected Admin Routes
+    Route::middleware('auth:admin')->group(function () {
+        Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+        Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    });
+});

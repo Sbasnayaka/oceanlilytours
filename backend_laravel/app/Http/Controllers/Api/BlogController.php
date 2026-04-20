@@ -10,16 +10,17 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
+        $query = BlogPost::with('category');
         if ($request->has('featured')) {
-            return response()->json(BlogPost::where('featured', true)->get());
+            $query->where('featured', true);
         }
         if ($request->has('slug')) {
-            $post = BlogPost::where('slug', $request->slug)->first();
+            $post = BlogPost::with('category')->where('slug', $request->slug)->first();
             if (!$post) {
                 return response()->json(['message' => 'Not found'], 404);
             }
             return response()->json($post);
         }
-        return response()->json(BlogPost::all());
+        return response()->json($query->get());
     }
 }

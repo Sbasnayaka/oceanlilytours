@@ -10,15 +10,16 @@ class PackageController extends Controller
 {
     public function index(Request $request)
     {
+        $query = Package::with('category');
         if ($request->has('featured')) {
-            return response()->json(Package::where('featured', true)->get());
+            $query->where('featured', true);
         }
-        return response()->json(Package::all());
+        return response()->json($query->get());
     }
 
     public function show($id)
     {
-        $package = Package::find($id);
+        $package = Package::with('category')->find($id);
         if (!$package) {
             return response()->json(['message' => 'Not found'], 404);
         }

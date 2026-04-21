@@ -46,36 +46,52 @@ tailwind.config = {
 
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- TopNavBar (Matches elegant design) -->
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
-    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full max-w-7xl mx-auto">
-        <a href="../index.html" class="inline-flex items-center gap-2 sm:gap-3">
-            <img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 w-auto drop-shadow-sm"/>
-            <span class="hidden md:inline text-secondary font-headline font-bold tracking-tight">Ocean Lilly Tours</span>
-        </a>
-        
-        <div class="hidden md:flex gap-8 items-center flex-1 justify-center">
-            <a class="nav-link font-semibold text-sm text-secondary hover:text-primary transition-colors" href="../index.html#home">Home</a>
-            <a class="nav-link font-semibold text-sm text-primary transition-colors" href="packages.html">Packages</a>
-            <a class="nav-link font-semibold text-sm text-secondary hover:text-primary transition-colors" href="../index.html#services">Services</a>
-            <a class="nav-link font-semibold text-sm text-secondary hover:text-primary transition-colors" href="blog.html">Blog</a>
-            <a class="nav-link font-semibold text-sm text-secondary hover:text-primary transition-colors" href="../index.html#about">About Us</a>
+<!-- TopNavBar – Identical to Home Page -->
+<nav class="fixed top-0 w-full z-50 bg-[#1E2B4D] shadow-lg">
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a href="../index.html" class="inline-flex items-center gap-2 sm:gap-3">
+                <img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 md:h-14 w-auto drop-shadow-md hover:opacity-90 transition-opacity"/>
+                <span class="hidden md:inline text-white font-headline font-bold text-sm md:text-base tracking-tight">Ocean Lilly Tours</span>
+            </a>
         </div>
         
-        <button class="hidden sm:block bg-primary hover:bg-opacity-90 text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm transition-all shadow-md">
-            Consult Expert
-        </button>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent border-white pb-1 transition-all duration-300" href="packages.html">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="blog.html">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="gallery.html">Gallery</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="contact.html">Contact</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#about">About Us</a>
+        </div>
         
-        <button class="md:hidden flex items-center z-50 text-secondary" id="hamburgerBtn">
-            <div class="hamburger text-secondary" id="hamburgerIcon">
-                <span class="bg-secondary"></span><span class="bg-secondary"></span><span class="bg-secondary"></span>
+        <!-- Book a Trip Button (Desktop) -->
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center bg-primary hover:bg-primary-container text-white hover:text-[#0D3D5C] px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-all shadow-lg hover:scale-105">
+            Book a Trip
+        </a>
+        
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="md:hidden flex items-center z-50 text-white" id="hamburgerBtn">
+            <div class="hamburger text-white" id="hamburgerIcon">
+                <span class="bg-white"></span><span class="bg-white"></span><span class="bg-white"></span>
             </div>
         </button>
     </div>
 </nav>
 
-<div class="mobile-menu bg-white" id="mobileMenu">
-    <!-- Mobile menu contents... -->
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu bg-[#1E2B4D] text-white" id="mobileMenu">
+    <a href="../index.html#home" onclick="toggleMobileMenu()" class="mobile-nav-link text-white">Home</a>
+    <a href="packages.html" class="mobile-nav-link text-white">Packages</a>
+    <a href="blog.html" class="mobile-nav-link text-white">Blog</a>
+    <a href="gallery.html" class="mobile-nav-link text-white">Gallery</a>
+    <a href="contact.html" class="mobile-nav-link text-white">Contact</a>
+    <a href="../index.html#about" onclick="toggleMobileMenu()" class="mobile-nav-link text-white">About Us</a>
+    <a href="contact.html" class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-white text-center px-6 py-3 rounded-full font-headline font-semibold transition-transform">
+        Book a Trip
+    </a>
 </div>
 
 <!-- Loading -->

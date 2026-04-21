@@ -18,11 +18,11 @@ function renderPackageCard(pkg) {
       <div class="relative h-56 sm:h-64 md:h-72 rounded-t-xl overflow-hidden">
         <img 
           class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-          src="${pkg.featured_image || 'assets/uploads/placeholder.jpg'}" 
+          src="${API.getImageUrl(pkg.image_url)}" 
           alt="${pkg.name}"
         />
         <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-${pkg.tag_color || 'primary'} text-white text-xs font-bold px-3 py-1 rounded-full truncate max-w-xs">
-          ${pkg.tag || pkg.category_label || 'Package'}
+          ${(pkg.categories && pkg.categories.length > 0) ? pkg.categories[0].name : (pkg.category ? pkg.category.name : 'Package')}
         </div>
         <div class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-on-surface text-surface text-xs font-bold px-3 py-1 rounded-full">
           ${pkg.duration_days} Days

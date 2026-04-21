@@ -33,14 +33,17 @@
             </a>
             
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">Tours</div>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('packages.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-suitcase w-5"></i> Packages
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('categories.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-tags w-5"></i> Categories
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('bookings.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-calendar-check w-5"></i> Bookings
+            </a>
+            <a href="{{ route('inquiries.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-envelope-open-text w-5"></i> Inquiries
             </a>
 
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">Content</div>

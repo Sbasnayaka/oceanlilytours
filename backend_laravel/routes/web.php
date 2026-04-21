@@ -66,6 +66,10 @@ Route::get('/db-test', function() {
 // ADMIN PORTAL ROUTES
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminPackageController;
+use App\Http\Controllers\AdminInquiryController;
+use App\Http\Controllers\AdminBookingController;
 
 Route::prefix('admin')->group(function () {
     // Guest Admin Routes
@@ -78,5 +82,11 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        
+        // Group A: Tourism Core
+        Route::resource('categories', AdminCategoryController::class);
+        Route::resource('packages', AdminPackageController::class);
+        Route::resource('inquiries', AdminInquiryController::class)->only(['index', 'show', 'destroy', 'update']);
+        Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy', 'update']);
     });
 });

@@ -19,4 +19,9 @@ class CategoryTour extends Model
         'display_order',
         'active'
     ];
+
+    public function packages()
+    {
+        return $this->belongsToMany(Package::class, 'category_tour_package', 'category_tour_id', 'package_id');
+    }
 }

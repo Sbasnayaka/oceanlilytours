@@ -32,8 +32,9 @@
     }
 
     packages.forEach(pkg => {
-      const categorySlug = pkg.category ? pkg.category.slug : 'default';
-      const categoryName = pkg.category ? pkg.category.name : 'Tour';
+      const primaryCat = (pkg.categories && pkg.categories.length > 0) ? pkg.categories[0] : pkg.category;
+      const categorySlug = primaryCat ? primaryCat.slug : 'default';
+      const categoryName = primaryCat ? primaryCat.name : 'Tour';
       const badgeColor = tourCategoryColorMap[categorySlug] || 'bg-primary';
 
       // Ensure price is formatted nicely string like "1,250"

@@ -10,7 +10,7 @@ class PackageController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Package::with('category');
+        $query = Package::with(['category', 'categories', 'itineraries']);
         if ($request->has('featured')) {
             $query->where('featured', true);
         }
@@ -19,7 +19,7 @@ class PackageController extends Controller
 
     public function show($id)
     {
-        $package = Package::with('category')->find($id);
+        $package = Package::with(['category', 'categories', 'itineraries'])->find($id);
         if (!$package) {
             return response()->json(['message' => 'Not found'], 404);
         }

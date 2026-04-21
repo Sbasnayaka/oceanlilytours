@@ -43,7 +43,7 @@
       const cardHTML = `
         <div class="w-[280px] sm:w-[300px] md:w-[320px] flex-shrink-0 flex-grow-0 group flex flex-col h-full min-h-[380px] sm:min-h-[430px] md:min-h-[520px]">
           <div class="relative h-[220px] sm:h-[280px] md:h-[340px] rounded-xl overflow-hidden mb-3 sm:mb-4 md:mb-5">
-            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${API.getImageUrl(pkg.image_url)}"/>
+            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${pkg.image_url}"/>
             <div class="absolute top-3 left-3 sm:top-4 sm:left-4 ${badgeColor} text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full">${categoryName}</div>
           </div>
           <div class="space-y-2 sm:space-y-2 md:space-y-3 flex flex-col flex-grow justify-between">

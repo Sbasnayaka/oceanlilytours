@@ -14,18 +14,7 @@ const API_BASE_URL = window.location.hostname.includes('jerzy.lk')
   ? '/oceanlilly/backend_laravel/public/api' 
   : '/api';
 
-const ROOT_BASE_URL = window.location.hostname.includes('jerzy.lk') 
-  ? '/oceanlilly/backend_laravel/public' 
-  : '';
-
 const API = {
-  // Utility for correctly mapping image paths regardless of cPanel or localhost
-  getImageUrl: (url) => {
-    if (!url) return '../assets/img/placeholder.jpg';
-    if (url.startsWith('http')) return url;
-    return ROOT_BASE_URL + url;
-  },
-  
   // ===== PACKAGES =====
   
   /**

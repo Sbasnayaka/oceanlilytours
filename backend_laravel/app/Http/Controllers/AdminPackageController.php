@@ -7,6 +7,7 @@ use App\Models\CategoryTour;
 use App\Models\PackageItinerary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class AdminPackageController extends Controller
 {
@@ -160,7 +161,25 @@ class AdminPackageController extends Controller
 
     public function destroy(Package $package)
     {
+        // 1. Delete main package image
+        if ($package->image_url) {
+            $imagePath = public_path(parse_url($package->image_url, PHP_URL_PATH));
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+        }
+
+        // 2. Delete all itinerary images
+        foreach ($package->itineraries as $itin) {
+            if ($itin->image_url) {
+                $itinPath = public_path(parse_url($itin->image_url, PHP_URL_PATH));
+                if (File::exists($itinPath)) {
+                    File::delete($itinPath);
+                }
+            }
+        }
+
         $package->delete(); // Automatically cascades to package_itineraries and category pivot table natively
-        return redirect()->route('packages.index')->with('success', 'Package cleanly deleted.');
+        return redirect()->route('packages.index')->with('success', 'Package completely deleted (images removed from server).');
     }
 }

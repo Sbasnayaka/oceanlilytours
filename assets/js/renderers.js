@@ -25,7 +25,7 @@
     const packages = await window.API.getPackages(); 
     container.innerHTML = '';
     
-    if (packages.length === 0) {
+    if (!packages || !Array.isArray(packages) || packages.length === 0) {
       container.innerHTML = '<p class="text-on-surface-variant p-4">No packages found.</p>';
       return;
     }
@@ -67,7 +67,7 @@
     const posts = await window.API.getFeaturedBlog();
     container.innerHTML = '';
     
-    if (posts.length === 0) {
+    if (!posts || !Array.isArray(posts) || posts.length === 0) {
       container.innerHTML = '<p class="text-on-surface-variant p-4">No content found.</p>';
       return;
     }
@@ -101,7 +101,7 @@
     const services = await window.API.getServices();
     container.innerHTML = '';
     
-    if (!services || services.length === 0) {
+    if (!services || !Array.isArray(services) || services.length === 0) {
       container.innerHTML = '<p class="text-on-surface-variant p-4">No services available yet.</p>';
       return;
     }

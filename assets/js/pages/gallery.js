@@ -93,7 +93,7 @@ async function loadGallery() {
 
     galleryImages = await API.getGallery();
 
-    if (!galleryImages || galleryImages.length === 0) {
+    if (!galleryImages || !Array.isArray(galleryImages) || galleryImages.length === 0) {
       galleryContainer.innerHTML = `<div class="col-span-full text-center py-12"><p class="text-on-surface-variant">No images available yet.</p></div>`;
       return;
     }

@@ -73,7 +73,9 @@
       return;
     }
 
-    posts.forEach(post => {
+    const displayPosts = posts.slice(0, 3);
+    
+    displayPosts.forEach(post => {
       const categoryName = post.category ? post.category.name : 'Journal';
       
       const cardHTML = `

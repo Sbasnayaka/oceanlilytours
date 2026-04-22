@@ -77,15 +77,28 @@
 </section>
 
 <!-- Gallery Lightbox Overlay -->
-<div id="gallery-lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300">
-    <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[110]">
-        <span class="material-symbols-outlined text-4xl">close</span>
+<div id="gallery-lightbox" class="fixed inset-0 z-[100] bg-white/95 dark:bg-black/95 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="absolute top-4 sm:top-6 left-4 sm:left-6 text-black dark:text-white font-semibold text-sm sm:text-lg" id="lightbox-counter">1/1</div>
+    
+    <button id="close-lightbox" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-black dark:text-white hover:text-primary transition-colors z-[110]">
+        <span class="material-symbols-outlined text-3xl sm:text-4xl font-bold">close</span>
     </button>
-    <div class="relative w-full max-w-5xl h-full max-h-[85vh] flex items-center justify-center p-4">
-        <img id="lightbox-image" src="" alt="Gallery Image" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300" />
-    </div>
-    <div class="absolute bottom-6 w-full text-center px-4">
-        <h3 id="lightbox-title" class="text-white font-headline font-bold text-lg md:text-xl"></h3>
+    
+    <button id="prev-lightbox" class="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 text-black dark:text-white hover:text-primary transition-colors z-[110]">
+        <span class="material-symbols-outlined text-4xl sm:text-5xl font-bold">chevron_left</span>
+    </button>
+    
+    <button id="next-lightbox" class="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 text-black dark:text-white hover:text-primary transition-colors z-[110]">
+        <span class="material-symbols-outlined text-4xl sm:text-5xl font-bold">chevron_right</span>
+    </button>
+
+    <div class="relative w-full max-w-5xl h-full max-h-[85vh] flex items-center justify-center p-4 sm:p-12">
+        <div class="relative max-h-full">
+            <img id="lightbox-image" src="" alt="Gallery Image" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300" />
+            <div id="lightbox-caption-container" class="absolute bottom-0 left-0 right-0 bg-black/80 text-white p-4 sm:p-6 rounded-b-lg hidden">
+                <p id="lightbox-desc" class="text-sm sm:text-base leading-relaxed"></p>
+            </div>
+        </div>
     </div>
 </div>
 

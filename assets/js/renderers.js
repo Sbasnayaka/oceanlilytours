@@ -115,9 +115,9 @@
       const cardHTML = `
         <div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
           <div class="w-12 h-12 md:w-14 md:h-14 bg-${color}/10 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:bg-${color} group-hover:text-on-primary transition-colors flex-shrink-0">
-            <span class="material-symbols-outlined text-xl sm:text-2xl md:text-3xl">${service.icon_name || 'volunteer_activism'}</span>
+            <span class="material-symbols-outlined text-xl sm:text-2xl md:text-3xl">${service.icon || 'volunteer_activism'}</span>
           </div>
-          <h3 class="text-base sm:text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">${service.name}</h3>
+          <h3 class="text-base sm:text-lg md:text-xl font-headline font-bold mb-2 md:mb-3">${service.title}</h3>
           <p class="text-on-surface-variant leading-relaxed text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">${service.description}</p>
           <a class="text-primary font-bold inline-flex items-center gap-2 text-xs sm:text-sm hover:gap-3 transition-all" href="#contact">Contact Us <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
         </div>

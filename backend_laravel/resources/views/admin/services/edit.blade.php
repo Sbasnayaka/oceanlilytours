@@ -22,8 +22,18 @@
             </div>
 
             <div>
-                <label class="block text-sm font-bold text-gray-700 mb-1">FontAwesome Icon Class</label>
-                <input type="text" name="icon" value="{{ $service->icon }}" placeholder="e.g., fas fa-car" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1">Icon Name (Material Symbols)</label>
+                <input type="text" id="icon-input" name="icon" value="{{ $service->icon }}" placeholder="e.g., flight_takeoff" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <p class="text-xs text-gray-500 mt-1">
+                    Find free icons at:
+                    <a href="https://fonts.google.com/icons" target="_blank" class="text-blue-600 font-semibold underline hover:text-blue-800">fonts.google.com/icons</a>
+                    — Copy the icon name (e.g. <code class="bg-gray-100 px-1 rounded">flight_takeoff</code>, <code class="bg-gray-100 px-1 rounded">hotel</code>, <code class="bg-gray-100 px-1 rounded">nature_people</code>).
+                </p>
+                {{-- Live Icon Preview --}}
+                <div id="icon-preview" class="{{ $service->icon ? '' : 'hidden' }} mt-2 flex items-center gap-2 text-blue-600 text-sm font-medium">
+                    <span id="preview-icon" class="material-symbols-outlined text-2xl">{{ $service->icon }}</span>
+                    <span id="preview-label" class="text-gray-500">"{{ $service->icon }}"</span>
+                </div>
             </div>
             
             <div class="md:col-span-2">
@@ -34,6 +44,7 @@
             <div>
                 <label class="block text-sm font-bold text-gray-700 mb-1">Display Order</label>
                 <input type="number" name="display_order" value="{{ $service->display_order }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <p class="text-xs text-gray-500 mt-1">Lower numbers appear first (0 = top).</p>
             </div>
 
             <div class="flex items-center mt-6">
@@ -51,4 +62,31 @@
         </div>
     </form>
 </div>
+
+{{-- Load Material Symbols for preview --}}
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+@push('scripts')
+<script>
+(function() {
+    var input = document.getElementById('icon-input');
+    var preview = document.getElementById('icon-preview');
+    var previewIcon = document.getElementById('preview-icon');
+    var previewLabel = document.getElementById('preview-label');
+
+    if (!input) return;
+
+    input.addEventListener('input', function() {
+        var val = input.value.trim();
+        if (val.length > 0) {
+            previewIcon.textContent = val;
+            previewLabel.textContent = '"' + val + '"';
+            preview.classList.remove('hidden');
+        } else {
+            preview.classList.add('hidden');
+        }
+    });
+})();
+</script>
+@endpush
 @endsection

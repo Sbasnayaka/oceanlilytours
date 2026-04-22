@@ -32,9 +32,9 @@
             <tr class="hover:bg-gray-50 transition">
                 <td class="p-4 text-center">
                     @if($service->icon)
-                        <i class="{{ $service->icon }} text-2xl text-blue-600"></i>
+                        <span class="material-symbols-outlined text-2xl text-blue-600">{{ $service->icon }}</span>
                     @else
-                        <i class="fas fa-concierge-bell text-2xl text-gray-300"></i>
+                        <span class="material-symbols-outlined text-2xl text-gray-300">volunteer_activism</span>
                     @endif
                 </td>
                 <td class="p-4">

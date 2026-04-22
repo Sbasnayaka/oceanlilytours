@@ -1,6 +1,5 @@
 /**
  * Ocean Lilly Tours - Dynamic Renderers
- * =====================================
  * This script transforms API data into DOM elements.
  */
 

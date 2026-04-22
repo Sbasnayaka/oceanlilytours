@@ -9,7 +9,7 @@ function renderGalleryImage(image, index) {
   `;
 }
 
-// Lightbox logic
+// Lightbox logic function
 function openLightbox(index) {
     currentIndex = index;
     updateLightboxContent();

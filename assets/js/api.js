@@ -126,6 +126,22 @@ const API = {
     return posts.slice(0, 3);
   },
 
+  // ===== SERVICES =====
+
+  getServices: async () => {
+    try {
+      console.log('🔄 Fetching services from API...');
+      const response = await fetch(`${API_BASE_URL}/services`);
+      if (response.ok) {
+        console.log('✅ Services loaded successfully');
+        return response.json();
+      }
+    } catch (err) {
+      console.warn('⚠️ Backend API not ready, using local data');
+    }
+    return window.services || [];
+  },
+
   // ===== GALLERY =====
 
   getGallery: async () => {

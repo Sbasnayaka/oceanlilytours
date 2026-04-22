@@ -26,7 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/packages', [PackageController::class, 'index']);
 Route::get('/packages/{id}', [PackageController::class, 'show']);
+use App\Http\Controllers\Api\ServiceController;
+
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/hero-slides', [HeroSlideController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);

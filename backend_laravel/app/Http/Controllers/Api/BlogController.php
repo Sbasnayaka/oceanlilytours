@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        $query = BlogPost::with('category');
+        $query = BlogPost::with('category')->where('published', true);
         if ($request->has('featured')) {
             $query->where('featured', true);
         }

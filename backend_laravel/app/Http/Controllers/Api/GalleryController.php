@@ -9,6 +9,6 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        return response()->json(GalleryImage::all());
+        return response()->json(GalleryImage::where('active', true)->orderBy('display_order', 'asc')->get());
     }
 }

@@ -71,6 +71,11 @@ use App\Http\Controllers\AdminPackageController;
 use App\Http\Controllers\AdminInquiryController;
 use App\Http\Controllers\AdminBookingController;
 
+use App\Http\Controllers\AdminBlogCategoryController;
+use App\Http\Controllers\AdminBlogPostController;
+use App\Http\Controllers\AdminServiceController;
+use App\Http\Controllers\AdminGalleryController;
+
 Route::prefix('admin')->group(function () {
     // Guest Admin Routes
     Route::middleware('guest:admin')->group(function () {
@@ -88,5 +93,11 @@ Route::prefix('admin')->group(function () {
         Route::resource('packages', AdminPackageController::class);
         Route::resource('inquiries', AdminInquiryController::class)->only(['index', 'show', 'destroy', 'update']);
         Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy', 'update']);
+
+        // Group B: Content & Assets
+        Route::resource('blog-categories', AdminBlogCategoryController::class);
+        Route::resource('blog-posts', AdminBlogPostController::class);
+        Route::resource('services', AdminServiceController::class);
+        Route::resource('gallery', AdminGalleryController::class);
     });
 });

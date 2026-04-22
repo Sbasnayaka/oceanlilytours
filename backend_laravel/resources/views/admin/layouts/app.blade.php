@@ -47,13 +47,16 @@
             </a>
 
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">Content</div>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('blog-posts.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-blog w-5"></i> Blog Posts
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('blog-categories.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-tags w-5"></i> Blog Categories
+            </a>
+            <a href="{{ route('gallery.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-images w-5"></i> Gallery
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('services.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-concierge-bell w-5"></i> Services
             </a>
 

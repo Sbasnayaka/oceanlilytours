@@ -24,12 +24,17 @@ function displayPost(post) {
   document.getElementById('loading').classList.add('hidden');
   document.getElementById('blog-content').classList.remove('hidden');
   
+  const categoryName = post.category ? post.category.name : 'Journal';
+  const postDate = post.created_at ? new Date(post.created_at).toLocaleDateString() : 'Recent';
+
   document.getElementById('post-image').src = post.featured_image || 'assets/uploads/placeholder.jpg';
   document.getElementById('post-title').textContent = post.title;
-  document.getElementById('post-date').textContent = post.date;
-  document.getElementById('post-readtime').textContent = post.read_time;
-  document.getElementById('post-category').textContent = post.category;
-  document.getElementById('post-body').textContent = post.content;
+  document.getElementById('post-date').textContent = postDate;
+  document.getElementById('post-readtime').textContent = '5 min read';
+  document.getElementById('post-category').textContent = categoryName;
+  
+  // VERY IMPORTANT: Use innerHTML to render TinyMCE Rich Text safely
+  document.getElementById('post-body').innerHTML = post.content;
   
   document.title = `${post.title} | Ocean Lilly Tours`;
 }

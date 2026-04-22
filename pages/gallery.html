@@ -14,13 +14,54 @@
 <body class="bg-surface font-body text-on-surface antialiased">
 <div class="menu-overlay" id="menuOverlay"></div>
 <nav class="fixed top-0 w-full z-50 bg-black/40 shadow-lg">
-<div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
-<div class="flex items-center gap-2"><a href="../index.html" class="inline-flex items-center"><img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 md:h-14 w-auto hover:opacity-90"/></a></div>
-<div class="hidden md:flex gap-6 items-center flex-1 justify-center"><a href="../index.html" class="font-bold text-sm text-white border-b-2 border-transparent hover:border-white pb-1">Home</a><a href="packages.html" class="font-bold text-sm text-white border-b-2 border-transparent hover:border-white pb-1">Packages</a></div>
-<button class="md:hidden" id="hamburgerBtn"><div class="hamburger" id="hamburgerIcon"><span></span><span></span><span></span></div></button>
-</div>
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 py-4 w-full">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a href="../index.html" class="inline-flex items-center gap-2 sm:gap-3">
+                <img src="../assets/img/Logo.png" alt="Ocean Lilly Tours" class="h-10 sm:h-12 md:h-14 w-auto drop-shadow-md hover:opacity-90 transition-opacity"/>
+                <span class="hidden md:inline text-white font-headline font-bold text-sm md:text-base tracking-tight">Ocean Lilly Tours</span>
+            </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 lg:gap-8 items-center flex-1 justify-center">
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#home">Home</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="packages.html">Packages</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="blog.html">Blog</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-primary pb-1 transition-all duration-300" href="gallery.html">Gallery</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="contact.html">Contact</a>
+            <a class="nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300" href="../index.html#about">About Us</a>
+        </div>
+        
+        <!-- Book a Trip Button (Desktop) -->
+        <a href="contact.html" class="hidden sm:block bg-primary hover:bg-primary-container text-on-primary px-4 sm:px-6 py-2 md:py-2.5 rounded-full font-headline font-semibold text-xs sm:text-sm transition-transform shadow-lg hover:scale-105">
+            Book a Trip
+        </a>
+        
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="md:hidden flex items-center z-50" id="hamburgerBtn">
+            <div class="hamburger" id="hamburgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><a href="../index.html" class="mobile-nav-link">Home</a><a href="packages.html" class="mobile-nav-link">Packages</a><button class="w-11/12 mx-auto block mt-6 bg-primary text-white px-6 py-3 rounded-full font-semibold" onclick="toggleMobileMenu();">Close</button></div>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html#home" class="mobile-nav-link">Home</a>
+    <a href="packages.html" class="mobile-nav-link">Packages</a>
+    <a href="../index.html#services" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="../index.html#about" class="mobile-nav-link">About Us</a>
+    <button class="w-11/12 mx-auto block mt-6 bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-headline font-semibold transition-transform" onclick="window.location.href='contact.html'; toggleMobileMenu();">
+        Book a Trip
+    </button>
+</div>
 
 <section class="pt-32 pb-12 md:pb-20 bg-gradient-to-b from-primary/10 to-surface">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -35,8 +76,31 @@
 </div>
 </section>
 
-<footer class="bg-on-surface text-white py-8 md:py-16">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center text-xs opacity-70">© 2026 Ocean Lilly Tours</div>
+<!-- Gallery Lightbox Overlay -->
+<div id="gallery-lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+    <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[110]">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <div class="relative w-full max-w-5xl h-full max-h-[85vh] flex items-center justify-center p-4">
+        <img id="lightbox-image" src="" alt="Gallery Image" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300" />
+    </div>
+    <div class="absolute bottom-6 w-full text-center px-4">
+        <h3 id="lightbox-title" class="text-white font-headline font-bold text-lg md:text-xl"></h3>
+    </div>
+</div>
+
+<footer class="bg-slate-900 dark:bg-black w-full pt-8 sm:pt-12 md:pt-20 pb-6 md:pb-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+<div class="space-y-3 sm:space-y-4"><span class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-4 block font-headline">Ocean Lilly Tours</span><p class="leading-relaxed text-slate-300 text-xs sm:text-sm">Premium boutique travel agency based in Sri Lanka, dedicated to showcasing the island's most refined experiences.</p><div class="flex gap-3 sm:gap-4"><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">social_leaderboard</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">camera_enhance</span></a><a class="text-sky-400 hover:text-sky-300 transition-colors" href="#"><span class="material-symbols-outlined text-lg sm:text-xl">play_circle</span></a></div></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Quick Links</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="../index.html#home">Destinations</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="packages.html">Packages</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="contact.html">Wellness Retreats</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="../index.html#about">Sustainable Travel</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Legal</h4><ul class="space-y-1 sm:space-y-2"><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Privacy Policy</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="#">Terms &amp; Conditions</a></li><li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="contact.html">Contact Us</a></li></ul></div>
+<div class="space-y-3 sm:space-y-4"><h4 class="text-white font-semibold text-sm sm:text-base">Join Our Newsletter</h4><p class="text-slate-400 text-xs sm:text-sm">Curated travel stories and exclusive offers.</p><div class="flex gap-2"><input class="bg-slate-800 border-none rounded-lg p-2 sm:p-3 text-xs sm:text-sm text-white w-full" placeholder="Email" type="email"/><button class="bg-primary p-2 sm:p-3 rounded-lg flex-shrink-0"><span class="material-symbols-outlined text-white text-lg sm:text-xl">send</span></button></div></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-12 md:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+    <p class="text-slate-500 text-xs text-center md:text-left">
+          © 2026 | All Rights Reserved |  oceanlilytours.com | Solution by : 
+          <a href="https://www.asseminate.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Asseminate </a>
+    </p><div class="flex gap-2 sm:gap-4"><img alt="Visa" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGedIMARAaNa8S8EvIInYBB_yBitjbOn0bev8Plo8ySYT9OjZ8_RvWV75GMe3IYYdkHzGbAmHpnicM_oe3UZlcxc4zFMm4z9WofrzLiW4JqLInc1czFGhdffJsjB0XThiQCByoX0jyJ1cysiFx3mq7apKSRaOwqdFmju52e2LFi6U5eb68rLWy8bzmXjqnNIxCxgnT04uFFajWVazXBOMzfwFSwfs1b8dVvxs_zXg9fBTHvro8UK5VCjJlCSdhw8XC-HDKuBZ6pWx"/><img alt="Mastercard" class="h-3 sm:h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulNgP9M17OX3xhtfQCddEFJBsE4XyvAVL8PEt3gCQPnc4RITwj2AsmzZPwgXGkHth_Fu8yrkGRZzBUcGjoUdqSG3dlmC480XLUqshZTifsUrV25ubBfywg-IHsFt2vJqMAqVqBwZXu8Y_xisCHmP9mhvqjHZYE_M1GDMAuyBoybwK0M0jUpfE8d6o_uFoC3cgq7jna_ifTpPMfgIjk9NalSJXydMXVm_O9OphxL1yOLd91cGQLYywPLmWbYvU0R7mUlU4mNyYlpEF"/></div></div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

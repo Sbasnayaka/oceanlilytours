@@ -76,6 +76,11 @@ use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\AdminGalleryController;
 
+// Group C: Social & Partners
+use App\Http\Controllers\AdminTestimonialController;
+use App\Http\Controllers\AdminTripadvisorController;
+use App\Http\Controllers\AdminPartnerController;
+
 Route::prefix('admin')->group(function () {
     // Guest Admin Routes
     Route::middleware('guest:admin')->group(function () {
@@ -99,5 +104,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('blog-posts', AdminBlogPostController::class);
         Route::resource('services', AdminServiceController::class);
         Route::resource('gallery', AdminGalleryController::class);
+
+        // Group C: Social & Partners
+        Route::resource('testimonials', AdminTestimonialController::class);
+        Route::resource('tripadvisor', AdminTripadvisorController::class);
+        Route::resource('partners', AdminPartnerController::class);
     });
 });

@@ -62,11 +62,14 @@
             </a>
 
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">Social</div>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('testimonials.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fas fa-star w-5"></i> Testimonials
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+            <a href="{{ route('tripadvisor.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
                 <i class="fab fa-tripadvisor w-5"></i> TripAdvisor
+            </a>
+            <a href="{{ route('partners.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-handshake w-5"></i> Partners
             </a>
             
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">System</div>

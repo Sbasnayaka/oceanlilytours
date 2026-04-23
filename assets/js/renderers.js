@@ -125,15 +125,105 @@
     });
   }
 
+  async function renderTestimonials() {
+    const container = document.getElementById('testimonials-swiper-wrapper');
+    if (!container) return;
+
+    const testimonials = await window.API.getTestimonials();
+
+    if (!testimonials || !Array.isArray(testimonials) || testimonials.length === 0) {
+      // No admin data yet — keep the hardcoded static slides, do nothing
+      return;
+    }
+
+    // Clear existing static slides and replace with DB data
+    container.innerHTML = '';
+
+    const cardStyles = ['glass-panel border border-outline-variant/10', 'bg-primary/5 border border-primary/10'];
+
+    testimonials.forEach((t, index) => {
+      // Build star icons based on rating (1-5)
+      const rating = parseInt(t.rating) || 5;
+      let starsHTML = '';
+      for (let i = 1; i <= 5; i++) {
+        const filled = i <= rating ? "'FILL' 1" : "'FILL' 0";
+        starsHTML += `<span class="material-symbols-outlined" style="font-variation-settings: ${filled};">star</span>`;
+      }
+
+      // Profile image or letter avatar fallback
+      const avatarHTML = t.profile_image
+        ? `<img class="w-full h-full object-cover" src="${t.profile_image}" alt="${t.name}"/>`
+        : `<div class="w-full h-full flex items-center justify-center bg-primary/20 text-primary font-bold text-lg">${t.name.charAt(0).toUpperCase()}</div>`;
+
+      const cardClass = cardStyles[index % cardStyles.length];
+
+      const slideHTML = `
+        <div class="swiper-slide h-auto">
+          <div class="${cardClass} p-4 sm:p-6 md:p-10 rounded-xl space-y-3 sm:space-y-4 md:space-y-6 h-full flex flex-col">
+            <div class="flex gap-1 text-primary">${starsHTML}</div>
+            <p class="italic text-on-surface-variant leading-relaxed text-xs sm:text-sm md:text-base flex-grow">"${t.review_text}"</p>
+            <div class="flex items-center gap-3 sm:gap-4 mt-auto">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
+                ${avatarHTML}
+              </div>
+              <div>
+                <p class="font-headline font-bold text-xs sm:text-sm">${t.name}</p>
+                <p class="text-xs text-on-surface-variant">${t.location || ''}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', slideHTML);
+    });
+
+    // Reinitialize Swiper so the new slides register properly
+    if (window.testimonialsSwiper) {
+      window.testimonialsSwiper.update();
+    }
+  }
+
+  async function renderPartners() {
+    const container = document.getElementById('partners-logos-container');
+    if (!container) return;
+
+    const partners = await window.API.getPartners();
+
+    if (!partners || !Array.isArray(partners) || partners.length === 0) {
+      // Hide the entire section if no partners yet
+      const section = document.getElementById('partners-section');
+      if (section) section.style.display = 'none';
+      return;
+    }
+
+    container.innerHTML = '';
+
+    partners.forEach(partner => {
+      const logoHTML = partner.logo_image
+        ? `<img src="${partner.logo_image}" alt="${partner.name}" class="h-10 sm:h-12 md:h-14 w-auto max-w-[120px] sm:max-w-[150px] object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />`
+        : `<span class="text-on-surface-variant font-bold text-sm">${partner.name}</span>`;
+
+      const wrapperHTML = partner.profile_link
+        ? `<a href="${partner.profile_link}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-3 sm:p-4 rounded-xl hover:bg-surface-container transition-all" title="${partner.name}">${logoHTML}</a>`
+        : `<div class="flex items-center justify-center p-3 sm:p-4 rounded-xl" title="${partner.name}">${logoHTML}</div>`;
+
+      container.insertAdjacentHTML('beforeend', wrapperHTML);
+    });
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       renderPackages();
       renderBlogs();
       renderServices();
+      renderTestimonials();
+      renderPartners();
     });
   } else {
     renderPackages();
     renderBlogs();
     renderServices();
+    renderTestimonials();
+    renderPartners();
   }
 })();

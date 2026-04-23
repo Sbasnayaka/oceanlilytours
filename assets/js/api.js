@@ -144,6 +144,21 @@ const API = {
     }
   },
 
+  // ===== PARTNERS =====
+
+  getPartners: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/partners`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log('✅ Partners loaded from API');
+      return Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.warn('⚠️ Partners API error, using local data:', err.message);
+      return window.partners || [];
+    }
+  },
+
   // ===== HERO SLIDES =====
 
   getHeroSlides: async () => {

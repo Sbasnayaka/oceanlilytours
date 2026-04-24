@@ -81,6 +81,14 @@ use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminTripadvisorController;
 use App\Http\Controllers\AdminPartnerController;
 
+// Group D: Frontend Interface
+use App\Http\Controllers\AdminHeroSlideController;
+use App\Http\Controllers\AdminWhyChooseUsController;
+use App\Http\Controllers\AdminAboutUsController;
+use App\Http\Controllers\AdminNavbarController;
+use App\Http\Controllers\AdminFooterController;
+use App\Http\Controllers\AdminSettingController;
+
 Route::prefix('admin')->group(function () {
     // Guest Admin Routes
     Route::middleware('guest:admin')->group(function () {
@@ -109,5 +117,17 @@ Route::prefix('admin')->group(function () {
         Route::resource('testimonials', AdminTestimonialController::class);
         Route::resource('tripadvisor', AdminTripadvisorController::class);
         Route::resource('partners', AdminPartnerController::class);
+
+        // Group D: Frontend Interface
+        Route::resource('hero-slides', AdminHeroSlideController::class);
+        Route::resource('why-choose-us', AdminWhyChooseUsController::class);
+        Route::get('about-us', [AdminAboutUsController::class, 'edit'])->name('about-us.edit');
+        Route::post('about-us', [AdminAboutUsController::class, 'update'])->name('about-us.update');
+        Route::resource('navbar-items', AdminNavbarController::class);
+        Route::resource('footer-items', AdminFooterController::class);
+
+        // Step 7: System Governance
+        Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');
+        Route::post('settings', [AdminSettingController::class, 'update'])->name('settings.update');
     });
 });

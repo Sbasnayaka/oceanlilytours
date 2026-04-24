@@ -72,12 +72,24 @@
                 <i class="fas fa-handshake w-5"></i> Partners
             </a>
             
-            <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">System</div>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
-                <i class="fas fa-layer-group w-5"></i> UI Layout
+            <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-4">System & Layout</div>
+            <a href="{{ route('hero-slides.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-film w-5"></i> Hero Slider
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
-                <i class="fas fa-cog w-5"></i> Settings
+            <a href="{{ route('why-choose-us.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-check-double w-5"></i> Features
+            </a>
+            <a href="{{ route('about-us.edit') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-info-circle w-5"></i> About Page
+            </a>
+            <a href="{{ route('navbar-items.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-bars w-5"></i> Navbar
+            </a>
+            <a href="{{ route('footer-items.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-shoe-prints w-5"></i> Footer
+            </a>
+            <a href="{{ route('settings.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300 mt-4 border-t border-gray-800 pt-4">
+                <i class="fas fa-cog w-5"></i> System Settings
             </a>
         </nav>
         

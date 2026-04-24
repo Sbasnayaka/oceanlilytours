@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class FooterContent extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'section',
+        'key_name',
+        'value',
+        'display_order',
+        'active',
+    ];
 }

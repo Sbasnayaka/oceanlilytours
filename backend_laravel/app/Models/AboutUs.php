@@ -25,7 +25,7 @@ class AboutUs extends Model
      */
     public function getTeamImageAttribute($value)
     {
-        if ($value && !filter_var($value, FILTER_VALIDATE_URL)) {
+        if ($value && !filter_var($value, FILTER_VALIDATE_URL) && !str_starts_with($value, 'assets/')) {
             return url($value);
         }
         return $value;

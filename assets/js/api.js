@@ -174,6 +174,58 @@ const API = {
     }
   },
 
+  getNavbarItems: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/navbar-items`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log('✅ Navbar items loaded from API');
+      return Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.warn('⚠️ Navbar API error');
+      return [];
+    }
+  },
+
+  getFooterContent: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/footer-content`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log('✅ Footer content loaded from API');
+      return Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.warn('⚠️ Footer API error');
+      return [];
+    }
+  },
+
+  getAboutUs: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/about-us`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log('✅ About Us loaded from API');
+      return data;
+    } catch (err) {
+      console.warn('⚠️ About Us API error');
+      return null;
+    }
+  },
+
+  getWhyChooseUs: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/why-choose-us`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log('✅ Why Choose Us loaded from API');
+      return Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.warn('⚠️ Why Choose Us API error');
+      return [];
+    }
+  },
+
   // ===== CONTACT FORM =====
 
   submitContact: async (data) => {

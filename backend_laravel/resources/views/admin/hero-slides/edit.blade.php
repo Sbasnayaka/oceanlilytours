@@ -26,8 +26,18 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div class="md:col-span-2">
-                <label class="block text-sm font-bold text-gray-700 mb-1">Slide Title <span class="text-red-500">*</span></label>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Slide Heading (H1) <span class="text-red-500">*</span></label>
                 <input type="text" name="title" value="{{ old('title', $slide->title) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Badge Text</label>
+                <input type="text" name="badge_text" value="{{ old('badge_text', $slide->badge_text) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Display Order <span class="text-red-500">*</span></label>
+                <input type="number" name="display_order" value="{{ old('display_order', $slide->display_order) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
             </div>
 
             <div class="md:col-span-2">
@@ -37,12 +47,10 @@
 
             <div class="space-y-4">
                 <label class="block text-sm font-bold text-gray-700 mb-1">Update Slide Image</label>
-                
                 <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 mb-4">
                     <span class="text-[10px] font-bold text-gray-400 uppercase block mb-2">Current Image Preview</span>
                     <img src="{{ $slide->image_url }}" class="w-full h-32 object-cover rounded-lg shadow-sm border border-white" alt="Current image">
                 </div>
-
                 <div class="space-y-4">
                     <div>
                         <span class="text-xs text-gray-500 block mb-1">Option A: Upload New File</span>
@@ -63,25 +71,25 @@
             <div class="space-y-6">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Display Order <span class="text-red-500">*</span></label>
-                        <input type="number" name="display_order" value="{{ old('display_order', $slide->display_order) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Primary CTA Text</label>
+                        <input type="text" name="cta_primary_text" value="{{ old('cta_primary_text', $slide->cta_primary_text) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Primary CTA URL</label>
+                        <input type="text" name="button_url" value="{{ old('button_url', $slide->button_url) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Secondary CTA Text</label>
+                        <input type="text" name="cta_secondary_text" value="{{ old('cta_secondary_text', $slide->cta_secondary_text) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
                     </div>
                     <div class="flex items-end pb-2">
                         <label class="flex items-center cursor-pointer gap-2">
                             <input type="checkbox" name="active" value="1" {{ old('active', $slide->active) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 rounded border-gray-300">
                             <span class="text-sm font-bold text-gray-700">Active Slide</span>
                         </label>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Button Text</label>
-                        <input type="text" name="button_text" value="{{ old('button_text', $slide->button_text) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Button URL</label>
-                        <input type="text" name="button_url" value="{{ old('button_url', $slide->button_url) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
                     </div>
                 </div>
             </div>

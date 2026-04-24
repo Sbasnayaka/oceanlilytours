@@ -12,10 +12,13 @@ class HeroSlide extends Model
 
     protected $fillable = [
         'title',
+        'badge_text',
         'description',
         'image_url',
         'button_text',
         'button_url',
+        'cta_primary_text',
+        'cta_secondary_text',
         'display_order',
         'active',
     ];
@@ -25,7 +28,7 @@ class HeroSlide extends Model
      */
     public function getImageUrlAttribute($value)
     {
-        if ($value && !filter_var($value, FILTER_VALIDATE_URL)) {
+        if ($value && !filter_var($value, FILTER_VALIDATE_URL) && !str_starts_with($value, 'assets/')) {
             return url($value);
         }
         return $value;

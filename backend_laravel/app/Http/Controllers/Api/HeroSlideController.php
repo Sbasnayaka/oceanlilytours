@@ -9,6 +9,6 @@ class HeroSlideController extends Controller
 {
     public function index()
     {
-        return response()->json(HeroSlide::all());
+        return response()->json(HeroSlide::where('active', true)->orderBy('display_order', 'asc')->get());
     }
 }

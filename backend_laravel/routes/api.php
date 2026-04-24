@@ -37,4 +37,13 @@ Route::get('/testimonials', [TestimonialController::class, 'index']);
 Route::get('/partners', [PartnerController::class, 'index']);
 Route::get('/hero-slides', [HeroSlideController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+use App\Http\Controllers\Api\NavbarController;
+use App\Http\Controllers\Api\FooterController;
 
+use App\Http\Controllers\Api\AboutUsController;
+use App\Http\Controllers\Api\WhyChooseUsController;
+
+Route::get('/about-us', [AboutUsController::class, 'index']);
+Route::get('/why-choose-us', [WhyChooseUsController::class, 'index']);
+Route::get('/navbar-items', [NavbarController::class, 'index']);
+Route::get('/footer-content', [FooterController::class, 'index']);

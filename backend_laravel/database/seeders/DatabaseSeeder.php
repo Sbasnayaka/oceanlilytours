@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             PackageSeeder::class,
             BlogSeeder::class,
+            FrontendDataSeeder::class,
         ]);
     }
 }

@@ -25,8 +25,18 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div class="md:col-span-2">
-                <label class="block text-sm font-bold text-gray-700 mb-1">Slide Title <span class="text-red-500">*</span></label>
-                <input type="text" name="title" value="{{ old('title') }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="e.g. Discover Coastal Paradise">
+                <label class="block text-sm font-bold text-gray-700 mb-1">Slide Heading (H1) <span class="text-red-500">*</span></label>
+                <input type="text" name="title" value="{{ old('title') }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="e.g. Ethereal Luxury in Sri Lanka.">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Badge Text</label>
+                <input type="text" name="badge_text" value="{{ old('badge_text') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="e.g. Discover The Pearl of Asia">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Display Order <span class="text-red-500">*</span></label>
+                <input type="number" name="display_order" value="{{ old('display_order', 0) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
             </div>
 
             <div class="md:col-span-2">
@@ -38,7 +48,7 @@
                 <label class="block text-sm font-bold text-gray-700 mb-1">Slide Image <span class="text-red-500">*</span></label>
                 <div class="space-y-4">
                     <div>
-                        <span class="text-xs text-gray-500 block mb-1">Option A: Upload File (Recommended)</span>
+                        <span class="text-xs text-gray-500 block mb-1">Option A: Upload File</span>
                         <input type="file" name="image_file" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg outline-none transition text-sm text-gray-600 bg-gray-50">
                     </div>
                     <div class="flex items-center gap-4">
@@ -56,25 +66,25 @@
             <div class="space-y-6">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Display Order <span class="text-red-500">*</span></label>
-                        <input type="number" name="display_order" value="{{ old('display_order', 0) }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Primary CTA Text</label>
+                        <input type="text" name="cta_primary_text" value="{{ old('cta_primary_text', 'Start Your Journey') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Primary CTA URL</label>
+                        <input type="text" name="button_url" value="{{ old('button_url') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="/packages.html">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Secondary CTA Text</label>
+                        <input type="text" name="cta_secondary_text" value="{{ old('cta_secondary_text', 'Watch Experience') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
                     </div>
                     <div class="flex items-end pb-2">
                         <label class="flex items-center cursor-pointer gap-2">
                             <input type="checkbox" name="active" value="1" {{ old('active', 1) ? 'checked' : '' }} class="w-4 h-4 text-blue-600 rounded border-gray-300">
                             <span class="text-sm font-bold text-gray-700">Active Slide</span>
                         </label>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Button Text</label>
-                        <input type="text" name="button_text" value="{{ old('button_text') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="e.g. View Tours">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">Button URL</label>
-                        <input type="text" name="button_url" value="{{ old('button_url') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="/packages.html">
                     </div>
                 </div>
             </div>

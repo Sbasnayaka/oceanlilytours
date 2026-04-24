@@ -22,13 +22,16 @@ class AdminHeroSlideController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'         => 'required|max:255',
-            'description'   => 'nullable',
-            'image_file'    => 'nullable|image|max:5120',
-            'image_url'     => 'nullable|url|max:500',
-            'button_text'   => 'nullable|max:100',
-            'button_url'    => 'nullable|url|max:500',
-            'display_order' => 'required|integer',
+            'title'              => 'required|max:255',
+            'badge_text'         => 'nullable|max:100',
+            'description'        => 'nullable',
+            'image_file'         => 'nullable|image|max:5120',
+            'image_url'          => 'nullable|url|max:500',
+            'button_text'        => 'nullable|max:100',
+            'button_url'         => 'nullable|url|max:500',
+            'cta_primary_text'   => 'nullable|max:100',
+            'cta_secondary_text' => 'nullable|max:100',
+            'display_order'      => 'required|integer',
         ]);
 
         // Unique constraint check for active slides
@@ -41,7 +44,7 @@ class AdminHeroSlideController extends Controller
             }
         }
 
-        $data = $request->only(['title', 'description', 'button_text', 'button_url', 'display_order']);
+        $data = $request->only(['title', 'badge_text', 'description', 'button_text', 'button_url', 'cta_primary_text', 'cta_secondary_text', 'display_order']);
         $data['active'] = $request->has('active');
 
         // Handle image
@@ -71,13 +74,16 @@ class AdminHeroSlideController extends Controller
         $slide = HeroSlide::findOrFail($id);
 
         $request->validate([
-            'title'         => 'required|max:255',
-            'description'   => 'nullable',
-            'image_file'    => 'nullable|image|max:5120',
-            'image_url'     => 'nullable|url|max:500',
-            'button_text'   => 'nullable|max:100',
-            'button_url'    => 'nullable|url|max:500',
-            'display_order' => 'required|integer',
+            'title'              => 'required|max:255',
+            'badge_text'         => 'nullable|max:100',
+            'description'        => 'nullable',
+            'image_file'         => 'nullable|image|max:5120',
+            'image_url'          => 'nullable|url|max:500',
+            'button_text'        => 'nullable|max:100',
+            'button_url'         => 'nullable|url|max:500',
+            'cta_primary_text'   => 'nullable|max:100',
+            'cta_secondary_text' => 'nullable|max:100',
+            'display_order'      => 'required|integer',
         ]);
 
         // Unique constraint check for active slides (excluding self)
@@ -91,7 +97,7 @@ class AdminHeroSlideController extends Controller
             }
         }
 
-        $data = $request->only(['title', 'description', 'button_text', 'button_url', 'display_order']);
+        $data = $request->only(['title', 'badge_text', 'description', 'button_text', 'button_url', 'cta_primary_text', 'cta_secondary_text', 'display_order']);
         $data['active'] = $request->has('active');
 
         if ($request->hasFile('image_file')) {

@@ -20,8 +20,6 @@
     if (!container) return;
 
     container.innerHTML = '<p class="text-on-surface-variant p-4">Loading packages...</p>';
-    
-    // We fetch ALL Packages for index.html currently (based on layout).
     const packages = await window.API.getPackages(); 
     container.innerHTML = '';
     
@@ -35,8 +33,6 @@
       const categorySlug = primaryCat ? primaryCat.slug : 'default';
       const categoryName = primaryCat ? primaryCat.name : 'Tour';
       const badgeColor = tourCategoryColorMap[categorySlug] || 'bg-primary';
-
-      // Ensure price is formatted nicely string like "1,250"
       const priceStr = parseFloat(pkg.price).toLocaleString('en-US');
 
       const cardHTML = `
@@ -72,11 +68,8 @@
       return;
     }
 
-    const displayPosts = posts.slice(0, 3);
-    
-    displayPosts.forEach(post => {
+    posts.slice(0, 3).forEach(post => {
       const categoryName = post.category ? post.category.name : 'Journal';
-      
       const cardHTML = `
         <article class="space-y-3 sm:space-y-4 md:space-y-6 flex flex-col">
           <div class="overflow-hidden rounded-xl h-40 sm:h-48 md:h-64 flex-shrink-0">
@@ -107,10 +100,8 @@
     }
 
     const colors = ['primary', 'secondary', 'tertiary'];
-
     services.forEach((service, index) => {
       const color = colors[index % colors.length];
-      
       const cardHTML = `
         <div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl hover:shadow-xl transition-all group border border-outline-variant/10">
           <div class="w-12 h-12 md:w-14 md:h-14 bg-${color}/10 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:bg-${color} group-hover:text-on-primary transition-colors flex-shrink-0">
@@ -130,19 +121,12 @@
     if (!container) return;
 
     const testimonials = await window.API.getTestimonials();
+    if (!testimonials || testimonials.length === 0) return;
 
-    if (!testimonials || !Array.isArray(testimonials) || testimonials.length === 0) {
-      // No admin data yet — keep the hardcoded static slides, do nothing
-      return;
-    }
-
-    // Clear existing static slides and replace with DB data
     container.innerHTML = '';
-
     const cardStyles = ['glass-panel border border-outline-variant/10', 'bg-primary/5 border border-primary/10'];
 
     testimonials.forEach((t, index) => {
-      // Build star icons based on rating (1-5)
       const rating = parseInt(t.rating) || 5;
       let starsHTML = '';
       for (let i = 1; i <= 5; i++) {
@@ -150,13 +134,11 @@
         starsHTML += `<span class="material-symbols-outlined" style="font-variation-settings: ${filled};">star</span>`;
       }
 
-      // Profile image or letter avatar fallback
       const avatarHTML = t.profile_image
         ? `<img class="w-full h-full object-cover" src="${t.profile_image}" alt="${t.name}"/>`
         : `<div class="w-full h-full flex items-center justify-center bg-primary/20 text-primary font-bold text-lg">${t.name.charAt(0).toUpperCase()}</div>`;
 
       const cardClass = cardStyles[index % cardStyles.length];
-
       const slideHTML = `
         <div class="swiper-slide h-auto">
           <div class="${cardClass} p-4 sm:p-6 md:p-10 rounded-xl space-y-3 sm:space-y-4 md:space-y-6 h-full flex flex-col">
@@ -177,9 +159,40 @@
       container.insertAdjacentHTML('beforeend', slideHTML);
     });
 
-    // Reinitialize Swiper so the new slides register properly
-    if (window.testimonialsSwiper) {
-      window.testimonialsSwiper.update();
+    if (window.testimonialsSwiper) window.testimonialsSwiper.update();
+  }
+
+  async function renderAboutUs() {
+    const section = document.getElementById('about');
+    if (!section) return;
+
+    const about = await window.API.getAboutUs();
+    if (about) {
+        const h2 = section.querySelector('h2');
+        const p = section.querySelector('p');
+        const img = section.querySelector('img');
+        if (h2) h2.textContent = about.title;
+        if (p) p.textContent = about.description;
+        if (img && about.team_image) img.src = about.team_image;
+
+        const featuresContainer = section.querySelector('.space-y-4.sm\\:space-y-6');
+        if (featuresContainer) {
+            const features = await window.API.getWhyChooseUs();
+            if (features && features.length > 0) {
+                featuresContainer.innerHTML = '';
+                features.forEach(f => {
+                    featuresContainer.insertAdjacentHTML('beforeend', `
+                        <div class="flex gap-3 sm:gap-4 items-start">
+                            <span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg flex-shrink-0">${f.icon_class || 'verified_user'}</span>
+                            <div class="min-w-0">
+                                <h4 class="font-headline font-bold text-sm sm:text-base">${f.title}</h4>
+                                <p class="text-xs sm:text-sm text-on-surface-variant">${f.description}</p>
+                            </div>
+                        </div>
+                    `);
+                });
+            }
+        }
     }
   }
 
@@ -188,16 +201,13 @@
     if (!container) return;
 
     const partners = await window.API.getPartners();
-
-    if (!partners || !Array.isArray(partners) || partners.length === 0) {
-      // Hide the entire section if no partners yet
+    if (!partners || partners.length === 0) {
       const section = document.getElementById('partners-section');
       if (section) section.style.display = 'none';
       return;
     }
 
     container.innerHTML = '';
-
     partners.forEach(partner => {
       const logoHTML = partner.logo_image
         ? `<img src="${partner.logo_image}" alt="${partner.name}" class="h-10 sm:h-12 md:h-14 w-auto max-w-[120px] sm:max-w-[150px] object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />`
@@ -211,19 +221,124 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      renderPackages();
-      renderBlogs();
-      renderServices();
-      renderTestimonials();
-      renderPartners();
+  async function renderHeroSlides() {
+    const wrapper = document.getElementById('heroSwiperWrapper');
+    if (!wrapper) return;
+
+    const slides = await window.API.getHeroSlides();
+    if (!slides || slides.length === 0) return;
+
+    wrapper.innerHTML = '';
+    slides.forEach(slide => {
+      const slideHTML = `
+        <div class="swiper-slide relative">
+          <img class="w-full h-full object-cover" src="${slide.image_url}" alt="${slide.title}">
+          <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col justify-center px-3 sm:px-6 md:px-8 pt-8 sm:pt-0 hero-overlay-content">
+            <div class="max-w-7xl mx-auto w-full">
+              <div class="max-w-full sm:max-w-2xl space-y-3 sm:space-y-4 md:space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">
+                  <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
+                  <span class="text-xs font-headline font-bold uppercase tracking-widest text-white">${slide.badge_text || ''}</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter">
+                  ${slide.title}
+                </h1>
+                <p class="text-xs sm:text-base md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-lg">
+                  ${slide.description || ''}
+                </p>
+                <div class="flex flex-wrap gap-2 sm:gap-4">
+                  <a href="${slide.button_url || '#contact'}" class="bg-primary text-on-primary px-4 sm:px-6 md:px-10 py-2 sm:py-3 md:py-5 rounded-full font-headline font-bold text-xs sm:text-base md:text-lg shadow-2xl hover:scale-105 transition-all inline-block">${slide.cta_primary_text || 'Start Your Journey'}</a>
+                  <button class="flex items-center gap-2 text-white font-headline font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 group text-xs sm:text-base">
+                    <span class="material-symbols-outlined rounded-full border border-white/40 p-1 sm:p-2 group-hover:bg-white group-hover:text-primary transition-all text-base sm:text-lg">play_arrow</span>
+                    <span class="hidden sm:inline">${slide.cta_secondary_text || 'Watch Experience'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      wrapper.insertAdjacentHTML('beforeend', slideHTML);
     });
-  } else {
+
+    if (window.heroSwiper) window.heroSwiper.update();
+  }
+
+  async function renderNavbar() {
+    const desktopContainer = document.querySelector('.hidden.md\\:flex.gap-6.lg\\:gap-8');
+    const mobileContainer = document.getElementById('mobileMenu');
+    if (!desktopContainer || !mobileContainer) return;
+
+    const items = await window.API.getNavbarItems();
+    if (items && items.length > 0) {
+        desktopContainer.innerHTML = '';
+        const links = mobileContainer.querySelectorAll('.mobile-nav-link');
+        links.forEach(l => l.remove());
+
+        items.forEach(item => {
+            const dLink = document.createElement('a');
+            dLink.className = 'nav-link font-bold tracking-tight text-sm text-white border-b-2 border-transparent hover:border-white pb-1 transition-all duration-300';
+            dLink.href = item.url;
+            dLink.textContent = item.label;
+            desktopContainer.appendChild(dLink);
+
+            const mLink = document.createElement('a');
+            mLink.className = 'mobile-nav-link';
+            mLink.href = item.url;
+            mLink.textContent = item.label;
+            if (item.url && item.url.startsWith('#')) mLink.setAttribute('onclick', 'toggleMobileMenu()');
+            mobileContainer.insertBefore(mLink, mobileContainer.querySelector('button'));
+        });
+    }
+  }
+
+  async function renderFooter() {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const items = await window.API.getFooterContent();
+    if (items && items.length > 0) {
+        const sections = {};
+        items.forEach(item => {
+            if (!sections[item.section]) sections[item.section] = [];
+            sections[item.section].push(item);
+        });
+
+        const grid = footer.querySelector('.grid');
+        if (!grid) return;
+        
+        const columns = grid.querySelectorAll('.space-y-3');
+        columns.forEach(col => {
+            const title = col.querySelector('h4')?.textContent;
+            if (title && sections[title]) {
+                const ul = col.querySelector('ul');
+                if (ul) {
+                    ul.innerHTML = '';
+                    sections[title].forEach(link => {
+                        ul.insertAdjacentHTML('beforeend', `<li><a class="text-slate-400 hover:text-sky-300 transition-colors text-xs sm:text-sm" href="${link.value}">${link.key_name}</a></li>`);
+                    });
+                }
+            }
+        });
+    }
+  }
+
+  const initialize = () => {
+    renderHeroSlides();
+    renderNavbar();
+    renderAboutUs();
     renderPackages();
     renderBlogs();
     renderServices();
     renderTestimonials();
     renderPartners();
+    renderFooter();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
   }
 })();

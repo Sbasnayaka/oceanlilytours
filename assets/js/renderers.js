@@ -159,7 +159,12 @@
       container.insertAdjacentHTML('beforeend', slideHTML);
     });
 
-    if (window.testimonialsSwiper) window.testimonialsSwiper.update();
+    if (window.testimonialsSwiper) {
+        window.testimonialsSwiper.destroy();
+        // Trigger re-init via main.js or local re-init
+        const { initCarousel } = await import('./carousel.js');
+        initCarousel();
+    }
   }
 
   async function renderAboutUs() {
@@ -262,7 +267,11 @@
       wrapper.insertAdjacentHTML('beforeend', slideHTML);
     });
 
-    if (window.heroSwiper) window.heroSwiper.update();
+    if (window.heroSwiper) {
+        window.heroSwiper.destroy();
+        const { initCarousel } = await import('./carousel.js');
+        initCarousel();
+    }
   }
 
   async function renderNavbar() {

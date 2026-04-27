@@ -53,10 +53,6 @@
                     <label class="block text-sm font-bold text-gray-700 mb-1">Site Title</label>
                     <input type="text" name="settings[site_title]" value="{{ $settings['site_title']->value ?? '' }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary outline-none">
                 </div>
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Footer Copyright Text</label>
-                    <input type="text" name="settings[footer_copyright_text]" value="{{ $settings['footer_copyright_text']->value ?? '' }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary outline-none">
-                </div>
                 
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Site Main Logo</label>

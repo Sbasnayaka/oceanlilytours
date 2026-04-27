@@ -435,11 +435,6 @@
         }
         link.href = getAssetPath(settings.site_favicon);
     }
-
-    if (settings.footer_copyright_text) {
-        const el = document.getElementById('footer-copyright');
-        if (el) el.textContent = settings.footer_copyright_text;
-    }
   }
 
   const initialize = () => {

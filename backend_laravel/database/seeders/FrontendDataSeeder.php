@@ -147,7 +147,6 @@ class FrontendDataSeeder extends Seeder
             ['key_name' => 'site_title', 'value' => 'Ocean Lilly Tours', 'category' => 'Site Identity', 'value_type' => 'string'],
             ['key_name' => 'site_logo', 'value' => '', 'category' => 'Site Identity', 'value_type' => 'image'],
             ['key_name' => 'site_favicon', 'value' => '', 'category' => 'Site Identity', 'value_type' => 'image'],
-            ['key_name' => 'footer_copyright_text', 'value' => '© 2026 Ocean Lilly Tours. All Rights Reserved.', 'category' => 'Site Identity', 'value_type' => 'string'],
             
             ['key_name' => 'maintenance_mode', 'value' => '0', 'category' => 'Maintenance Mode', 'value_type' => 'boolean'],
             ['key_name' => 'maintenance_title', 'value' => 'Something Exciting is Coming!', 'category' => 'Maintenance Mode', 'value_type' => 'string'],

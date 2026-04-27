@@ -173,14 +173,31 @@
 
     const about = await window.API.getAboutUs();
     if (about) {
-        const h2 = section.querySelector('h2');
-        const p = section.querySelector('p');
+        const h2 = document.getElementById('about-title');
+        const p = document.getElementById('about-description');
         const img = section.querySelector('img');
-        if (h2) h2.textContent = about.title;
-        if (p) p.textContent = about.description;
+        
+        if (h2 && about.title) h2.textContent = about.title;
+        if (p && about.description) p.textContent = about.description;
         if (img && about.team_image) img.src = about.team_image;
 
-        const featuresContainer = section.querySelector('.space-y-4.sm\\:space-y-6');
+        // Mission
+        if (about.mission_text) {
+            document.getElementById('about-mission').textContent = about.mission_text;
+            document.getElementById('about-mission-container').classList.remove('hidden');
+        }
+        // Vision
+        if (about.vision_text) {
+            document.getElementById('about-vision').textContent = about.vision_text;
+            document.getElementById('about-vision-container').classList.remove('hidden');
+        }
+        // Values
+        if (about.values_text) {
+            document.getElementById('about-values').textContent = about.values_text;
+            document.getElementById('about-values-container').classList.remove('hidden');
+        }
+
+        const featuresContainer = document.getElementById('about-features');
         if (featuresContainer) {
             const features = await window.API.getWhyChooseUs();
             if (features && features.length > 0) {

@@ -49,7 +49,7 @@ class FrontendDataSeeder extends Seeder
         ];
 
         foreach ($heroSlides as $slide) {
-            HeroSlide::create($slide);
+            HeroSlide::firstOrCreate(['title' => $slide['title']], $slide);
         }
 
         // 2. Navbar Items
@@ -63,7 +63,7 @@ class FrontendDataSeeder extends Seeder
         ];
 
         foreach ($navbarItems as $item) {
-            NavbarItem::create($item);
+            NavbarItem::firstOrCreate(['label' => $item['label']], $item);
         }
 
         // 3. Footer Content
@@ -83,7 +83,7 @@ class FrontendDataSeeder extends Seeder
         ];
 
         foreach ($footerContent as $content) {
-            FooterContent::create($content);
+            FooterContent::firstOrCreate(['key_name' => $content['key_name']], $content);
         }
 
         // 4. Why Choose Us (Features)
@@ -107,18 +107,20 @@ class FrontendDataSeeder extends Seeder
         ];
 
         foreach ($features as $feature) {
-            WhyChooseUs::create($feature);
+            WhyChooseUs::firstOrCreate(['title' => $feature['title']], $feature);
         }
 
         // 5. About Us
-        AboutUs::create([
-            'title' => 'Crafting Unforgettable Coastal Memories.',
-            'description' => "At Ocean Lilly Tours, we believe travel is more than just a destination—it's a spiritual awakening. Founded on the principles of luxury nature and lotus elegance, we curate bespoke journeys that honor Sri Lanka's raw beauty while providing modern sanctuary.",
-            'mission_text' => 'To showcase the authentic soul of Sri Lanka through sustainable, ultra-luxury experiences.',
-            'vision_text' => 'To be the world’s most trusted boutique travel curator for the discerning explorer.',
-            'values_text' => 'Authenticity, Sustainability, Lotus Elegance, Personalized Care.',
-            'team_image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuDhlO4O2CzcK3zeOjm0qV7bD_xWrZLF1PIb1fs6N_dkYLuRBu0VD4bNe5C2SXL1hZcntMHonEZHuPltAwSxVo-7SoBGXpqpZ8Ob9uN4UVQgJeuSc97EODgXIOm9oyduhJIYI8RFsT6x2spBNUlXxGaBcQKxCdhd_ShmpXybIsLwVKN7b9ft7DNVxvD1zkXoT4IxzuHO4PSaY7i7HgNvO23v-pNY75sE8waTWewK5ts3boi9UqiTEn1tEDiCcXovbmcFNkzOUR8naL8l',
-        ]);
+        if (!AboutUs::first()) {
+            AboutUs::create([
+                'title' => 'Crafting Unforgettable Coastal Memories.',
+                'description' => "At Ocean Lilly Tours, we believe travel is more than just a destination—it's a spiritual awakening. Founded on the principles of luxury nature and lotus elegance, we curate bespoke journeys that honor Sri Lanka's raw beauty while providing modern sanctuary.",
+                'mission_text' => 'To showcase the authentic soul of Sri Lanka through sustainable, ultra-luxury experiences.',
+                'vision_text' => 'To be the world’s most trusted boutique travel curator for the discerning explorer.',
+                'values_text' => 'Authenticity, Sustainability, Lotus Elegance, Personalized Care.',
+                'team_image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuDhlO4O2CzcK3zeOjm0qV7bD_xWrZLF1PIb1fs6N_dkYLuRBu0VD4bNe5C2SXL1hZcntMHonEZHuPltAwSxVo-7SoBGXpqpZ8Ob9uN4UVQgJeuSc97EODgXIOm9oyduhJIYI8RFsT6x2spBNUlXxGaBcQKxCdhd_ShmpXybIsLwVKN7b9ft7DNVxvD1zkXoT4IxzuHO4PSaY7i7HgNvO23v-pNY75sE8waTWewK5ts3boi9UqiTEn1tEDiCcXovbmcFNkzOUR8naL8l',
+            ]);
+        }
 
         // 6. Default Settings
         $settings = [
@@ -132,7 +134,7 @@ class FrontendDataSeeder extends Seeder
         ];
 
         foreach ($settings as $setting) {
-            Setting::create($setting);
+            Setting::firstOrCreate(['key_name' => $setting['key_name']], $setting);
         }
     }
 }

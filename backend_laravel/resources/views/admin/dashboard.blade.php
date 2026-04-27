@@ -50,10 +50,26 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-100">
         <div class="p-6 border-b border-gray-100 flex justify-between items-center">
             <h3 class="text-lg font-bold text-gray-800">Recent Inquiries</h3>
-            <a href="#" class="text-sm text-blue-600 hover:underline">View All</a>
+            <a href="{{ route('inquiries.index') }}" class="text-sm text-blue-600 hover:underline">View All</a>
         </div>
-        <div class="p-6">
-            <p class="text-sm text-gray-500">No recent inquiries to display yet.</p>
+        <div class="p-0">
+            @if(isset($recentInquiries) && $recentInquiries->count() > 0)
+                <ul class="divide-y divide-gray-100">
+                    @foreach($recentInquiries as $inquiry)
+                    <li class="p-4 hover:bg-gray-50 transition">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-sm text-gray-800">{{ $inquiry->name }}</span>
+                            <span class="text-xs text-gray-500">{{ $inquiry->created_at->diffForHumans() }}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">{{ $inquiry->subject }}</p>
+                    </li>
+                    @endforeach
+                </ul>
+            @else
+                <div class="p-6">
+                    <p class="text-sm text-gray-500">No recent inquiries to display yet.</p>
+                </div>
+            @endif
         </div>
     </div>
 

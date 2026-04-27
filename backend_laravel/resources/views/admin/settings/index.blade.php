@@ -12,6 +12,7 @@
         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition flex items-center gap-2">
             <i class="fas fa-sync-alt"></i> Purge Cache
         </button>
+        <p class="text-[10px] text-gray-400 mt-1 max-w-[200px] leading-tight text-right">Click this if recent changes aren't showing up. It clears the server's temporary memory.</p>
     </form>
 </div>
 

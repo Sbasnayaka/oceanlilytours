@@ -8,6 +8,7 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $recentInquiries = \App\Models\Inquiry::orderBy('created_at', 'desc')->take(5)->get();
+        return view('admin.dashboard', compact('recentInquiries'));
     }
 }

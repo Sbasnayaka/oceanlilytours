@@ -129,5 +129,10 @@ Route::prefix('admin')->group(function () {
         // Step 7: System Governance
         Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');
         Route::post('settings', [AdminSettingController::class, 'update'])->name('settings.update');
+
+        // Phase 4: Admin Profile & Security
+        Route::get('profile', [\App\Http\Controllers\AdminProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('profile/password', [\App\Http\Controllers\AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
+        Route::resource('seo-pages', \App\Http\Controllers\AdminSeoPageController::class);
     });
 });

@@ -160,5 +160,22 @@ class FrontendDataSeeder extends Seeder
                 // Skip
             }
         }
+
+        // 7. SEO Pages
+        $seoPages = [
+            ['page_name' => 'home', 'page_url' => '/', 'meta_title' => 'Ocean Lilly Tours - Premium Boutique Travel in Sri Lanka', 'meta_description' => 'Experience the magic of Sri Lanka with our curated luxury tours and wellness retreats.'],
+            ['page_name' => 'packages', 'page_url' => '/pages/packages.html', 'meta_title' => 'Tour Packages | Ocean Lilly Tours', 'meta_description' => 'Browse our exclusive collection of luxury and adventure tours in Sri Lanka.'],
+            ['page_name' => 'blog', 'page_url' => '/pages/blog.html', 'meta_title' => 'Travel Blog | Ocean Lilly Tours', 'meta_description' => 'Read our latest travel stories, tips, and guides for exploring Sri Lanka.'],
+            ['page_name' => 'contact', 'page_url' => '/pages/contact.html', 'meta_title' => 'Contact Us | Ocean Lilly Tours', 'meta_description' => 'Get in touch to start planning your perfect Sri Lankan getaway.'],
+            ['page_name' => 'gallery', 'page_url' => '/pages/gallery.html', 'meta_title' => 'Gallery | Ocean Lilly Tours', 'meta_description' => 'View photos of our stunning destinations and boutique experiences.'],
+        ];
+
+        foreach ($seoPages as $page) {
+            try {
+                \App\Models\SeoPage::firstOrCreate(['page_name' => $page['page_name']], $page);
+            } catch (\Exception $e) {
+                // Skip
+            }
+        }
     }
 }

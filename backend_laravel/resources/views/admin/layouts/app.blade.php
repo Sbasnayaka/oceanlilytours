@@ -91,9 +91,15 @@
             <a href="{{ route('settings.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300 mt-4 border-t border-gray-800 pt-4">
                 <i class="fas fa-cog w-5"></i> System Settings
             </a>
+            <a href="{{ route('seo-pages.index') }}" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-800 rounded-lg text-gray-300">
+                <i class="fas fa-search w-5"></i> SEO Manager
+            </a>
         </nav>
         
         <div class="p-4 border-t border-gray-800">
+            <a href="{{ route('profile.edit') }}" class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition mb-2">
+                <i class="fas fa-user-shield"></i> My Profile
+            </a>
             <form method="POST" action="{{ route('admin.logout') }}">
                 @csrf
                 <button class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition">

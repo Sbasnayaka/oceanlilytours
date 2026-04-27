@@ -226,6 +226,21 @@ const API = {
     }
   },
 
+  // ===== SEO =====
+  
+  getSeoData: async (pageName) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/seo-pages/${pageName}`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log(`✅ SEO data for ${pageName} loaded from API`);
+      return data;
+    } catch (err) {
+      console.warn(`⚠️ SEO data for ${pageName} API error`);
+      return null;
+    }
+  },
+
   // ===== CONTACT FORM =====
 
   submitContact: async (data) => {

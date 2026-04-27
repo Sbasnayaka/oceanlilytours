@@ -47,3 +47,4 @@ Route::get('/about-us', [AboutUsController::class, 'index']);
 Route::get('/why-choose-us', [WhyChooseUsController::class, 'index']);
 Route::get('/navbar-items', [NavbarController::class, 'index']);
 Route::get('/footer-content', [FooterController::class, 'index']);
+Route::get('/seo-pages/{page_name}', [\App\Http\Controllers\Api\SeoPageController::class, 'show']);

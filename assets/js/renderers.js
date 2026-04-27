@@ -350,7 +350,54 @@
     }
   }
 
+  async function applySEO() {
+    let pageName = 'home';
+    const path = window.location.pathname;
+    
+    if (path.includes('packages.html')) pageName = 'packages';
+    else if (path.includes('package-detail.html')) pageName = 'package-detail';
+    else if (path.includes('blog.html')) pageName = 'blog';
+    else if (path.includes('gallery.html')) pageName = 'gallery';
+    else if (path.includes('contact.html')) pageName = 'contact';
+
+    const seo = await window.API.getSeoData(pageName);
+    if (seo) {
+        if (seo.meta_title) document.title = seo.meta_title;
+        
+        const setMeta = (name, content) => {
+            if (!content) return;
+            let el = document.querySelector(`meta[name="${name}"]`);
+            if (!el) {
+                el = document.createElement('meta');
+                el.name = name;
+                document.head.appendChild(el);
+            }
+            el.content = content;
+        };
+
+        const setOg = (property, content) => {
+            if (!content) return;
+            let el = document.querySelector(`meta[property="${property}"]`);
+            if (!el) {
+                el = document.createElement('meta');
+                el.setAttribute('property', property);
+                document.head.appendChild(el);
+            }
+            el.content = content;
+        };
+
+        setMeta('description', seo.meta_description);
+        setMeta('keywords', seo.meta_keywords);
+        setOg('og:title', seo.og_title || seo.meta_title);
+        setOg('og:description', seo.og_description || seo.meta_description);
+        if (seo.og_image) {
+            setOg('og:image', window.location.origin + (window.location.pathname.includes('oceanlily') ? '/oceanlilly/backend_laravel/public' : '') + seo.og_image);
+        }
+    }
+  }
+
   const initialize = () => {
+    applySEO();
     renderHeroSlides();
     renderNavbar();
     renderAboutUs();

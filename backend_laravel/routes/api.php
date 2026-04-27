@@ -48,3 +48,4 @@ Route::get('/why-choose-us', [WhyChooseUsController::class, 'index']);
 Route::get('/navbar-items', [NavbarController::class, 'index']);
 Route::get('/footer-content', [FooterController::class, 'index']);
 Route::get('/seo-pages/{page_name}', [\App\Http\Controllers\Api\SeoPageController::class, 'show']);
+Route::get('/settings', [\App\Http\Controllers\Api\SettingController::class, 'index']);

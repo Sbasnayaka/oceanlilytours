@@ -396,7 +396,54 @@
     }
   }
 
+  async function applySettings() {
+    const settings = await window.API.getSettings();
+    if (!settings) return;
+
+    // Maintenance Mode Check
+    const isMaintenance = settings.maintenance_mode === '1';
+    const isComingSoonPage = window.location.pathname.includes('coming-soon.html');
+    
+    if (isMaintenance && !isComingSoonPage) {
+        window.location.href = window.location.pathname.includes('/pages/') ? 'coming-soon.html' : 'pages/coming-soon.html';
+        return; // Stop execution
+    }
+
+    const getAssetPath = (path) => {
+        if (!path) return '';
+        if (path.startsWith('http')) return path;
+        // If it's an upload from laravel backend
+        if (path.startsWith('/uploads/')) {
+            return (window.location.pathname.includes('oceanlily') ? '/oceanlilly/backend_laravel/public' : '') + path;
+        }
+        // Fallback for static assets
+        return window.location.pathname.includes('/pages/') ? '..' + path : '.' + path;
+    };
+
+    if (settings.site_logo) {
+        document.querySelectorAll('.site-logo').forEach(img => {
+            img.src = getAssetPath(settings.site_logo);
+        });
+    }
+
+    if (settings.site_favicon) {
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
+        }
+        link.href = getAssetPath(settings.site_favicon);
+    }
+
+    if (settings.footer_copyright_text) {
+        const el = document.getElementById('footer-copyright');
+        if (el) el.textContent = settings.footer_copyright_text;
+    }
+  }
+
   const initialize = () => {
+    applySettings();
     applySEO();
     renderHeroSlides();
     renderNavbar();

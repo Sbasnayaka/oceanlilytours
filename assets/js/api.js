@@ -241,6 +241,21 @@ const API = {
     }
   },
 
+  // ===== SETTINGS =====
+  
+  getSettings: async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/settings`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      console.log(`✅ Settings loaded from API`);
+      return data;
+    } catch (err) {
+      console.warn(`⚠️ Settings API error`);
+      return null;
+    }
+  },
+
   // ===== CONTACT FORM =====
 
   submitContact: async (data) => {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Ocean Lilly Tours</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#1A365D', secondary: '#D4AF37' },
+                    fontFamily: { headline: ['Cinzel', 'serif'], body: ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(26, 54, 93, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 antialiased h-screen overflow-hidden bg-gray-900">
+    
+    <!-- Background Image -->
+    <div id="cs-bg" class="absolute inset-0 w-full h-full bg-cover bg-center z-0 transition-all duration-1000" style="background-image: url('../assets/images/hero1.jpg');">
+        <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 h-full flex flex-col items-center justify-center p-4 text-center">
+        <div class="glass-panel p-8 md:p-16 rounded-2xl max-w-3xl w-full mx-auto shadow-2xl transform transition-all duration-700 translate-y-4 opacity-0" id="cs-panel">
+            
+            <img id="cs-logo" src="../assets/images/logo.png" alt="Ocean Lilly Tours" class="h-20 md:h-28 mx-auto mb-8 object-contain">
+            
+            <h1 id="cs-title" class="font-headline text-3xl md:text-5xl font-bold text-secondary mb-6 tracking-wide">
+                Something Exciting is Coming!
+            </h1>
+            
+            <p id="cs-message" class="text-white text-base md:text-lg font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+                We are currently working hard to bring you the best experience of Sri Lankan travel. Stay tuned!
+            </p>
+
+            <!-- Countdown Timer -->
+            <div id="countdown-container" class="hidden flex justify-center gap-4 md:gap-8 mb-8">
+                <div class="flex flex-col items-center">
+                    <span id="days" class="text-3xl md:text-5xl font-headline font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm text-secondary uppercase tracking-widest mt-1">Days</span>
+                </div>
+                <div class="text-3xl md:text-5xl font-headline text-secondary">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="hours" class="text-3xl md:text-5xl font-headline font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm text-secondary uppercase tracking-widest mt-1">Hours</span>
+                </div>
+                <div class="text-3xl md:text-5xl font-headline text-secondary">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="minutes" class="text-3xl md:text-5xl font-headline font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm text-secondary uppercase tracking-widest mt-1">Minutes</span>
+                </div>
+                <div class="text-3xl md:text-5xl font-headline text-secondary hidden sm:block">:</div>
+                <div class="flex flex-col items-center hidden sm:flex">
+                    <span id="seconds" class="text-3xl md:text-5xl font-headline font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm text-secondary uppercase tracking-widest mt-1">Seconds</span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-6 mt-8 pt-8 border-t border-secondary/20">
+                <a id="cs-fb" href="#" class="text-white hover:text-secondary transition transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a id="cs-ig" href="#" class="text-white hover:text-secondary transition transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic -->
+    <script src="../assets/js/api.js?v=1.5"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Animate in
+            setTimeout(() => {
+                const panel = document.getElementById('cs-panel');
+                panel.classList.remove('translate-y-4', 'opacity-0');
+            }, 100);
+
+            // Fetch settings
+            try {
+                const settings = await window.API.getSettings();
+                if (settings) {
+                    
+                    // If maintenance mode is OFF, redirect to home!
+                    if (settings.maintenance_mode === '0' || !settings.maintenance_mode) {
+                        window.location.href = '../index.html';
+                        return;
+                    }
+
+                    // Helper for asset paths
+                    const getAssetPath = (path) => {
+                        if (!path) return '';
+                        if (path.startsWith('http')) return path;
+                        if (path.startsWith('/uploads/')) {
+                            return (window.location.pathname.includes('oceanlily') ? '/oceanlilly/backend_laravel/public' : '') + path;
+                        }
+                        return '..' + path;
+                    };
+
+                    // Apply UI
+                    if (settings.site_logo) document.getElementById('cs-logo').src = getAssetPath(settings.site_logo);
+                    if (settings.site_favicon) {
+                        let link = document.querySelector("link[rel~='icon']");
+                        if (!link) {
+                            link = document.createElement('link');
+                            link.rel = 'icon';
+                            document.head.appendChild(link);
+                        }
+                        link.href = getAssetPath(settings.site_favicon);
+                    }
+                    
+                    if (settings.maintenance_title) {
+                        document.getElementById('cs-title').textContent = settings.maintenance_title;
+                        document.title = settings.maintenance_title + " | Ocean Lilly Tours";
+                    }
+                    if (settings.maintenance_message) document.getElementById('cs-message').textContent = settings.maintenance_message;
+                    if (settings.maintenance_bg) {
+                        document.getElementById('cs-bg').style.backgroundImage = `url('${getAssetPath(settings.maintenance_bg)}')`;
+                    }
+
+                    // Countdown Logic
+                    if (settings.maintenance_date) {
+                        const targetDate = new Date(settings.maintenance_date).getTime();
+                        if (targetDate > new Date().getTime()) {
+                            document.getElementById('countdown-container').classList.remove('hidden');
+                            
+                            const updateTimer = () => {
+                                const now = new Date().getTime();
+                                const distance = targetDate - now;
+
+                                if (distance < 0) {
+                                    clearInterval(timer);
+                                    document.getElementById('countdown-container').classList.add('hidden');
+                                    return;
+                                }
+
+                                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                            };
+
+                            updateTimer();
+                            const timer = setInterval(updateTimer, 1000);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Could not load settings", e);
+            }
+        });
+    </script>
+</body>
+</html>

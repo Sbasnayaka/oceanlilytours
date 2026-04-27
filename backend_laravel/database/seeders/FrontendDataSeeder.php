@@ -144,13 +144,16 @@ class FrontendDataSeeder extends Seeder
 
         // 6. Default Settings
         $settings = [
-            ['key_name' => 'site_name', 'value' => 'Ocean Lilly Tours', 'category' => 'General'],
-            ['key_name' => 'contact_email', 'value' => 'hello@oceanlilytours.com', 'category' => 'Contact'],
-            ['key_name' => 'contact_phone', 'value' => '+94 77 123 4567', 'category' => 'Contact'],
-            ['key_name' => 'address', 'value' => 'Colombo, Sri Lanka', 'category' => 'Contact'],
-            ['key_name' => 'facebook_url', 'value' => '#', 'category' => 'Social'],
-            ['key_name' => 'instagram_url', 'value' => '#', 'category' => 'Social'],
-            ['key_name' => 'whatsapp_number', 'value' => '+94771234567', 'category' => 'Social'],
+            ['key_name' => 'site_title', 'value' => 'Ocean Lilly Tours', 'category' => 'Site Identity', 'value_type' => 'string'],
+            ['key_name' => 'site_logo', 'value' => '', 'category' => 'Site Identity', 'value_type' => 'image'],
+            ['key_name' => 'site_favicon', 'value' => '', 'category' => 'Site Identity', 'value_type' => 'image'],
+            ['key_name' => 'footer_copyright_text', 'value' => '© 2026 Ocean Lilly Tours. All Rights Reserved.', 'category' => 'Site Identity', 'value_type' => 'string'],
+            
+            ['key_name' => 'maintenance_mode', 'value' => '0', 'category' => 'Maintenance Mode', 'value_type' => 'boolean'],
+            ['key_name' => 'maintenance_title', 'value' => 'Something Exciting is Coming!', 'category' => 'Maintenance Mode', 'value_type' => 'string'],
+            ['key_name' => 'maintenance_message', 'value' => 'We are currently working hard to bring you the best experience of Sri Lankan travel. Stay tuned!', 'category' => 'Maintenance Mode', 'value_type' => 'textarea'],
+            ['key_name' => 'maintenance_date', 'value' => '', 'category' => 'Maintenance Mode', 'value_type' => 'date'],
+            ['key_name' => 'maintenance_bg', 'value' => '', 'category' => 'Maintenance Mode', 'value_type' => 'image'],
         ];
 
         foreach ($settings as $setting) {
